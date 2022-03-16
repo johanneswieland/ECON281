@@ -1,0 +1,238 @@
+\usepackage{mathptmx}
+\usepackage[OT1]{fontenc}
+% \usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{eurosym}
+
+\makeatletter
+
+ \newcommand\makebeamertitle{\frame{\maketitle}}%
+ \AtBeginDocument{
+   \let\origtableofcontents=\tableofcontents
+ \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+   \def\gobbletableofcontents#1{\origtableofcontents}
+ }
+ 
+ \usetheme{Boadilla}
+\setbeamertemplate{footline}[frame number]{}
+\usefonttheme{structuresmallcapsserif}
+\setbeamercolor{title}{fg=blue}
+\setbeamercolor{frametitle}{fg=blue}
+\setbeamercolor{caption name}{fg=blue}
+\setbeamercovered{transparent}
+
+
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\renewcommand{\tabularxcolumn}[1]{>{\centering\arraybackslash}m{#1}}
+%\newcolumntype{L}{>{\centering}X}
+%\newcolumntype{H}{>{\lrbox0}c<{\endlrbox}@{}}
+
+%\let\estinput=\input
+%\newcommand{\estwide}[3]{
+%          \vspace{.75ex}{
+%               \begin{tabularx}
+%               {\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+%               \toprule
+%               \estinput{#1}
+%               \bottomrule
+%               \addlinespace[.75ex]
+%               \end{tabularx}
+%               }
+%          }
+%
+%		\newcommand{\figtext}[1]{
+%		     %\vspace{-1.9ex}
+%		     \captionsetup{justification=justified,font=footnotesize}
+%		     \caption*{\hspace{6pt}\hangindent=1.5em #1}
+%		     }
+%		\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+%
+\usepackage{collcell}
+%\makeatother
+% \newcolumntype{G}{>{\collectcell\@gobble}c<{\endcollectcell}@{}}
+% \makeatother
+% \def\eatcell#1\unskip{}
+% \newcolumntype{E}{>{\eatcell}c@{}}
+%\usepackage{tabulary}
+%\usepackage{multirow}
+%\usepackage{dcolumn}
+%\usepackage{pdflscape}
+%\usepackage{pdfpages}
+% \usepackage{epsfig}
+% \usepackage{epstopdf}
+% \usepackage{eso-pic}
+\usepackage{graphicx}
+%\usepackage{arydshln}
+\usepackage[compatibility=false,font={sc,rm,color=blue},justification=centering,labelformat=empty, textfont=Large, margin=2pt]{caption}
+\captionsetup[figure]{belowskip=0pt}
+
+\newcommand{\rot}[2]{\rule{1em}{0pt}%
+\makebox[0cm][c]{\rotatebox{#1}{\ #2}}}
+
+\usepackage{siunitx} %For aligning decimals
+\sisetup{ detect-mode, 
+          group-digits            = false ,
+          input-signs             = ,
+          input-symbols           = ()[]-+* ,
+          input-open-uncertainty  = ,
+          input-close-uncertainty = ,
+          table-align-text-post   = false, 
+          table-number-alignment = center
+}
+\selectcolormodel{cmyk}
+\usepackage{color,soul}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{matrix,shapes,arrows,intersections,calc}
+\usepackage{verbatim}
+\setbeamercovered{invisible}
+\setbeamercolor{math text displayed}{fg=DarkBlue}
+%\let\olditem\item
+%\renewcommand{\item}{\setlength{\itemsep}{\fill}\olditem}
+\AtBeginDocument{\setlength\belowdisplayskip{0pt}}
+
+
+\usepackage[english]{babel}
+\usepackage{booktabs}
+\usepackage{tablefootnote}
+\usepackage{calc,hhline,ifthen,lscape} 
+
+%\usepackage{enumitem}
+%\let\olditem\item
+%\renewcommand{\item}{\setlength{\itemsep}{\fill}\olditem}
+
+% new math commands
+\newcommand{\E}{\mathbb{E}}
+
+\newcommand{\sym}[1]{\rlap{$#1$}} %For sym in STATA tables
+
+\setbeamertemplate{frametitle}[default][center]
+
+% \makeglossaries
+% 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{resize to}[a4paper, landscape, border shrink=5mm]
+\usepackage[absolute,overlay]{textpos}
+
+\usepackage{epstopdf}
+
+
+%\setlength{\itemsep}{\fill}
+
+
+
+% ===========================================================
+% ===========================================================
+% ===========================================================
+% Improves spacing of itemize and enumerate environment
+
+\makeatletter
+\renewcommand{\itemize}[1][]{%
+  \beamer@ifempty{#1}{}{\def\beamer@defaultospec{#1}}%
+  \ifnum \@itemdepth >2\relax\@toodeep\else
+    \advance\@itemdepth\@ne
+    \beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+    \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+    \list
+      {\usebeamertemplate{itemize \beameritemnestingprefix item}}
+      {\def\makelabel##1{%
+          {%
+            \hss\llap{{%
+                \usebeamerfont*{itemize \beameritemnestingprefix item}%
+                \usebeamercolor[fg]{itemize \beameritemnestingprefix item}##1}}%
+          }%
+        }%
+      }
+  \fi%
+  \setlength\itemsep{\fill}
+    \ifnum \@itemdepth >1
+        \vfill
+    \fi%  
+  \beamer@cramped%
+  \raggedright%
+  \beamer@firstlineitemizeunskip%
+}
+
+\def\enditemize{\ifhmode\unskip\fi\endlist%
+  \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body end}
+  \ifnum \@itemdepth >1
+        \vfil
+  \fi%  
+  }
+\makeatother
+
+
+\makeatletter
+\def\enumerate{%
+	\ifnum\@enumdepth>2\relax\@toodeep
+	\else%
+	\advance\@enumdepth\@ne%
+	\edef\@enumctr{enum\romannumeral\the\@enumdepth}%
+	\advance\@itemdepth\@ne%
+	\fi%
+	\beamer@computepref\@enumdepth% sets \beameritemnestingprefix
+	\edef\beamer@enumtempl{enumerate \beameritemnestingprefix item}%
+	\@ifnextchar[{\beamer@@enum@}{\beamer@enum@}}
+\def\beamer@@enum@[{\@ifnextchar<{\beamer@enumdefault[}{\beamer@@@enum@[}}
+\def\beamer@enumdefault[#1]{\def\beamer@defaultospec{#1}%
+	\@ifnextchar[{\beamer@@@enum@}{\beamer@enum@}}
+\def\beamer@@@enum@[#1]{% partly copied from enumerate.sty
+	\@enLab{}\let\@enThe\@enQmark
+	\@enloop#1\@enum@
+	\ifx\@enThe\@enQmark\@warning{The counter will not be printed.%
+		^^J\space\@spaces\@spaces\@spaces The label is: \the\@enLab}\fi
+	\def\insertenumlabel{\the\@enLab}
+	\def\beamer@enumtempl{enumerate mini template}%
+	\expandafter\let\csname the\@enumctr\endcsname\@enThe
+	\csname c@\@enumctr\endcsname7
+	\expandafter\settowidth
+	\csname leftmargin\romannumeral\@enumdepth\endcsname
+	{\the\@enLab\hspace{\labelsep}}%
+	\beamer@enum@}
+\def\beamer@enum@{%
+	\beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+	\usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+	\usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+	\usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+	\expandafter
+	\list
+	{\usebeamertemplate{\beamer@enumtempl}}
+	{\usecounter\@enumctr%
+		\def\makelabel##1{{\hss\llap{{%
+						\usebeamerfont*{enumerate \beameritemnestingprefix item}%
+						\usebeamercolor[fg]{enumerate \beameritemnestingprefix item}##1}}}}}%
+	\setlength\itemsep{\fill}
+	\ifnum \@itemdepth >1
+	\vfill
+	\fi%  
+	\beamer@cramped%
+	\raggedright%
+	\beamer@firstlineitemizeunskip%
+}
+\def\endenumerate{\ifhmode\unskip\fi\endlist%
+	\usebeamertemplate{itemize/enumerate \beameritemnestingprefix body end}
+	\ifnum \@itemdepth >1
+	\vfil
+	\fi%  
+}
+\makeatother
+
+% ===========================================================
+% ===========================================================
+% ===========================================================
+
+
+%\usepackage[colorlinks=true]{hyperref}
+
+\hypersetup{colorlinks = true,linkcolor = blue, bookmarksopen=true, bookmarksopenlevel=1}
+
+%\hypersetup{bookmarksopen=true, bookmarksopenlevel=1}
