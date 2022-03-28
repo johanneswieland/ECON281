@@ -2,7 +2,8 @@
 %\usepackage{palatino}
 \usepackage{geometry}
 \usepackage{amsmath, amsthm, amssymb}
-\usepackage{natbib}
+\usepackage{bibentry}
+%\usepackage{natbib}
 \usepackage{booktabs}
 \usepackage{url}
 \usepackage{booktabs}
@@ -23,7 +24,7 @@
 \geometry{verbose,letterpaper,tmargin=\mar,bmargin=\mar,lmargin=\mar, rmargin=\mar} 
 
 \renewcommand{\baselinestretch}{1.50}
-\setlength{\bibsep}{1.2ex}
+%\setlength{\bibsep}{1.2ex}
 %\setlength{\parindent}{0pt}
 \begin{document}
 \begin{center}
@@ -54,6 +55,8 @@ Econ 300.\\
 
 \noindent  \textbf{Readings}
 
+
+
 \noindent The syllabus includes more papers than we expect the typical student to read. Readings marked with * are required.
 
 
@@ -70,25 +73,54 @@ Econ 300.\\
 
 \newpage
 
+\bibliographystyle{alpha}
+\nobibliography{readings.bib}
+
+
 \section{Introduction to Empirics in Macroeconomics}
 
-We will review core empirical concepts such as identification, causality, treatment effects. Then we will review types of causal inference in empirical macroeconomics. The lecture will also contain advice on how do research and how to organize empirical work. 
+We will review core empirical concepts such as identification, causality, treatment effects. Then we will review types of structural and causal inference in empirical macroeconomics. This lecture will also contain advice on how do research and how to organize empirical work. 
 
-\section{Identification with Regional Data with an Application to Fiscal Multipliers}
+\noindent\textbf{Readings:}\\
+*\bibentry{nakamura2018identification}
+
+\section{Identification with Regional Data with an Application to Fiscal Multipliers and Household Wealth Shocks}
 
 Identification with macroeconomic data is notoriously difficult due to reverse causality, small samples, and endogenous responses of economic policy attempting to stabilize the economy. In this lecture we will give an introduction to how to approach this problem using more disaggregated data, and measures of  \textit{shocks}, and heterogeneous \textit{exposure} to those shocks, or shift-share designs in short. We will cover the identifying assumptions of shift-share designs, and new methods developed to solve them. 
 
 %What are the empirical challenges of measuring the size of the regional fiscal multiplier? 
-We will apply our knowledge of shift-share designs in order to study the empirical challenges of estimating the fiscal multiplier. 
+We will apply our knowledge of shift-share designs in order to study the empirical challenges of estimating the fiscal multiplier.
+
+\noindent\textbf{Readings:}\\
+*\bibentry{goldsmith2020bartik}\\
+*\bibentry{borusyak2022quasi}\\
+*\bibentry{nakamura2014fiscal}\\  
+*\bibentry{mian2013household}\\
+\bibentry{mian2014explains}\\
+\bibentry{adao2019shift}\\
+\bibentry{borusyak2020non}\\
 
 \section{Regional Aggregation I: The Case of Fiscal Multipliers}
 
 Once we have recovered regional multipliers after increases in government expenditures or transfers, how can one recover the aggregate multipliers? In this lecture we will cover some of the papers that move from ``open-economy'' multipliers, into the aggregate multiplier.
 
+\noindent\textbf{Readings:}\\
+*\bibentry{chodorow2019geographic}
+\bibentry{wolf2021missing}\\
+\bibentry{kaplan2020housing} \\
+\bibentry{guren2021housing}\\
 
-\section{Other Regional Aggregation}
+
+\section{MOAR Regional Causal Effects and Aggregation}
 
 Moving from regional estimates to aggregate estimates goes beyond the case of fiscal multipliers, and extends to the determinants of inflation, the transmission of international shocks, and financial shocks. In this lecture we will cover some of the leading applications.
+
+\noindent\textbf{Readings:}\\
+*\bibentry{hazell2020slope}\\
+*\bibentry{hausman2019recovery}\\
+*\bibentry{mondragon2022housing}\\
+\bibentry{chodorow2020secular}\\
+\bibentry{carvalho2021supply}\\
 
 
 \section{Household and Firm Aggregation}
@@ -96,24 +128,55 @@ Moving from regional estimates to aggregate estimates goes beyond the case of fi
 
 We have studied so far cases of aggregation of regional elasticities into national elasticities, the case of local GE effects. In this lecture we will study leading papers computing household-level or firm-level elasticities to economic shocks, and study how can one use these elasticities to learn about the national economy.
 
+\noindent\textbf{Readings:}\\
+*\bibentry{parker2013consumer}\\
+*\bibentry{borusyak2021revisiting}\\
+*\bibentry{huber2018disentangling}\\
+*\bibentry{herreno2020aggregate}\\
+\bibentry{chodorow2014employment}\\
+\bibentry{fagereng2021mpc}\\
+\bibentry{best2020estimating} \\
+\bibentry{cloyne2019effect}\\
 
 \section{HANK and TANK}
 
 In this lecture we will study the leading models of heterogeneity of the New Keynesian tradition. The Two-Agent New Keynesian Model (TANK) and the Heterogeneous Agent New Keynesian Model (HANK). We will compare the transmission mechanism in these models compared to the Representative Agent New Keynesian Model (RANK).
+
+\noindent\textbf{Readings:}\\
+*\bibentry{kaplan2014model}\\
+*\bibentry{kaplan2018monetary}\\
+*\bibentry{debortoli2017monetary}\\
+*\bibentry{mckay2016power} \\
+\bibentry{werning2015incomplete}\\
 
 
 \section{The Sequence Space}
 
 We will learn how to write models in the Sequence Space, and learn a powerful tool to solve models with heterogeneity in discrete time with aggregate shocks.
 
+\noindent\textbf{Readings:}\\
+*\bibentry{auclert2021using}\\
+
 
 \section{Macroeconomics of Consumption with Heterogeneity}
 
 In this lecture we will study how consumption responses that are in line with the micro data impact the transmission of economic policy. We will discuss the challenges of incorporating heterogeneity in MPCs in macro models, the challenges of solving the models, and the implications this models have about the conduct of macro stabilization policy.
 
+\noindent\textbf{Readings:}\\
+*\bibentry{auclert2020micro} \\
+*\bibentry{mckay2021lumpy} \\
+*\bibentry{mckay2022forward} \\
+*\bibentry{koby2020aggregation} \\
+
+
+
 \section{Macroeconomics of Investment with Heterogeneity}
 
 In this lecture we will study how investment responses that are in line with the micro data impact the transmission of economic policy. We will discuss the challenges of incorporating heterogeneity in propensities to invest in macro models, the challenges of solving the models, and the implications this models have about the conduct of macro stabilization policy.
+
+\noindent\textbf{Readings:}\\
+*\bibentry{kekre2021monetary} \\
+*\bibentry{drenik2019measuring} \\
 
 
 
