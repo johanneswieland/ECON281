@@ -30,12 +30,911 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 
 \begin{frame}
-\frametitle[alignment=center]{Introduction}
+\frametitle[alignment=center]{About Us}
+%\begin{itemize}
+%	\item Juan: PhD Columbia, \\
+%	
+%\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{The Modern Macroeconomist}
 \begin{itemize}
-	\item x
+	\item A jack of all trades:
+	\begin{itemize}
+		\item Simple theoretical models.
+		\item Quantitative models.
+		\item Cross-sectional identification.
+		\item Time-series identification.
+	\end{itemize}
+	\item Why? Identification problems massive:
+	\begin{itemize}
+		\item Fed lowers interest rates in 2008. What do we learn about effects of monetary policy?
+		\item[$\Rightarrow$] Attack problem from many different angles.
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
+
+
+\begin{frame}
+\frametitle[alignment=center]{This Class}
+\begin{itemize}
+	\item Research advice \& econometrics review, \& identification in macro  (1 class)
+	\item Cross-sectional identification and aggregation (4 classes)
+	\item Macro models with micro heterogeneity (4 classes)
+	\item Student presentations (1 class)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Course Requirements}
+\begin{enumerate}
+	\item Required reading and participation (35\%).
+	\begin{itemize}
+		\item Read * papers on syllabus before class.
+		\item We will often pause for discussion.
+		\item Insufficient participation $\Rightarrow$ Midterm / Final
+	\end{itemize}
+	\item Paper draft (65\%)
+	\begin{itemize}
+		\item Paper should connect micro data with macro model.
+		\item Does not have be a completed paper.
+		\item Needs to be original. 
+	\end{itemize}
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Paper draft}
+\begin{itemize}
+	\item The paper should contain two parts:
+	\begin{enumerate}
+		\item A new micro data fact or causal effect.
+		\begin{itemize}
+			\item Ok to build on (but not copy!) other work.
+		\end{itemize}
+		\item A (simple) macro model that connects the micro data fact to macroeconomic outcomes.
+		\begin{itemize}
+%			\item Simple models $>$ complicated models.
+			\item Should have computational component (unless waived).
+		\end{itemize}
+	\end{enumerate}
+	\item At the end of class you need to submit the paper and code.
+	\begin{itemize}
+		\item If we cannot replicate the paper figures and tables with one click or command, we will ask you to resubmit.
+		\item Submit by giving us read access to your GitHub repository.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Paper draft deadlines}
+\begin{enumerate}
+	\item 5/1/2022: Submit New micro data fact / causal effect. 
+	\begin{itemize}
+		\item Submission = giving us read access to your GitHub repository.
+	\end{itemize}
+	\item Week 6: meeting for feedback.
+	\item 6/1/2022: Presentation in class.
+	\item 6/8/2022: Paper draft due.
+\end{enumerate}
+\end{frame}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginSection[]{
+\setbeamertemplate{footline}{}
+  \frame<beamer>{ 
+
+    \frametitle{Outline}   
+
+    \tableofcontents[currentsection,hideallsubsections] 
+  }
+\setbeamertemplate{footline}[frame number]{}
+\addtocounter{framenumber}{-1}
+}
+
+\AtBeginSubsection[]{
+\setbeamertemplate{footline}{}
+  \frame<beamer>{ 
+
+    \frametitle{Outline}   
+
+    \tableofcontents[currentsection,currentsubsection] 
+  }
+  \setbeamertemplate{footline}[frame number]{}
+  \addtocounter{framenumber}{-1}
+}
+
+
+
+\setbeamertemplate{footline}{}
+\begin{frame}
+\frametitle{Outline}   
+\tableofcontents[hideallsubsections] 
+\end{frame}
+\addtocounter{framenumber}{-1}
+\setbeamertemplate{footline}[frame number]{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Research Advice}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle[alignment=center]{Seminars, Lunches, etc}
+\begin{itemize}
+	\item Attending seminar and lunch is an important part of your PhD.
+	\begin{itemize}
+		\item Allows you to see cutting edge research, help improve peer's research, become part of research community.
+		\item See how the sausage is made.
+		\item In grad school I learned a lot from others' questions.
+		\item Even if the topic is outside your immediate research area there are large spillovers from learning about techniques, data, and presentational skills.
+	\end{itemize}
+	\item Great line-up of external speakers this quarter:
+	\begin{itemize}
+		\item Atif Mian, Sanjay Singh, Janice Eberly, John Mondragon, Diego Perez, Ricardo Reis, Kim Ruhl, Cecile Gaubert, Amy Handlan, Nick Bloom.
+	\end{itemize}
+	\item If macro is a secondary field, fine to only attend seminar and lunch for your primary field. But should attend something!
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Research Advice}
+\begin{itemize}
+	\item Becoming a researcher is hard.
+	\begin{itemize}
+		\item Requires learning by doing. Only so much one can explain.
+	\end{itemize}
+	\item \emph{Persistence} is key.
+	\begin{itemize}
+		\item \emph{Every} paper hits a roadblock that initially appears fatal.
+		\item \emph{Every} idea is related to something else and has a moment where someone says ''that sounds like [insert citation here].''
+		\item \emph{Every} researcher has days (or weeks or months) where they
+work extremely hard and have nothing to show for it.
+	\end{itemize}
+	\item The key is being able to wake up and work just as hard and be just as dogged on the 10th day (or 30th or 100th) as you were on the first.
+	\begin{itemize}
+		\item Work on something you love that motivates you.
+		\item Every paper has boring parts or frustrating parts. Learn to love
+the challenge.
+		\item Use habit formation to your advantage.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Working Together}
+\begin{itemize}
+	\item I personally love to work with others.
+	\begin{itemize}
+		\item More fun.
+		\item Fewer dead ends, less of an echo chamber.
+		\item Motivate each other, give each other deadlines.
+	\end{itemize}
+	\item Talk to each other. Co-author if you come up with an interesting idea.
+	\item You will learn as much from your peers as from the faculty.
+	\begin{itemize}
+		\item Get to know each other!
+		\item Help each other with research. Workshop ideas. Talk economics. Have fun together.
+		\item My PhD classmates are some of my best friends.
+		\item I continue to learn from my classmates today.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{How To Come Up With Ideas}
+\begin{itemize}
+	\item Most difficult part of research.
+	\item DON'T just sit there waiting for an idea.
+	\begin{itemize}
+		\item Work on something. You will bump into things.
+	\end{itemize}
+	\item Talk to others! Often papers come out of conversations.
+%	\begin{itemize}
+%		\item Research is not a solo activity, even though it may seem like it.
+%	\end{itemize}
+	\item Read a lot, and read critically.
+	\begin{itemize}
+		\item Look for connections between topics.
+		\item Look for holes in literature, reasons to doubt papers.
+	\end{itemize}
+	\item Play with data, look for facts.
+	\item Go through \emph{lots} of ideas. Discard aggressively.
+	\begin{itemize}
+		\item Market rewards the max of all your ideas.
+		\item When you do come up with something, ask: ``What is the best case scenario for this paper if everything works out?''
+		\item If not good enough, move on. 
+		\item Try to get a sense within 1-2 weeks if it is worth continuing. 
+		\item Can always return later if you see a way to get a more promising outcome.
+	\end{itemize}
+	\item Work on what you love.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{My JMP}
+\begin{itemize}
+	\item Came out of a conversation with a classmate over coffee.
+	\item Standard New Keynesian model predicted that Japan would be booming after Earthquake.
+	\begin{itemize}
+		\item Did it really?
+	\end{itemize}
+	\item Spent about one year gathering other evidence. Most of it discarded on the way of writing the paper and some more in the publication process. Only test with oil supply shocks made it into the final paper.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Organizing Applied Work}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle[alignment=center]{Organizing Research}
+\begin{itemize}
+%	\item I don't advocate learning a lot of tools before you need them.
+	\item In my view, the following tools are indispensable for organizing research: 
+	\begin{enumerate}
+	\item Git
+	\item Make
+	\item Tasks
+\end{enumerate}
+\item Invest in these now and you will reap benefits for years.
+\item For more details and step-by-step instructions, see \href{https://github.com/johanneswieland/Research-Manual/}{https://github.com/johanneswieland/Research-Manual/}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Git}
+\begin{itemize}
+	\item Git solves three problems:
+	\begin{enumerate}
+		\item Easily work on code with collaborators and share journals.
+		\item Back-up of your code and writing.
+		\item Back-up of previous \emph{versions} of your code and writing.
+	\end{enumerate}
+	\item Do you find yourself carrying multiple versions of a file? \\ ``chapter1.tex,'' \\ ``chapter1J\_final.tex,''  \\ ``chapter1final\_comments.tex,'' \\ ``chapter1\_comments\_conflict\_final.tex''\\
+	 (Which is final?)
+	 \item With Git you only see one version (the newest!) of your code. But you can always revert to previous versions of your code.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Why Git and not Dropbox?}
+\begin{itemize}
+	\item While you work on your code, the code that collaborators have is undisturbed. You can try out major changes without disrupting their work.
+	\item Git stores a snapshot of all your work. If you want to revert to a previous working version of your code all it takes is one command.
+	\begin{itemize}
+		\item Great for tracking why results changed.
+		\item ``Why is that coefficient now 0.8?''
+	\end{itemize}
+	\item It has a learning curve (command line based), but you will earn back the time invested in 3 months max.
+	\item Knowing Git is a requirement in technology jobs.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Make}
+\begin{itemize}
+	\item Make is one answer to the replication crisis.
+	\item It is a versatile tool which can run commands to read files, process these files in some way (such as compiling and linking them), and write out the processed files.
+	\item I now set up my projects so that one command---\emph{make}---processes all the data, generates all the empirical results based on the generated, solves the model targeting the empirical moments, and compiles the latex paper and presentation.
+	\item Anyone can take my code, type \emph{make} and replicate the paper exactly.
+	\item Make can be very cryptic to start with, but you will earn back the time invested in 3 months max. And you will sleep better.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Make Basics}
+\begin{itemize}
+	\item You should think of a \emph{makefile} as a cooking recipe.
+	\begin{enumerate}
+		\item You want an output, ``table1.tex''.
+		\item ``table1.tex'' is built using data from ``maindataset.csv'' and the script ``createtable.py.''
+		\item In \emph{make} you type: \\
+			table1.tex: createtable.py maindataset.csv \\
+			$\qquad$ python createtable.py
+	\end{enumerate}
+	\item The general syntax is: \\
+	output: dependencies \\
+	$\qquad$ steps to generate output from dependencies
+	\item It is straightforward to chain makefiles together to perform tasks in sequence.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Why Make?}
+\begin{itemize}
+	\item \emph{Make} will only execute the code if it sees that the current output (``table1.tex'') is older than the dependencies (the python file or the csv file have changed).
+	\item Chaining makefiles removes errors from manual execution order.
+	\item Makefiles are documentation. The makefile tells you how ``table1.tex'' is generated. It is much more reliable documentation than keeping script headers updated.
+	\begin{itemize}
+		\item Helpful for both you (if you have not worked on the project for a few weeks) and your co-authors.
+	\end{itemize}
+	\item Can easily handle multiple programs (python, matlab, stata, R) and shell commands.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Tasks}
+\begin{itemize}
+	\item A typical organization of empirical work is by type of document. In a project folder you will see folders such as ``Data'', ``Stata'', ``Matlab'', etc.
+	\item I now believe this organization is unhelpful as the relationship between the different files is not clear.
+	\item Instead, I now organize my work by Task. The folders in my directory are called ``downloaddata'', ``createhousepriceindex'', ``aggregateACSdata''.
+	\item In each folder performs a dedicated task, which should be fairly evident from the title of the folder.
+	\item Each task folder has at three subfolders: ``input'', ``code'', ``output''.
+	\item Can you guess how the subfolders are related?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Why Tasks?}
+\begin{itemize}
+	\item Automatic documentation: the code transforms the input into output. You do not need to write a pdf explaining how the files are related.
+	\item Straightforward to feed in output from one tasks as input in another by using symbolic links in makefiles.
+	\item Easy to audit, as only need to check that a specific task is performed correctly.
+	\item Simple to port tasks to another project.
+	\item I find it much easier to return to a task based project after a few months.
+\end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Econometrics Review}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}
+\frametitle[alignment=center]{Key Concepts\footnote{This material draws on Pat Kline's Econ 244 notes.}}
+\begin{itemize}
+	\item Data Generating Process
+	\item Identification
+	\item Causal Effect / Treatment Effect
+	\item Moment
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Data Generating Process}
+\begin{itemize}
+	\item A \emph{data generating process} (DGP) is a complete specification of the stochastic process generating the observed data.
+	\item Equivalently, a specification of the probability $P_{\theta}(\bm{y})$ of observing any possible vector valued realization of the data $\bm{Y}$.
+	\item Example: A DGP for $(Y_i,X_i)$ is
+	\begin{align*}
+		Y_i &= X_i + \epsilon_i \\
+		(X_i, \epsilon_i) &\sim N(0,I_2) 
+	\end{align*}
+	\item In general a DGP is something you should be able to program in your computer and draw a sample from.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Data Generating Process}
+\begin{itemize}
+	\item The DGP is assumed to belong to some family $\mathcal{F}$.
+	\item A set of restrictions indexing a particular DGP in $\mathcal{F}$ is called a \emph{structure} $\mathcal{S}$.
+	\item A \emph{model} $\mathcal{M}$ is a family of possible structures.
+	\item Example of a \emph{model}:
+	\begin{align*}
+		Y_i &= \beta_0 + \beta_1 X_i + \epsilon_i \\
+		(X_i, \epsilon_i) &\sim N\left(\begin{matrix} \mu_1 \\ mu_2 \end{matrix} ,\begin{matrix} \sigma_1^2 & \sigma_{12}^2 \\ \sigma_{12}^2 & \sigma_2^2 \end{matrix} \right) \\
+		\bm{\theta} &= (\beta_0,\beta_1,\mu_1,\mu_2,\sigma_1^2,,\sigma_2^2, ,\sigma_{12})
+	\end{align*}
+	\item Example of a \emph{structure}: $\bm{\theta} = (0,0,0,0,1,1,0)$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Identification}
+\begin{itemize}
+	\item What is it?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Identification}
+\begin{itemize}
+	\item The problem of determining the structure from the joint distribution of the data in the population.
+	\item Population $\Rightarrow$ What is knowable in infinite datasets.
+	\item Tells us whether it is worth constructing estimators for use in real datasets.
+	\item Two structures $\bm{\theta}'$ and $\bm{\theta}''$ are \emph{observationally equivalent} if $P_{\bm{\theta}'}(\bm{y})=P_{\bm{\theta}''}(\bm{y})$.
+	\item The structure $\bm{\theta}'$ is \emph{globally point identified} if there is no other $\bm{\theta}$ in the model space with which it is observationally equivalent.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Examples}
+\begin{align*}
+	Y_i &\sim N(\mu, \sigma^2) \\
+	\bm{\theta} &= (\mu,\sigma^2)
+\end{align*}
+\begin{itemize}
+	\item Is $\bm{\theta}$ identified? How?
+\end{itemize}
+\begin{align*}
+		Y_i &= \beta_1 X_i + \epsilon_i \\
+		(X_i, \epsilon_i) &\sim N\left(\begin{pmatrix} 0 \\ 0 \end{pmatrix} ,\begin{pmatrix} \sigma_1^2 & 0 \\ 0 & \sigma_2^2 \end{pmatrix} \right) \\
+		\bm{\theta} &= (\beta_1,\sigma_1^2,\sigma_2^2)
+	\end{align*}
+\begin{itemize}
+	\item Is $\bm{\theta}$ identified? How?
+	\item Neoclassical growth model. Identified? How?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Language}
+\begin{itemize}
+	\item In econometrics you can either identify the structure $\bm{\theta}$  (think parameters) in the model $\mathcal{M}$ or you cannot.
+	\item ``Identifying assumptions'' are restrictions on the model $\mathcal{M}$ (family of DGPs) such that $\bm{\theta}$ is identified.
+	\item Don't run a regression if you can't describe the model $\mathcal{M}$ under which the parameter(s) of interest are identified.
+\end{itemize}
+\end{frame}
+
+
+
+
+%\begin{frame}
+%\frametitle[alignment=center]{Example}
+%\begin{align*}
+%		Y_i &= \beta_1 X_i + \epsilon_i \\
+%		(X_i, \epsilon_i) &\sim N\left(\begin{matrix} 0 \\ 0 \end{matrix} ,\begin{matrix} \sigma_1^2 & \sigma_{12}^2 \\ \sigma_{12}^2 & \sigma_2^2 \end{matrix} \right) \\
+%		\bf{\theta} &= (\beta_1,\sigma_1^2,\sigma_2^2,\sigma_{12})
+%	\end{align*}
+%\begin{itemize}
+%	\item Is $\bf{\theta}$ identified?
+%\end{itemize}
+%\end{frame}
+
+%\begin{frame}
+%\frametitle[alignment=center]{Causality}
+%\begin{itemize}
+%	\item Identification by itself has nothing to do with causality. 
+%	\begin{itemize}
+%		\item See first identification example.
+%	\end{itemize}
+%	
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Causality}
+\begin{itemize}
+	\item Identification by itself has nothing to do with causality. 
+%	\begin{itemize}
+%		\item See first identification example.
+%	\end{itemize}
+	\item Structural models postulate functional relationships for how endogenous variables are generated from exogenous variables. E.g.:
+%	\item  (both observed and unobserved).
+%	\item %Example:
+	\begin{align*}
+		Y_i &= f(S_i,X_i,U_i) \\
+		(s,x,u) &\in \Omega_s \times \Omega_x \times \Omega_u \\
+	\end{align*}
+	with $(Y,S,X)$ observed and $U$ unobserved.
+	\item If $S$ can be varied independently of $X$ and $U$, then the model implies a set of \emph{counterfactual} values that the outcome $y=f(s,x,u)$ would take under various values of the treatment $s$.
+	\item The \emph{causal effect} or \emph{treatment effect} of changing $s$ from $s'$ to $s''$ is
+	\begin{align*}
+		\Delta_i = f(s'',x_i,u_i) - f(s',x_i,u_i)
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Potential Outcomes}
+\begin{itemize}
+	\item Microeconomists will often use potential outcome notation for specifying causal questions. 
+	\item An advantage of this framework is that it forces the researcher to be very explicit about the counterfactual.
+	\item $D_i\in[0,1]$ is the treatment indicator.
+	\item $Y_i$ is the observed data, $Y_i^0$ the outcome under treatment $D_i=0$, and $Y_i^1$ the outcome under treatment $D_i=1$,
+	\begin{align*}
+		Y_i = D_i Y_i^1 + (1-D_i) Y_i^0
+	\end{align*}
+	\item The causal / treatment effect is
+	\begin{align*}
+		\Delta_i = Y_i^1 - Y_i^0
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Average Treatment Effect}
+\begin{itemize}
+	\item We are often interested in the \emph{average treatment effect} (ATE), $E(\Delta_i)$.
+	\item If treatment is independent of potential outcomes,
+	\begin{align*}
+		D_i \bot (Y_i^1, Y_i^0)
+	\end{align*}
+	then a simple difference in means uncovers the ATE:
+	\begin{align*}
+		E(Y_i^1 | D_i=1 ) - E(Y_i^0 | D_i=0 ) &= E(Y_i^1  ) - E(Y_i^0) \\
+		 &= E(Y_i^1  - Y_i^0) \\
+		 &= E(\Delta_i) 
+	\end{align*}
+	\item Independence is an identifying assumption. This condition is sometimes called ``unconfoundedness.''
+%	\item But what is the model $\mathcal{M}$ and what structure $\mathcal{S}$ are we identifying?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Conditional Independence}
+\begin{itemize}
+	\item It is rare in (macro-)economics that the independence assumption is reasonable. 
+	\item Most of empirical we will see in this class will assume
+		\begin{align*}
+		D_i \bot (Y_i^1, Y_i^0 | X_i)
+	\end{align*}
+	\item $X$ could be a set of controls, in which case this will be termed ``conditional independence assumption'' or ``selection on observables''.
+	\item $X$ could also be an instrument that is correlated with the treatment.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Potential Outcomes and Structural Models}
+\begin{itemize}
+	\item Any model of potential outcomes can be written as a degenerate structural model and any structural model implies a set of potential outcomes.
+	\item Example: $Y_i = \beta_0 + \beta_{i1} D_i + \epsilon_i$, $E(\beta_{i1})=\mu$ implies potential outcomes
+	\begin{align*}
+		Y_i^0 &= \beta_0 + \epsilon_i \\
+		Y_i^1 &= \beta_0 + \beta_{i1} + \epsilon_i 
+	\end{align*}
+	\item Independence implies $E(\epsilon_i | D_i)=0$. This is a restriction on the model. The parameter (structure) we are identifying is $\mu$.
+	\item Key result: Under (conditional) independence, a difference in (conditional) means will identify the ATE regardless of the underlying DGP.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{SUTVA}
+\begin{itemize}
+	\item Potential outcomes are  not commonly used in macroeconomics.
+	\item I believe this is because the \emph{stable unit treatment value assumption} (SUTVA) is less plausible.
+	\item SUTVA: 
+	\begin{enumerate}
+		\item The potential outcome is unaffected by the mechanism by which treatment is assigned.
+		\item The potential outcome is unaffected by the treatment exposure of all other individuals.
+	\end{enumerate}
+	\item In macro we often worry about ``spillovers'' through general equilibrium price changes, migration, etc, which would violate (2).
+	\item If SUTVA is invalid then the (conditional) difference in means no longer identifies the ATE.
+	\item This is closely related to the aggregation problem from micro to macro.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Moments}
+\begin{itemize}
+	\item Identification and causality are population-level concepts.
+	\item A \emph{moment} is a statistic of the data, either in population or in a finite sample. 
+	\item Examples:
+	\begin{itemize}
+		\item $E(Y_i^1 | D_i=1 ) - E(Y_i^0 | D_i=0 )$.
+		\item Every estimator is a moment.
+	\end{itemize}
+	\item Causal effects or parameters are equal to population moments under suitable identifying assumption.
+	\item But not vice versa.
+%	\item But, as we see next, often informative about causal effects or parameters.
+\end{itemize}
+\end{frame}
+
+%\begin{frame}
+%\frametitle[alignment=center]{Estimator}
+%\begin{itemize}
+%	\item An estimator is a function of the data.
+%	\item Every estimator is a moment.
+%\end{itemize}
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Identification in Macro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle[alignment=center]{Classic Macro Questions}
+\begin{enumerate}
+	\item What are the sources of business cycle fluctuations? 
+	\item How does monetary policy affect the economy? 
+	\item How does fiscal policy affect the economy? 
+	\item Why do some countries grow faster than others? \\
+\end{enumerate}
+\begin{itemize}
+	\item Why still the same questions? 
+	\item NS: Identification in macro is hard.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Endogeneity Problem}
+\begin{itemize}
+	\item Example: Monetary Policy
+	\item Federal Reserve changes interest rates for a reason.
+	\item Quickly lowered interest rates in early 2020.
+	\item Regress
+	\begin{align*}
+		\text{Output Growth}_t = \beta_0 +\beta_1 \text{FFR}_t + \epsilon_t \\
+	\end{align*}
+	will yield $\beta_1>0$...
+	\item Does this mean increasing interest rates raises GDP growth?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{External Validity Problem}
+\begin{itemize}
+	\item Even if we can identify a causal effect, the information content is limited.
+	\item E.g., does not answer ``raise the FFR by 25bp today vs next month.''
+\end{itemize}
+\begin{enumerate}
+	\item High dimensionality of policy: Raise rates now? Later? Announcements vs actions.
+	\item Causal effect depends on reaction of other policy variables: e.g., fiscal, monetary.
+	\item Impact may be state-dependent: e.g., recession vs boom.
+	\item Is policy anticipated or a surprise?
+\end{enumerate}
+\begin{itemize}
+	\item[$\Rightarrow$] Paucity of evidence relative to dimensionality of policy means macroeconomics tends to rely more on structural modeling.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Combining Model and Data: Calibration}
+\begin{itemize}
+	\item The calibration approach uses select micro and macro moments to discipline model parameters.
+	\item Examples:
+	\begin{itemize}
+		\item Exponent on production function from factor shares.
+		\item Labor supply elasticity from labor literature.
+		\item Equity premium.
+	\end{itemize}
+	\item Essentially GMM without standard errors (exactly identified).
+	\item Which moments to select? How informative are they?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Combining Model and Data: Structural Estimation}
+\begin{itemize}
+	\item Bayesian estimation of structural model:
+	\begin{itemize}
+		\item Match time series: Smets and Wouters (2007)
+		\item Match IRF to monetary policy shock: Christiano, Eichenbaum and Evans (2005)
+	\end{itemize}
+	\item Mapping from data to model not always transparent.
+	\item How important are priors?
+	\item How important is model misspecification?
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle[alignment=center]{Combining Model and Data: Causal Effects}
+\begin{itemize}
+	\item Nakamura and Steinsson advocate for the use of causal effects (``identified moments'') in distinguishing between competing models of the macroeconomy.
+	\begin{itemize}
+		\item[$\Rightarrow$] Use causal effects in moment matching / structural estimation.
+	\end{itemize}
+	\item Why causal effects?
+	\begin{itemize}
+		\item Portable: Statistics that can be used over and over again to discipline and test different models. (What statistic is not portable?)
+		\item Informative: Help discipline particular causal mechanism of model. Invariant to changes in other model ``blocks.''
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Examples of Causal Effects}
+\begin{itemize}
+	\item Real effect of monetary policy.
+	\item Gali (1999) Basu-Fernald-Kimball (2006) responses of output and hours to identified productivity shock reject RBC.
+	\item MPC out of tax rebates useful to discipline ``consumption block'' of models.
+	\item Mian-Sufi-Rao: Causal effect of house prices on consumption reject complete market models in favor of incomplete markets/life-cycle models.
+	\item Labor supply elasticity.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Aggregate versus Cross-Sectional Identification}
+\begin{itemize}
+\item Estimating convincing casual effects in the aggregate (time-series) is extremely hard.
+\item Identification arguments are generally more plausible in the cross-section:
+\begin{itemize}
+	\item Control for confounding observables.
+	\item Difference out unknown confounding variation that is common across units with time fixed effects.
+	\item Deep dive next lecture.
+\end{itemize}
+\item Fiscal multipliers:
+\begin{itemize}
+	\item Wide range of aggregate multipliers (e.g., Blanchard and Perotti 2002, Rameym 2011) 
+	\item Cross-sectional multipliers cluster around 1.5-2 (Chodorow-Reich, 2017).
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Aggregation}
+\begin{itemize}
+\item Key challenge:
+\begin{itemize}
+\item Cross-sectional responses don't directly answer key aggregate questions.
+\item How to go from cross-sectional responses to aggregate responses?
+\end{itemize}
+\item Need to build model for the aggregation step.
+\begin{itemize}
+	\item Focus of lecture 3.
+\end{itemize}
+\item Success is that the cross-sectional causal effect tells us something important about the aggregate economy.
+\begin{itemize}
+	\item E.g., aggregate effect, set identification...
+\end{itemize}
+\item The modern macroeconomists needs to do both a labor economists and a micro theorists.
+\begin{itemize}
+	\item Is life unfair?
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+%\begin{frame}{Cross-Sectional Identification and Aggregation}
+%\begin{itemize}
+%\item Step 1:
+%\item Success: can convincingly establish that you estimated a causal effect.  
+%\item Step 2: build model that matches cross-sectional causal effect.
+%\item Success: can distinguish between competing models that have important different aggregate implications.
+%\item Is it unfair to be a macroeconomist?
+%\end{itemize}
+%\end{frame}
+
+%\begin{frame}{Aggregate versus Cross-Sectional Identification}
+%\begin{itemize}
+%\item Generally, would like to directly estimate effect of monetary/fiscal policy on economy.
+%\item Very difficult identification problem.
+%\item Some identification challenges can be addressed in the cross-section.
+%\begin{itemize}
+%\item Mian-Sufi 14, Nakamura-Steinsson 14, Autor-Dorn-Hanson 13, Baraja-Hurst-Ospina 16, Martin-Phillipon 17, ...
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+
+%\begin{frame}{Example: Housing in Great Recession}
+%\begin{itemize}
+%\item Mian-Sufi-Rao: Cities where house prices fell more saw larger drop in consumption and non-tradable employment
+%\begin{itemize}
+%\item Use Saiz 10 instrument to isolate causal effect from housing to consumption and employment
+%\end{itemize}
+%\item Results informative about ``consumption block'' of macro models
+%\begin{itemize}
+%\item Rejects simple Sinai-Souleles 05 complete markets model
+%\item More consistent with incomplete markets/life-cycle model (e.g., Berger et al. 17)
+%\end{itemize}
+%\item Simpler alternative: Look at raw correlation between housing, consumption, etc
+%\begin{itemize}
+%\item Sensitive to auxiliary assumptions (e.g., what shocks drive the cycle)
+%\end{itemize}
+%\item How convincing is this argument?
+%\end{itemize}
+%\end{frame}
+
+%\begin{frame}{Set Identification}
+%Any given set of identified moments typically: \\
+%$\;$
+%\begin{itemize}
+%\item Consistent with several models (but not all models).
+%\item I.e., partially identify model space.
+%\end{itemize}
+%$\;$\\
+%Point-identifying correct model unrealistic:\\
+%$\;$
+%\begin{itemize}
+%\item Several models being consistent with a statistic not grounds for throwing out statistic.
+%\item Think in reverse: If statistic provides evidence against an important class of models, statistic is useful. 
+%\end{itemize}
+%\end{frame}
+%
+%
+%
+%\begin{frame}{Cross-Sectional Identification in Macro}
+%\begin{itemize}
+%\itemsep1em
+%\item Cross-sectional causal effects often powerful diagnostic tools to distinguish between models.
+%\item Approach:
+%\begin{itemize}
+%\item Use cross-sectional responses as moments in estimation of structural models.
+%\item Use favored structural model to answer aggregate questions.
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Fiscal Stimulus: Aggregate Evidence}
+%\begin{itemize}
+%\itemsep1em
+%\item Barro-Redlick 11 use evidence from wars:
+%\begin{itemize}
+%\item Government purchases multiplier of 0.6-0.7
+%\item Most identification from WWI, WWII, Korean War
+%\item Conceptually: Use wars as instrument for spending
+%\item Potential violations of exclusion restriction: patriotism, rationing, etc.
+%\end{itemize}
+%\item Blanchard-Perotti 02 use SVAR:
+%\begin{itemize}
+%\item Peak output response of 1.3 after 15 quarters
+%\item Very large standard errors
+%\item Highly sensitive to sample period, controls \\ {\small (see, e.g., Gali et al. 07, Ramey 11, 16)}
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Fiscal Stimulus: Cross-Sectional Evidence}
+%\begin{itemize}
+%\item Explosion of work post Great Recession:
+%\begin{itemize}
+%\item Chodorow-Reich et al. 12, Wilson 12, Shoag 15, Nakamura-Steinsson 14, Acconcia et al. 14, Dupor-Mehkari 16, etc.  
+%\end{itemize}
+%\item Survey by Chodorow-Reich 17
+%\item Estimates of local fiscal multiplier cluster at 1.5-2.0
+%\item Nakamura-Steinsson 14: consistent with ``ultra-Keynesian'' models, not consistent with RBC model.
+%\end{itemize}
+%\end{frame}
+%
+
+
+\begin{frame}
+\frametitle[alignment=center]{Does Monetary Policy Have Real Effects?}
+\begin{itemize}
+	\item NS close by discussing evidence on the real effects of monetary policy:
+	\begin{enumerate}
+		\item Large shocks: Friedman and Schwartz (1963), Volcker Recession
+		\item Discontinuity-Based Identification: Mussa (1986).
+		\item Narrative approach: Romer and Romer (1989).
+		\item Controlling for observables: structural VARs, Romer and Romer (2004).
+	\end{enumerate}
+	\item Which approaches are more convincing?
+	\item What do they have in common?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Reis (2018)}
+``Is Something Really Wrong With Macroeconomic?''\\
+$\;$\\
+\emph{Asking an active researcher in macroeconomics to consider what is wrong with macroeconomics today is sure to produce a biased answer. The answer is simple: everything is wrong with macroeconomics. Every hour of my workday is spent identifying where our knowledge falls short and how can I improve it. Researchers are experts at identifying the flaws in our current knowledge and in proposing ways to fix them. That is what research is. So, whenever you ask me what is wrong with any part of economics, I am trained by years on the job to tell you many ways in which it is wrong. With some luck, I may even point you to a paper that I wrote proposing a way to fix one of the problems.}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle[alignment=center]{Next week:}
+\begin{itemize}
+	\item Deep dive into cross-sectional econometrics.
+	\item Applying what we learned to fiscal multiplier estimation by Nakamura and Steinsson (2014).
+\end{itemize}
+\end{frame}
 
 
 \end{document}

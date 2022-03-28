@@ -1,8 +1,9 @@
 \documentclass [12pt]{article}
-\usepackage{palatino}
+%\usepackage{palatino}
 \usepackage{geometry}
 \usepackage{amsmath, amsthm, amssymb}
-\usepackage{natbib}
+\usepackage{bibentry}
+%\usepackage{natbib}
 \usepackage{booktabs}
 \usepackage{url}
 \usepackage{booktabs}
@@ -23,7 +24,7 @@
 \geometry{verbose,letterpaper,tmargin=\mar,bmargin=\mar,lmargin=\mar, rmargin=\mar} 
 
 \renewcommand{\baselinestretch}{1.50}
-\setlength{\bibsep}{1.2ex}
+%\setlength{\bibsep}{1.2ex}
 %\setlength{\parindent}{0pt}
 \begin{document}
 \begin{center}
@@ -38,79 +39,173 @@ Juan Herre\~no\\
 jherrenolopera@ucsd.edu\\
 Office Hours: Friday 10:30am - 12:00pm (Econ 212)\\
 
-noindent Johannes Wieland\\ 
+\noindent Johannes Wieland\\ 
 jfwieland@ucsd.edu\\
-Office Hours: XX XX - XX  (Econ 309)\\
+Office Hours: Monday 1:00pm - 2:00pm  (Econ 309)\\
 
 
 \noindent \textbf{Lectures} \\
-Time: Tuesdays from 2:00pm to 4:50pm
-Location: Econ 300.\\
+Tuesdays from 2:00pm to 4:50pm \\
+Econ 300.\\
 
 
 \noindent \textbf{Course Description:} 
 
+The modern macroeconomists is a jack of all trades. He/she must be comfortable with simple theoretical models, quantitative models, cross-sectional identification, and time-series identification. In this class we focus on cross-sectional identification and how to aggregate cross-sectional moments with simple theoretical or quantitative models. By the end of this class you should be familiar with identification arguments in the cross-section, challenges in aggregating cross-sectional moments, and solving standard heterogeneous agent models.
+
 
 
 \noindent  \textbf{Readings}
+
+
 
 \noindent The syllabus includes more papers than we expect the typical student to read. Readings marked with * are required.
 
 
 \noindent  \textbf{Class Project}
 
+The paper should connect micro data with macro model, in line with the theme of the class. The paper does not have to be complete. It does need to be original in the sense that the main result(s) has not been previously documented in the literature.
+
+The paper should contain two parts:
+\begin{enumerate}
+	\item \emph{A new micro data fact or causal effect.} Okay to build on (but not copy!) other work.
+	\item \emph{A (simple) macro model that connects the micro data fact to macroeconomic outcomes.}  This part should have computational component (unless waived). We are not looking for pages of algebra but rather a way that tells us how important the micro fact is.
+\end{enumerate}
+Exceptions to this structure are possible but must be approved by us in advance of the first submission deadline.
+
+At the end of class you need to submit the paper and code. If we cannot replicate the paper figures and tables with one click or command, we will ask you to resubmit. Submit by giving us read access to your GitHub repository.
+
+Paper deadlines:
+\begin{enumerate}
+	\item 5/1/2022: Submit new micro data fact / causal effect.  You submit by giving us read access to your GitHub repository.
+	\item Week 6: meeting for feedback. We may ask you to resubmit a new paper a week later.
+	\item 6/1/2022: Presentation in class.
+	\item 6/8/2022: Paper draft due.
+\end{enumerate}
+
 
 \noindent  \textbf{Grading}
 
-\noindent The first iteration for the class project will count for XX\% of the grade. The second iteration will count for XX\% of the grade. Class participation will count for XX\%.
+\noindent The first iteration for the class project will count for 10\% of the grade. The second iteration will count for 55\% of the grade. Class participation will count for 35\%.
+
+Class participation entails closely reading the * papers on syllabus before class and participating in class discussion. If we judge that there is insufficient participation, then we will schedule a midterm and/or final to assign this grade.
+
+
+
+
+
 
 \noindent  \textbf{Auditing}
 
-\noindent We expect students who audit the class to participate and do the required readings. If you want to submit your class project and get feedback on it, you should take the class for grade.
+\noindent We expect students who audit the class to participate and do the required readings. If you want to submit your class project and get feedback on it, you need to take the class for grade.
 
 \newpage
 
+\bibliographystyle{alpha}
+\nobibliography{readings.bib}
+
+
 \section{Introduction to Empirics in Macroeconomics}
 
-Inference with macroeconomic data is notoriously difficult due to reverse causality, small samples, and endogenous responses of economic policy attempting to stabilize the economy. In this lecture we will give an introduction to how to approach this problem using more disaggregated data, and measures of  \textit{shocks}, and heterogeneous \textit{exposure} to those shocks, or shift-share designs in short. We will cover the identifying assumptions of shift-share designs, and new methods developed to solve them. 
+We will review core empirical concepts such as identification, causality, treatment effects. Then we will review types of structural and causal inference in empirical macroeconomics. This lecture will also contain advice on how do research and how to organize empirical work. 
 
-\section{Fiscal Multipliers}
+\noindent\textbf{Readings:}\\
+*\bibentry{nakamura2018identification}
 
-What are the empirical challenges of measuring the size of the regional fiscal multiplier? We will apply our knowledge of shift-share designs in order to study the empirical challenges of estimating the multiplier. 
+\section{Identification with Regional Data with an Application to Fiscal Multipliers and Household Wealth Shocks}
 
-\section{Regional Aggregation I: The Case of Fiscal Multipliers}
+Identification with macroeconomic data is notoriously difficult due to reverse causality, small samples, and endogenous responses of economic policy attempting to stabilize the economy. In this lecture we will give an introduction to how to approach this problem using more disaggregated data, and measures of  \textit{shocks}, and heterogeneous \textit{exposure} to those shocks, or shift-share designs in short. We will cover the identifying assumptions of shift-share designs, and new methods developed to solve them. 
+
+%What are the empirical challenges of measuring the size of the regional fiscal multiplier? 
+We will apply our knowledge of shift-share designs in order to study the empirical challenges of estimating the fiscal multiplier.
+
+\noindent\textbf{Readings:}\\
+*\bibentry{goldsmith2020bartik}\\
+*\bibentry{borusyak2022quasi}\\
+*\bibentry{nakamura2014fiscal}\\  
+*\bibentry{mian2013household}\\
+\bibentry{mian2014explains}\\
+\bibentry{adao2019shift}\\
+\bibentry{borusyak2020non}\\
+
+\section{Regional Aggregation I: Fiscal Multipliers and Household Wealth}
 
 Once we have recovered regional multipliers after increases in government expenditures or transfers, how can one recover the aggregate multipliers? In this lecture we will cover some of the papers that move from ``open-economy'' multipliers, into the aggregate multiplier.
 
+\noindent\textbf{Readings:}\\
+*\bibentry{chodorow2019geographic}
+\bibentry{wolf2021missing}\\
+\bibentry{kaplan2020housing} \\
+\bibentry{guren2021housing}\\
+*\bibentry{hazell2020slope}\\
 
-\section{Other Regional Aggregation}
+
+\section{MOAR Regional Causal Effects and Aggregation}
 
 Moving from regional estimates to aggregate estimates goes beyond the case of fiscal multipliers, and extends to the determinants of inflation, the transmission of international shocks, and financial shocks. In this lecture we will cover some of the leading applications.
 
+\noindent\textbf{Readings:}\\
+*\bibentry{hausman2019recovery}\\
+*\bibentry{mondragon2022housing}\\
+\bibentry{chodorow2020secular}\\
+\bibentry{carvalho2021supply}\\
+*\bibentry{parker2013consumer}\\
+*\bibentry{borusyak2021revisiting}\\
+\bibentry{fagereng2021mpc}\\
+\bibentry{orchard2022micro}
 
 \section{Household and Firm Aggregation}
 
 
 We have studied so far cases of aggregation of regional elasticities into national elasticities, the case of local GE effects. In this lecture we will study leading papers computing household-level or firm-level elasticities to economic shocks, and study how can one use these elasticities to learn about the national economy.
 
+\noindent\textbf{Readings:}\\
+*\bibentry{huber2018disentangling}\\
+*\bibentry{chodorow2014employment}\\
+*\bibentry{herreno2020aggregate}\\
+\bibentry{best2020estimating} \\
+\bibentry{cloyne2019effect}\\
+
 
 \section{HANK and TANK}
 
 In this lecture we will study the leading models of heterogeneity of the New Keynesian tradition. The Two-Agent New Keynesian Model (TANK) and the Heterogeneous Agent New Keynesian Model (HANK). We will compare the transmission mechanism in these models compared to the Representative Agent New Keynesian Model (RANK).
+
+\noindent\textbf{Readings:}\\
+*\bibentry{kaplan2014model}\\
+*\bibentry{kaplan2018monetary}\\
+*\bibentry{debortoli2017monetary}\\
+*\bibentry{mckay2016power} \\
+\bibentry{werning2015incomplete}\\
 
 
 \section{The Sequence Space}
 
 We will learn how to write models in the Sequence Space, and learn a powerful tool to solve models with heterogeneity in discrete time with aggregate shocks.
 
+\noindent\textbf{Readings:}\\
+*\bibentry{auclert2021using}\\
+
 
 \section{Macroeconomics of Consumption with Heterogeneity}
 
 In this lecture we will study how consumption responses that are in line with the micro data impact the transmission of economic policy. We will discuss the challenges of incorporating heterogeneity in MPCs in macro models, the challenges of solving the models, and the implications this models have about the conduct of macro stabilization policy.
 
+\noindent\textbf{Readings:}\\
+*\bibentry{auclert2020micro} \\
+*\bibentry{mckay2021lumpy} \\
+*\bibentry{mckay2022forward} \\
+*\bibentry{koby2020aggregation} \\
+
+
+
 \section{Macroeconomics of Investment with Heterogeneity}
 
 In this lecture we will study how investment responses that are in line with the micro data impact the transmission of economic policy. We will discuss the challenges of incorporating heterogeneity in propensities to invest in macro models, the challenges of solving the models, and the implications this models have about the conduct of macro stabilization policy.
+
+\noindent\textbf{Readings:}\\
+*\bibentry{kekre2021monetary} \\
+*\bibentry{drenik2019measuring} \\
 
 
 
