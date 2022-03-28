@@ -1,0 +1,138 @@
+\documentclass[english,xcolor=svgnames]{beamer}
+
+
+\input{../Latex/teachingslidesbeamer.tex}
+
+
+\begin{document}
+
+\title{Topics in Macroeconomics }
+\vspace{1cm}
+\author[shortname]{
+\begin{tabular}{cc}
+Juan Herre\~{n}o & Johannes Wieland \\ 
+\end{tabular}\\
+}
+
+
+\date{UCSD, Spring \the\year}
+
+\setbeamertemplate{footline}{}
+\makebeamertitle
+\setbeamertemplate{footline}[frame number]{}
+
+\addtocounter{framenumber}{-1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginSection[]{
+\setbeamertemplate{footline}{}
+  \frame<beamer>{ 
+
+    \frametitle{Outline}   
+
+    \tableofcontents[currentsection,hideallsubsections] 
+  }
+\setbeamertemplate{footline}[frame number]{}
+\addtocounter{framenumber}{-1}
+}
+
+\AtBeginSubsection[]{
+\setbeamertemplate{footline}{}
+  \frame<beamer>{ 
+
+    \frametitle{Outline}   
+
+    \tableofcontents[currentsection,currentsubsection] 
+  }
+  \setbeamertemplate{footline}[frame number]{}
+  \addtocounter{framenumber}{-1}
+}
+
+
+
+\setbeamertemplate{footline}{}
+\begin{frame}
+\frametitle{Outline}   
+\tableofcontents[hideallsubsections] 
+\end{frame}
+\addtocounter{framenumber}{-1}
+\setbeamertemplate{footline}[frame number]{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle[alignment=center]{Cross-Sectional Regressions}
+\begin{align*}
+	Y_i = \alpha_i + \beta X_i + \epsilon_i
+\end{align*}
+\begin{itemize}
+	\item Interested in $\beta$.
+	\item Can identify $\beta$ if $E( \epsilon_i|X_i)=0$ or suitable instrument with $E( \epsilon_i|Z_i)=0$.
+	\item What's the DGP? Two views:
+	\begin{enumerate}
+		\item $X_i$ / $Z_i$ is quasi-random heterogenous exposure to the same endogenous shock.
+		\item $X_i$ / $Z_i$ is heterogenous, endogenous exposure to heterogenous, quasi-random shocks.
+	\end{enumerate}
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Goldsmith-Pinkham, Sorkin, and Swift, AER 2020}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle[alignment=center]{Bartik: Canonical Example}
+\begin{itemize}
+	\item Structural equation:
+	\begin{align*}
+		y_l = \tau +\beta x_l + \epsilon_l
+	\end{align*}
+	\begin{itemize}
+		\item $y_l$: wage growth in area $l$.
+		\item $x_l$: employment growth in area $l$.
+	\end{itemize}
+	\item Identities:
+	\begin{align*}
+		x_l = \sum_k z_{l,k} g_{l,k}, \qquad\qquad g_{l,k} = g_k + \tilde{g}_{l,k}
+	\end{align*}
+	\begin{itemize}
+		\item $z_{l,k}$: employment share in area $l$ in industry $k$.
+		\item $g_{l,k}$: employment growth in area $l$ in industry $k$.
+		\item $g_{k}$: national employment growth in industry $k$.
+		\item $\tilde{g}_{l,k}$:  idiosyncratic component of employment growth rate.
+	\end{itemize}
+	\item Bartik (1991) instrument to estimate inverse labor supply elasticity:
+	\begin{align*}
+		B_l = \sum_k z_{l,k}g_k
+	\end{align*}
+	\item What is exogenous? Shares? Shocks? Product?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{General Setup}
+\begin{itemize}
+	\item x
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Borusyak, Hull, and Jaravel, RESTUD 2022}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Nakamura and Steinsson, AER 2014}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mian, Rao, and Sufi, QJE 2013}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
