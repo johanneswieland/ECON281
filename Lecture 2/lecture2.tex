@@ -71,11 +71,11 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{align*}
 \begin{itemize}
 	\item Interested in $\beta$.
-	\item Can identify $\beta$ if $E( \epsilon_i|X_i)=0$ or suitable instrument with $E( \epsilon_i|Z_i)=0$.
+	\item Can identify $\beta$ if $E( \epsilon_i|X_i)=0$ or suitable instrument with $E( \epsilon_i|Z_i)=0$ and $E( X_i|Z_i)\neq 0$.
 	\item What's the DGP? Two views:
 	\begin{enumerate}
-		\item $X_i$ / $Z_i$ is quasi-random heterogenous exposure to the same endogenous shock.
-		\item $X_i$ / $Z_i$ is heterogenous, endogenous exposure to heterogenous, quasi-random shocks.
+		\item $X_i$ / $Z_i$ captures quasi-random heterogenous exposure to the same endogenous shock.
+		\item $X_i$ / $Z_i$ captures heterogenous, quasi-random shocks.
 	\end{enumerate}
 \end{itemize}
 \end{frame}
@@ -90,7 +90,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \begin{itemize}
 	\item Structural equation:
 	\begin{align*}
-		y_l = \tau +\beta x_l + \epsilon_l
+		y_l = \rho +\beta x_l + \epsilon_l
 	\end{align*}
 	\begin{itemize}
 		\item $y_l$: wage growth in area $l$.
@@ -115,9 +115,137 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 \begin{frame}
-\frametitle[alignment=center]{General Setup}
+\frametitle[alignment=center]{Special Case: 2 Industries}
 \begin{itemize}
-	\item x
+	\item Bartik instrument is proportional to industry share:
+	\begin{align*}
+		B_l = z_{1l}g_1+z_{2l}g_2 = g_2 + (g_1-g_2)z_{1l}
+	\end{align*}
+	\item First stage:
+	\begin{align*}
+		x_l = \gamma_0 + \gamma B_l + \eta_l = \gamma_0 + \gamma g_2 + \gamma (g_1-g_2)z_{1l} + \eta_l 
+	\end{align*}
+	\item $B_l$ is equivalent to using $z_{1l}$ (or $z_{2l}$) as instrument.
+	\item Intution:
+	\begin{itemize}
+		\item $z_{1l}$ measures exposure, $g_1-g_2$ the magnitude of the treatment.
+		\item Many cross-sectional regressions take the view $g_2=0$: heterogeneous exposure to single aggregate shock.
+		\item What endogeneity problem does the Bartik instrument (or industry shares) solve? What does it not solve?
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{General Case (1)}
+Notation:
+\begin{itemize}
+	\item $Z_{lt}=(z_{l1t},...,z_{lkt})$ is a $1\times K$ vector of industry  shares.
+	\item $Z_t = (Z_{1t}',...,Z_{Lt}')'$ is a $L\times K$ matrix of industry shares.
+	\item $G_{t}=(g_{1t},...,g_{kt})'$ is a $K\times 1$ vector of industry growth rates.
+	\item $B_t = Z_0 G_t$ is a $L\times 1$ vector of Bartik instruments.
+	\item $X_t=(x_{1t},...,x_{Lt})'$ is a $L\times 1$ vector of endogenous variables.
+	\item $Y_t=(y_{1t},...,y_{Lt})'$ is a $L\times 1$ vector of outcomes.
+	\item Assume $X_t,Y_t$ previously residualized with respect to any covariates.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{General Case (2)}
+\begin{itemize}
+%	\item 
+%	\begin{align*}
+%		Z=\begin{pmatrix}
+%			Z_0 & 0 & \hdots & 0 \\
+%			0 & Z_0 & \hdots & 0 \\
+%			\vdots & 0 & \ddots & \vdots \\
+%			0 & \hdots & 0 & Z_0 \\
+%		\end{pmatrix}
+%	\end{align*}
+%	\item $G=(G_{1}',...,G_{T})'$ is a $KT\times 1$ vector of industry growth rates.
+	\item $B$ is a $LT\times 1$ vector of Bartik instruments.
+	\begin{align*}
+		B=ZG = \begin{pmatrix}
+			Z_0G_1 \\
+			Z_0G_2 \\
+			\vdots  \\
+			Z_0 G_T \\
+		\end{pmatrix} =
+		\underbrace{\begin{pmatrix}
+			Z_0 & 0 & \hdots & 0 \\
+			0 & Z_0 & \hdots & 0 \\
+			\vdots & 0 & \ddots & \vdots \\
+			0 & \hdots & 0 & Z_0 \\
+		\end{pmatrix}}_{=Z} \underbrace{\begin{pmatrix}
+			G_1 \\
+			G_2 \\
+			\vdots  \\
+			 G_T \\
+		\end{pmatrix}}_{=G}
+	\end{align*}
+	\item $Z$ is a $LT\times KT$ matrix of industry shares
+	\item $G$ is a $KT\times 1$ vector of industry growth rates.
+	\item $X=(X_{1}',...,X_{T}')'$ is a $LT\times 1$ vector of endogenous variables.
+	\item $Y=(Y_{1}',...,Y_{T}')'$ is a $LT\times 1$ vector of outcomes.
+	\item The Bartik and GMM estimators are
+	\begin{align*}
+		\hat{\beta}_{Bartik} = \frac{B'Y}{B'X},\qquad\qquad \hat{\beta}_{GMM}=\frac{X'Z W Z'Y}{X'Z W Z'X}
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Equivalence of GMM and Bartik}
+\begin{itemize}
+	\item Proposition: When $W = GG'$ then $\hat{\beta}_{Bartik} = \hat{\beta}_{GMM}$
+	\item Proof:
+	\begin{align*}
+		\hat{\beta}_{GMM} &= (X'Z GG' Z'X)^{-1}(X'Z GG' Z'Y) \\
+		&=(X'BB'X)^{-1}(X'BB'Y) \\
+		&=(B'X)^{-1}(X'B)^{-1}(X'B)(B'Y)\\
+		&=\hat{\beta}_{Bartik}
+	\end{align*}
+	\item Bartik IV is numerically equivalent to IV regression with $KT$ instruments corresponding to the industry shares in $Z$ weighted with industry $GG'$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Identifying assumptions}
+\begin{itemize}
+	\item TSLS estimator:
+	\begin{align*}
+		\hat{\beta} - \beta_0 = \frac{\sum_{t=1}^{T}\sum_{k=1}^K g_{kt} \sum_{l=1}^{L}z_{lk0} \epsilon_{lt}}{\sum_{t=1}^{T}\sum_{k=1}^K g_{kt} \sum_{l=1}^{L}z_{lk0} x_{lt}}
+	\end{align*}
+	\item Identifying assumption (conditional on observables):
+	\begin{align*}
+		E[\epsilon_{lt}z_{zlk0}] =0,\qquad \forall k \\
+	\end{align*}
+	What are the asymptotics?
+	\item $KT$ moment conditions in GMM.
+	\item In words: the differential effect of higher exposure of one industry (compared to another) only affects the change in the outcome ($y_{lt}$) through the endogenous variable of interest, and not through any potential confounding channel.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Rotemberg Weights}
+\begin{itemize}
+	\item In principle, must make exogeneity claim for every industry $k=1,...,k$. Very difficult to do in practice.
+	\item GPSS: focus on select industries that are most influential in determining $\hat{\beta}_{Bartik}$.
+	\begin{align*}
+		\hat{\beta}_{Bartik} = \sum_k \hat{\alpha}_k \hat{\beta}_k
+	\end{align*}
+	where
+	\begin{align*}
+		\hat{\beta}_k = (Z_k'X)^{-1}(Z_k'Y),\qquad\qquad \hat{\alpha}_k = \frac{G_k' Z_k'X}{\sum_k G_k' Z_k'X} = \frac{G_k' Z_k'X}{B'X}
+	\end{align*}
+	\item $\hat{\beta}_k$ is the just-identified IV estimate from using only the industry shares of industry $k$, $Z_k$.
+	\item $\hat{\alpha}_k$ are the \emph{Rotemberg Weights}, which sum to 1 (can be negative).
+	\begin{itemize}
+		\item Contribution of industry $k$ to Bartik first stage covariance. (Not the same as F-stat.)
+		\item Measure the sensitivity to bias in instrument $k$.
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -125,6 +253,54 @@ Juan Herre\~{n}o & Johannes Wieland \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Borusyak, Hull, and Jaravel, RESTUD 2022}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{More Best Practice}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle[alignment=center]{General Specification Tests}
+\begin{enumerate}
+	\item Estimated coefficients sensitive to inclusion of covariates?
+	\item Pre-trends?
+	\item Placebo tests?
+	\item Overidentification tests.
+	\item Subsample analysis: drop influential observations.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Leave-one-out}
+\begin{enumerate}
+	\item Typically construct leave-one-out Bartik instrument:
+	\begin{align*}
+		B_l = \sum_k z_{l,k}g_{\tilde{l},k}
+	\end{align*}
+	\begin{itemize}
+		\item $g_{\tilde l,k}$ is national employment growth in industry $k$ excluding area $l$.
+	\end{itemize}
+	\item Removes finite sample correlation between idiosyncratic industry growth rate $\tilde{g}_{l,k}$ and Bartik instrument $B_l$.
+	\item Often unimportant in practice. Why?
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Standard Errors}
+\begin{enumerate}
+	\item Adao et al
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Borusyak, Hull: Exposure Shocks}
+\begin{enumerate}
+	\item x
+\end{enumerate}
+\end{frame}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Nakamura and Steinsson, AER 2014}
