@@ -74,8 +74,8 @@ Juan Herre\~{n}o & Johannes Wieland \\
 	\item Can identify $\beta$ if $E( \epsilon_i|X_i)=0$ or suitable instrument with $E( \epsilon_i|Z_i)=0$ and $E( X_i|Z_i)\neq 0$.
 	\item What's the DGP? Two views:
 	\begin{enumerate}
-		\item $X_i$ / $Z_i$ captures quasi-random heterogenous exposure to the same endogenous shock.
-		\item $X_i$ / $Z_i$ captures heterogenous, quasi-random shocks.
+		\item $X_i$ / $Z_i$ captures quasi-random heterogenous exposure to endogenous shock(s).
+		\item $X_i$ / $Z_i$ captures endogenous exposure to heterogenous, quasi-random shocks.
 	\end{enumerate}
 \end{itemize}
 \end{frame}
@@ -205,7 +205,8 @@ Notation:
 		&=(B'X)^{-1}(X'B)^{-1}(X'B)(B'Y)\\
 		&=\hat{\beta}_{Bartik}
 	\end{align*}
-	\item Bartik IV is numerically equivalent to IV regression with $KT$ instruments corresponding to the industry shares in $Z$ weighted with industry $GG'$.
+	\item Bartik IV is numerically equivalent to IV regression with $K$ instruments corresponding to the industry shares in $Z$ weighted with industry $GG'$.
+	\item More notation extends to case with controls.
 \end{itemize}
 \end{frame}
 
@@ -219,7 +220,7 @@ Notation:
 	\end{align*}
 	\item Identifying assumption (conditional on observables):
 	\begin{align*}
-		E[\epsilon_{lt}z_{zlk0}] =0,\qquad \forall k \\
+		E\left[\frac{1}{L}\sum_{l=1}^{L}\epsilon_{lt}z_{zlk0}\right] =0,\qquad \forall k, t \\
 	\end{align*}
 	What are the asymptotics?
 	\item $KT$ moment conditions in GMM.
@@ -254,6 +255,82 @@ Notation:
 \section{Borusyak, Hull, and Jaravel, RESTUD 2022}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}
+\frametitle[alignment=center]{BHJ Identification}
+\begin{itemize}
+	\item Bartik = TSLS estimator:
+	\begin{align*}
+		\hat{\beta} - \beta_0 = \frac{\sum_{t=1}^{T}\sum_{k=1}^K g_{kt} \sum_{l=1}^{L}z_{lk0} \epsilon_{lt}}{\sum_{t=1}^{T}\sum_{k=1}^K g_{kt} \sum_{l=1}^{L}z_{lk0} x_{lt}}
+	\end{align*}
+	\item Moment condition for identification:
+	\begin{align*}
+		E\left[\frac{1}{L}\sum_{l=1}^{L}b_{lt} \epsilon_{lt}\right] = E\left[\frac{1}{L}\sum_{l=1}^{L}\left(\sum_{t=1}^{T}\sum_{k=1}^K  g_{kt}z_{lk0}\right) \epsilon_{lt}\right] = 0
+	\end{align*}
+	\begin{itemize}
+		\item GPSS: quasi-random shares $E(\frac{1}{L}\sum_{l}z_{lk0}\epsilon_{lt}|g_{kt})=0$
+		\item BHJ approach: quasi-random shocks %$E[\sum_{k}()g_{kt}\epsilon_{lt}|z_{lk0}]=0$
+	\end{itemize}
+%	\item Quasi-random exposure vs quasi-random shocks.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{BHJ Moment Condition}
+\begin{itemize}
+	\item Moment condition in terms of shocks:
+	\begin{align*}
+		E\left[\frac{1}{L}B'\epsilon \right] &=  E\left[\frac{1}{L}\sum_{l=1}^{L}\left(\sum_{t=1}^{T}\sum_{k=1}^K  g_{kt}z_{lkt}\right) \epsilon_{lt}\right] \\
+		&=E\left[\sum_{k=1}^K \sum_{t=1}^{T}  \underbrace{\left(\frac{1}{L}\sum_{l=1}^{L}z_{lkt}\right)}_{z_{kt}}   g_{kt}   \underbrace{\left(\frac{\frac{1}{L}\sum_{l=1}^{L}z_{lkt}\epsilon_{lt}}{\frac{1}{L}\sum_{l=1}^{L}z_{lkt}}\right)}_{\bar{\epsilon}_{kt}}  \right] \\
+		&=E\left[\sum_{k=1}^K \sum_{t=1}^{T} z_{kt}    g_{kt} \bar{\epsilon}_{kt} \right] = E\left[(\check{Z}  G)' \bar{\epsilon} \right] \\
+	\end{align*}
+	where $\check{Z} = diag(z_{10},...,z_{KT})$.
+	\item Interpretation:
+	\begin{itemize}
+		\item $z_{kt}$ is average exposure to industry $k$.
+		\item $\bar{\epsilon}_{kt}$ is exposure-weighted average of shocks to wage growth.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{BHJ Proposition 1}
+\begin{itemize}
+	\item Claim: Bartik IV is equivalent to TSLS with $KT$ excluded instruments $g_{kt}$ and weights $z_{kt}$ in the second-stage regression:
+	\begin{align*}
+		\bar{y}_{kt} = \alpha + \beta \bar{x}_{kt} + \bar{\epsilon}_{kt}\\
+	\end{align*}
+	where $\bar{v}_{kt} = \frac{\frac{1}{L}\sum_{l=1}^{L}z_{lkt}v_{lt}}{\frac{1}{L}\sum_{l=1}^{L}z_{lkt}}$.
+	\item Proof:
+	\begin{align*}
+		\hat{\beta}_{Bartik} &= (B'X)^{-1}(B'Y) \\
+		&=\left(\sum_{k=1}^K \sum_{t=1}^{T} z_{kt}    g_{kt} \bar{x}_{kt}\right)^{-1}\left(\sum_{k=1}^K \sum_{t=1}^{T} z_{kt}    g_{kt} \bar{y}_{kt}\right) \\
+		&= (\check{Z}G'\bar{X})^{-1}(\check{Z}G'\bar{Y}) \\
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle[alignment=center]{Which case?}
+\begin{enumerate}
+	\item Exogenous shares: $E\left[\frac{1}{L}\sum_{l=1}^{L}z_{zlk0}\epsilon_{lt}\right] =0$
+	\begin{itemize}
+		\item Ex ante exposure in location $l$ uncorrelated with unobserved shocks to outcome.
+	\end{itemize}
+	\item Exogenous shocks (shifters): $E\left[\frac{1}{KT}\sum_{k=1}^K \sum_{t=1}^{T} z_{kt}    g_{kt} \bar{\epsilon}_{kt}\right] =0$
+	\begin{itemize}
+		\item Shocks to industry $k$ uncorrelated with unobserved industry shocks when weighted by industry size.
+	\end{itemize}
+\end{enumerate}
+\begin{itemize}
+	\item What are asymptotics?
+	\item Which is more plausible? When?
+\end{itemize}
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -273,31 +350,66 @@ Notation:
 
 \begin{frame}
 \frametitle[alignment=center]{Leave-one-out}
-\begin{enumerate}
+\begin{itemize}
 	\item Typically construct leave-one-out Bartik instrument:
 	\begin{align*}
-		B_l = \sum_k z_{l,k}g_{\tilde{l},k}
+		B_l = \sum_k z_{l,k}g_{-l,k}
 	\end{align*}
 	\begin{itemize}
-		\item $g_{\tilde l,k}$ is national employment growth in industry $k$ excluding area $l$.
+		\item $g_{-l,k}$ is national employment growth in industry $k$ excluding area $l$.
 	\end{itemize}
 	\item Removes finite sample correlation between idiosyncratic industry growth rate $\tilde{g}_{l,k}$ and Bartik instrument $B_l$.
 	\item Often unimportant in practice. Why?
-\end{enumerate}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle[alignment=center]{Standard Errors}
-\begin{enumerate}
-	\item Adao et al
-\end{enumerate}
+\begin{itemize}
+	\item Ad\~{a}o, Koles\'{a}r, Morales (QJE, 2019): regions with similar exposure are not iid.
+	\item Example DGP:
+	\begin{align*}
+		y_l = \alpha+\beta_0 x_l + \epsilon_l ,\qquad x_l = \sum_k z_{lk}(g_k^1 + g_k^2)
+	\end{align*}
+	\item Want to know impact of $g^1$ (e.g., China shock):
+	\begin{align*}
+		y_l = \alpha+\beta_0 \sum_k z_{lk}g_k^1 + (\sum_k z_{lk}g_k^2 + \epsilon_l)
+	\end{align*}
+	\item Identified if $Cov(\sum_k z_{lk}g_k^1,\sum_k z_{lk}g_k^2 + \epsilon_l) = 0$.
+	\item But residuals correlated because of industry structure $\Rightarrow$ need to adjust standard errors. Severity depends on importance of $g_k^2$.
+	\item BHJ solve this issue by clustering the industry-level regression.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle[alignment=center]{Borusyak, Hull: Exposure Shocks}
-\begin{enumerate}
-	\item x
-\end{enumerate}
+\frametitle[alignment=center]{Borusyak, Hull: Non-Random Exposure}
+\begin{align*}
+		y_i &= \alpha + \beta x_i + \epsilon_i \\
+		z_i &= f_i(g,w)
+	\end{align*}
+\begin{itemize}
+	\item Even if shocks are exogenous, $g \perp \epsilon | w$, due to non-random exposure.
+\begin{align*}
+	E\left[\frac{1}{N}\sum_i z_i \epsilon_i \right] = E\left[\frac{1}{N}\sum_i \mu_i \epsilon_i \right]
+\end{align*}
+where $\mu_i = E[f_i(g,w)]$.
+\item Intuition: some areas systematically get higher / lower treatment due to non-random assignment (exposure).
+\item Solution: simulate draws of shocks, compute $\mu_i$, and recenter instrument to $z_i-\mu_i$.
+\item A problem for Bartik (inner product) instruments?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Borusyak, Hull: Non-Random Exposure}
+\centering
+\includegraphics[scale=0.5]{figures/BHFIG1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Borusyak, Hull: Non-Random Exposure}
+\centering
+\includegraphics[scale=0.5]{figures/BHFIG2.png}
 \end{frame}
 
 
