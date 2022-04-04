@@ -6,7 +6,7 @@
 
 \begin{document}
 
-\title{Topics in Macroeconomics }
+\title{Identification with Regional Data}
 \vspace{1cm}
 \author[shortname]{
 \begin{tabular}{cc}
@@ -60,7 +60,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction}
+\section{Identification with Regional Data}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -81,9 +81,29 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Goldsmith-Pinkham, Sorkin, and Swift, AER 2020}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle[alignment=center]{Bartik / Shift-Share}
+\begin{itemize}
+	\item National or industry shocks or trends affect some regions more than others because they are more exposed to that shock or trend.
+	\item Bartik instrument interacts national / industry shock with local area exposure.
+	\item Called ``Bartik'' instrument or shock due to Bartik (1991). Popularized by Blanchard and Katz (1992).
+%	\item Lots
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Examples}
+\begin{itemize}
+	\item Local employment by industry (Bartik, 1991)
+	\item Local wage shocks by worker skill (Diamond, 2016)
+	\item Decline of manufacturing (Charles, Hurst, Notowidigdo, 2018)
+	\item Penetration of Chinese imports (Autor, Dorn, Hanson, 2013)
+	\item Penetration of robots (Acemoglu and Restrepo, 2019)
+	\item Military spending shocks (Nakamura and Steinsson, 2014)
+	\item Bank health shocks (Mondragon, 2020)
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}
 \frametitle[alignment=center]{Bartik: Canonical Example}
@@ -110,9 +130,64 @@ Juan Herre\~{n}o & Johannes Wieland \\
 	\begin{align*}
 		B_l = \sum_k z_{l,k}g_k
 	\end{align*}
-	\item What is exogenous? Shares? Shocks? Product?
+%	\item What is exogenous? Shares? Shocks? Product?
 \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Autor, Dorn, Hanson (AER, 2013) ``China Shock''}
+\begin{itemize}
+	\item What is the effect of import competition on aggregate labor demand?
+	\item Difficult to make causal claim in the aggregate:
+	\begin{itemize}
+		\item If find negative correlation between industry imports and industry employment, this could just be a labor supply effect.
+		\item Even if labor demand, aggregate regression may  simply measure a reallocation to a different industry.
+	\end{itemize}
+%	\item Idea: Areas with greater employment in these industries more affected.
+	\item Measure import penetration at local area level $i$:
+	\begin{align*}
+		IPW_{uit} = \sum_j \frac{L_{ijt}}{L_{it}}  \frac{\Delta M_{ucjt}}{L_{jt}}
+	\end{align*}
+	\item Instrument using rise in imports elsewhere in the world:
+	\begin{align*}
+		\Delta IPW_{oit} = \sum_j \frac{L_{ij,t-1}}{L_{i,t-1}}  \frac{\Delta M_{ocjt}}{L_{j,t-1}}
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Autor, Dorn, Hanson (AER, 2013) ``China Shock''}
+\centering
+\includegraphics[scale=0.325]{figures/ADHFIG1.png}\includegraphics[scale=0.325]{figures/ADHFIG2.png}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Bartik: Concerns}
+Require:
+\begin{align*}
+%		y_l & = \rho +\beta x_l + \epsilon_l \\
+		E(\epsilon_l B_l) = E(\epsilon_l \sum_k z_{l,k}g_k) &= 0  
+	\end{align*}
+\begin{enumerate}
+	\item Pre-shock shares endogenous to lagged shock or the same shock if serially correlated, $E(\epsilon_l  z_{l,k})\neq 0$.
+	\begin{itemize}
+		\item Random assignment conditional on controls can be difficult to justify: regions that differ in $z$ probably differ on other (unobserved) dimensions too!
+	\end{itemize}
+	\item National industry shocks correlated with local shocks,
+, $E(\epsilon_l  g_k)\neq 0$. 
+	\begin{itemize}
+		\item In classic Bartik example, worry that $g_k$ is correlated with (unobserved) labor supply shocks.
+	\end{itemize}
+\end{enumerate}
+How to handle identification arguments?
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Goldsmith-Pinkham, Sorkin, and Swift, AER 2020}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle[alignment=center]{Special Case: 2 Industries}
@@ -332,6 +407,41 @@ Notation:
 \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Borusyak, Hull, WP 2021}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle[alignment=center]{Borusyak, Hull, WP 2021: Non-Random Exposure}
+\begin{align*}
+		y_i &= \alpha + \beta x_i + \epsilon_i \\
+		z_i &= f_i(g,w)
+	\end{align*}
+\begin{itemize}
+	\item Even if shocks are exogenous, $g \perp \epsilon | w$, due to non-random exposure.
+\begin{align*}
+	E\left[\frac{1}{N}\sum_i z_i \epsilon_i \right] = E\left[\frac{1}{N}\sum_i \mu_i \epsilon_i \right]
+\end{align*}
+where $\mu_i = E[f_i(g,w)]$.
+\item Intuition: some areas systematically get higher / lower treatment due to non-random assignment (exposure).
+\item Solution: simulate draws of shocks, compute $\mu_i$, and recenter instrument to $z_i-\mu_i$.
+\item A problem for Bartik (inner product) instruments?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Borusyak, Hull, WP 2021: Non-Random Exposure}
+\centering
+\includegraphics[scale=0.5]{figures/BHFIG1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Borusyak, Hull, WP 2021: Non-Random Exposure}
+\centering
+\includegraphics[scale=0.5]{figures/BHFIG2.png}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{More Best Practice}
@@ -381,36 +491,7 @@ Notation:
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle[alignment=center]{Borusyak, Hull: Non-Random Exposure}
-\begin{align*}
-		y_i &= \alpha + \beta x_i + \epsilon_i \\
-		z_i &= f_i(g,w)
-	\end{align*}
-\begin{itemize}
-	\item Even if shocks are exogenous, $g \perp \epsilon | w$, due to non-random exposure.
-\begin{align*}
-	E\left[\frac{1}{N}\sum_i z_i \epsilon_i \right] = E\left[\frac{1}{N}\sum_i \mu_i \epsilon_i \right]
-\end{align*}
-where $\mu_i = E[f_i(g,w)]$.
-\item Intuition: some areas systematically get higher / lower treatment due to non-random assignment (exposure).
-\item Solution: simulate draws of shocks, compute $\mu_i$, and recenter instrument to $z_i-\mu_i$.
-\item A problem for Bartik (inner product) instruments?
-\end{itemize}
-\end{frame}
 
-
-\begin{frame}
-\frametitle[alignment=center]{Borusyak, Hull: Non-Random Exposure}
-\centering
-\includegraphics[scale=0.5]{figures/BHFIG1.png}
-\end{frame}
-
-\begin{frame}
-\frametitle[alignment=center]{Borusyak, Hull: Non-Random Exposure}
-\centering
-\includegraphics[scale=0.5]{figures/BHFIG2.png}
-\end{frame}
 
 
 
@@ -421,6 +502,91 @@ where $\mu_i = E[f_i(g,w)]$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Mian, Rao, and Sufi, QJE 2013}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle[alignment=center]{Mian and Sufi}
+Establish importance of household debt overhang during Great Recession in a series of papers:\\
+\begin{enumerate}
+	\item 2009 QJE: Expansion of credit to new subprime borrowers from 2002-2006 led to defaults.
+	\item 2011 AER: Credit expansion through home equity borrowing by existing homeowners.
+	\item 2013 QJE (with Rao): Consumption and credit crunch 2006-2009.
+	\item 2014 Emca: Deleveraging and unemployment, 2006-2009.
+	\item 2014 WP: Consumption growth and house prices, 2002-2006.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Mian, Rao, and Sufi, QJE 2013}
+Data:\\
+\begin{itemize}
+	\item County-level total consumer purchases with a credit card or debit card for which MasterCard is the processor by NAICS code. 
+	\begin{itemize}
+		\item Combine with census retail sales data.
+	\end{itemize}
+	\item ZIP code-level auto sales data.
+	\item ZIP code-level net worth:
+	\begin{align*}
+		NW_{it} = S_{it} + B_{it} + H_{it} - D_{it}
+	\end{align*}
+	\begin{itemize}
+		\item IRS Statistics of Income (SOI) to proxy for $S_{it}, B_{it}$
+		\item Core Logic ZIP code-level house price index to get $H_{it}$.
+		\item Equifax Predictive Services to measure $D_{it}$
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Specification}
+\begin{itemize}
+	\item Housing net worth shock:
+	\begin{align*}
+		\frac{\Delta \log p^H_{i,06-09}H_{i,2006}}{NW_{i,2006}}
+	\end{align*}
+	\item Regression:
+	\begin{align*}
+		\Delta log C_{i,06-09} = \alpha + \beta \frac{\Delta \log p^H_{i,06-09}H_{i,2006}}{NW_{i,2006}} + \gamma X_{it} + \epsilon_{it}
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Large Variation in Net Worth}
+\centering
+\includegraphics[scale=0.4]{figures/MRSFIG2.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Correlated with Housing Supply Instrument}
+\centering
+\includegraphics[scale=0.4]{figures/MRSTAB2.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Net Worth Decline Predicts Spending Decline}
+\centering
+\includegraphics[scale=0.4]{figures/MRSFIG3.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Net Worth Decline Predicts Spending Decline}
+\centering
+\includegraphics[scale=0.5]{figures/MRSTAB3.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{MPC}
+\centering
+\includegraphics[scale=0.6]{figures/MRSFIG4b.png}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Heterogeneity}
+
+\end{frame}
+
 
 
 \end{document}
