@@ -6,7 +6,7 @@
 
 \begin{document}
 
-\title{Topics in Macroeconomics }
+\title{Identification with Regional Data}
 \vspace{1cm}
 \author[shortname]{
 \begin{tabular}{cc}
@@ -60,7 +60,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction}
+\section{Identification with Regional Data}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -71,26 +71,46 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{align*}
 \begin{itemize}
 	\item Interested in $\beta$.
-	\item Can identify $\beta$ if $E( \epsilon_i|X_i)=0$ or suitable instrument with $E( \epsilon_i|Z_i)=0$.
+	\item Can identify $\beta$ if $E( \epsilon_i|X_i)=0$ or suitable instrument with $E( \epsilon_i|Z_i)=0$ and $E( X_i|Z_i)\neq 0$.
 	\item What's the DGP? Two views:
 	\begin{enumerate}
-		\item $X_i$ / $Z_i$ is quasi-random heterogenous exposure to the same endogenous shock.
-		\item $X_i$ / $Z_i$ is heterogenous, endogenous exposure to heterogenous, quasi-random shocks.
+		\item $X_i$ / $Z_i$ captures quasi-random heterogenous exposure to endogenous shock(s).
+		\item $X_i$ / $Z_i$ captures endogenous exposure to heterogenous, quasi-random shocks.
 	\end{enumerate}
 \end{itemize}
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Goldsmith-Pinkham, Sorkin, and Swift, AER 2020}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle[alignment=center]{Bartik / Shift-Share}
+\begin{itemize}
+	\item National or industry shocks or trends affect some regions more than others because they are more exposed to that shock or trend.
+	\item Bartik instrument interacts national / industry shock with local area exposure.
+	\item Called ``Bartik'' instrument or shock due to Bartik (1991). Popularized by Blanchard and Katz (1992).
+%	\item Lots
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Examples}
+\begin{itemize}
+	\item Local employment by industry (Bartik, 1991)
+	\item Local wage shocks by worker skill (Diamond, 2016)
+	\item Decline of manufacturing (Charles, Hurst, Notowidigdo, 2018)
+	\item Penetration of Chinese imports (Autor, Dorn, Hanson, 2013)
+	\item Penetration of robots (Acemoglu and Restrepo, 2019)
+	\item Military spending shocks (Nakamura and Steinsson, 2014)
+	\item Bank health shocks (Mondragon, 2020)
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}
 \frametitle[alignment=center]{Bartik: Canonical Example}
 \begin{itemize}
 	\item Structural equation:
 	\begin{align*}
-		y_l = \tau +\beta x_l + \epsilon_l
+		y_l = \rho +\beta x_l + \epsilon_l
 	\end{align*}
 	\begin{itemize}
 		\item $y_l$: wage growth in area $l$.
@@ -110,14 +130,198 @@ Juan Herre\~{n}o & Johannes Wieland \\
 	\begin{align*}
 		B_l = \sum_k z_{l,k}g_k
 	\end{align*}
-	\item What is exogenous? Shares? Shocks? Product?
+%	\item What is exogenous? Shares? Shocks? Product?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Autor, Dorn, Hanson (AER, 2013) ``China Shock''}
+\begin{itemize}
+	\item What is the effect of import competition on aggregate labor demand?
+	\item Difficult to make causal claim in the aggregate:
+	\begin{itemize}
+		\item If find negative correlation between industry imports and industry employment, this could just be a labor supply effect.
+		\item Even if labor demand, aggregate regression may  simply measure a reallocation to a different industry.
+	\end{itemize}
+%	\item Idea: Areas with greater employment in these industries more affected.
+	\item Measure import penetration at local area level $i$:
+	\begin{align*}
+		IPW_{uit} = \sum_j \frac{L_{ijt}}{L_{it}}  \frac{\Delta M_{ucjt}}{L_{jt}}
+	\end{align*}
+	\item Instrument using rise in imports elsewhere in the world:
+	\begin{align*}
+		\Delta IPW_{oit} = \sum_j \frac{L_{ij,t-1}}{L_{i,t-1}}  \frac{\Delta M_{ocjt}}{L_{j,t-1}}
+	\end{align*}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle[alignment=center]{General Setup}
+\frametitle[alignment=center]{Autor, Dorn, Hanson (AER, 2013) ``China Shock''}
+\centering
+\includegraphics[scale=0.325]{figures/ADHFIG1.png}\includegraphics[scale=0.325]{figures/ADHFIG2.png}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Bartik: Concerns}
+Require:
+\begin{align*}
+%		y_l & = \rho +\beta x_l + \epsilon_l \\
+		E(\epsilon_l B_l) = E(\epsilon_l \sum_k z_{l,k}g_k) &= 0  
+	\end{align*}
+\begin{enumerate}
+	\item Pre-shock shares endogenous to lagged shock or the same shock if serially correlated, $E(\epsilon_l  z_{l,k})\neq 0$.
+	\begin{itemize}
+		\item Random assignment conditional on controls can be difficult to justify: regions that differ in $z$ probably differ on other (unobserved) dimensions too!
+	\end{itemize}
+	\item National industry shocks correlated with local shocks,
+, $E(\epsilon_l  g_k)\neq 0$. 
+	\begin{itemize}
+		\item In classic Bartik example, worry that $g_k$ is correlated with (unobserved) labor supply shocks.
+	\end{itemize}
+\end{enumerate}
+How to handle identification arguments?
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Goldsmith-Pinkham, Sorkin, and Swift, AER 2020}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle[alignment=center]{Special Case: 2 Industries}
 \begin{itemize}
-	\item x
+	\item Bartik instrument is proportional to industry share:
+	\begin{align*}
+		B_l = z_{1l}g_1+z_{2l}g_2 = g_2 + (g_1-g_2)z_{1l}
+	\end{align*}
+	\item First stage:
+	\begin{align*}
+		x_l = \gamma_0 + \gamma B_l + \eta_l = \gamma_0 + \gamma g_2 + \gamma (g_1-g_2)z_{1l} + \eta_l 
+	\end{align*}
+	\item $B_l$ is equivalent to using $z_{1l}$ (or $z_{2l}$) as instrument.
+	\item Intution:
+	\begin{itemize}
+		\item $z_{1l}$ measures exposure, $g_1-g_2$ the magnitude of the treatment.
+		\item Many cross-sectional regressions take the view $g_2=0$: heterogeneous exposure to single aggregate shock.
+		\item What endogeneity problem does the Bartik instrument (or industry shares) solve? What does it not solve?
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{General Case (1)}
+Notation:
+\begin{itemize}
+	\item $Z_{lt}=(z_{l1t},...,z_{lkt})$ is a $1\times K$ vector of industry  shares.
+	\item $Z_t = (Z_{1t}',...,Z_{Lt}')'$ is a $L\times K$ matrix of industry shares.
+	\item $G_{t}=(g_{1t},...,g_{kt})'$ is a $K\times 1$ vector of industry growth rates.
+	\item $B_t = Z_0 G_t$ is a $L\times 1$ vector of Bartik instruments.
+	\item $X_t=(x_{1t},...,x_{Lt})'$ is a $L\times 1$ vector of endogenous variables.
+	\item $Y_t=(y_{1t},...,y_{Lt})'$ is a $L\times 1$ vector of outcomes.
+	\item Assume $X_t,Y_t$ previously residualized with respect to any covariates.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{General Case (2)}
+\begin{itemize}
+%	\item 
+%	\begin{align*}
+%		Z=\begin{pmatrix}
+%			Z_0 & 0 & \hdots & 0 \\
+%			0 & Z_0 & \hdots & 0 \\
+%			\vdots & 0 & \ddots & \vdots \\
+%			0 & \hdots & 0 & Z_0 \\
+%		\end{pmatrix}
+%	\end{align*}
+%	\item $G=(G_{1}',...,G_{T})'$ is a $KT\times 1$ vector of industry growth rates.
+	\item $B$ is a $LT\times 1$ vector of Bartik instruments.
+	\begin{align*}
+		B=ZG = \begin{pmatrix}
+			Z_0G_1 \\
+			Z_0G_2 \\
+			\vdots  \\
+			Z_0 G_T \\
+		\end{pmatrix} =
+		\underbrace{\begin{pmatrix}
+			Z_0 & 0 & \hdots & 0 \\
+			0 & Z_0 & \hdots & 0 \\
+			\vdots & 0 & \ddots & \vdots \\
+			0 & \hdots & 0 & Z_0 \\
+		\end{pmatrix}}_{=Z} \underbrace{\begin{pmatrix}
+			G_1 \\
+			G_2 \\
+			\vdots  \\
+			 G_T \\
+		\end{pmatrix}}_{=G}
+	\end{align*}
+	\item $Z$ is a $LT\times KT$ matrix of industry shares
+	\item $G$ is a $KT\times 1$ vector of industry growth rates.
+	\item $X=(X_{1}',...,X_{T}')'$ is a $LT\times 1$ vector of endogenous variables.
+	\item $Y=(Y_{1}',...,Y_{T}')'$ is a $LT\times 1$ vector of outcomes.
+	\item The Bartik and GMM estimators are
+	\begin{align*}
+		\hat{\beta}_{Bartik} = \frac{B'Y}{B'X},\qquad\qquad \hat{\beta}_{GMM}=\frac{X'Z W Z'Y}{X'Z W Z'X}
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Equivalence of GMM and Bartik}
+\begin{itemize}
+	\item Proposition: When $W = GG'$ then $\hat{\beta}_{Bartik} = \hat{\beta}_{GMM}$
+	\item Proof:
+	\begin{align*}
+		\hat{\beta}_{GMM} &= (X'Z GG' Z'X)^{-1}(X'Z GG' Z'Y) \\
+		&=(X'BB'X)^{-1}(X'BB'Y) \\
+		&=(B'X)^{-1}(X'B)^{-1}(X'B)(B'Y)\\
+		&=\hat{\beta}_{Bartik}
+	\end{align*}
+	\item Bartik IV is numerically equivalent to IV regression with $K$ instruments corresponding to the industry shares in $Z$ weighted with industry $GG'$.
+	\item More notation extends to case with controls.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Identifying assumptions}
+\begin{itemize}
+	\item TSLS estimator:
+	\begin{align*}
+		\hat{\beta} - \beta_0 = \frac{\sum_{t=1}^{T}\sum_{k=1}^K g_{kt} \sum_{l=1}^{L}z_{lk0} \epsilon_{lt}}{\sum_{t=1}^{T}\sum_{k=1}^K g_{kt} \sum_{l=1}^{L}z_{lk0} x_{lt}}
+	\end{align*}
+	\item Identifying assumption (conditional on observables):
+	\begin{align*}
+		E\left[\frac{1}{L}\sum_{l=1}^{L}\epsilon_{lt}z_{zlk0}\right] =0,\qquad \forall k, t \\
+	\end{align*}
+	What are the asymptotics?
+	\item $KT$ moment conditions in GMM.
+	\item In words: the differential effect of higher exposure of one industry (compared to another) only affects the change in the outcome ($y_{lt}$) through the endogenous variable of interest, and not through any potential confounding channel.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Rotemberg Weights}
+\begin{itemize}
+	\item In principle, must make exogeneity claim for every industry $k=1,...,k$. Very difficult to do in practice.
+	\item GPSS: focus on select industries that are most influential in determining $\hat{\beta}_{Bartik}$.
+	\begin{align*}
+		\hat{\beta}_{Bartik} = \sum_k \hat{\alpha}_k \hat{\beta}_k
+	\end{align*}
+	where
+	\begin{align*}
+		\hat{\beta}_k = (Z_k'X)^{-1}(Z_k'Y),\qquad\qquad \hat{\alpha}_k = \frac{G_k' Z_k'X}{\sum_k G_k' Z_k'X} = \frac{G_k' Z_k'X}{B'X}
+	\end{align*}
+	\item $\hat{\beta}_k$ is the just-identified IV estimate from using only the industry shares of industry $k$, $Z_k$.
+	\item $\hat{\alpha}_k$ are the \emph{Rotemberg Weights}, which sum to 1 (can be negative).
+	\begin{itemize}
+		\item Contribution of industry $k$ to Bartik first stage covariance. (Not the same as F-stat.)
+		\item Measure the sensitivity to bias in instrument $k$.
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -126,6 +330,171 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \section{Borusyak, Hull, and Jaravel, RESTUD 2022}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}
+\frametitle[alignment=center]{BHJ Identification}
+\begin{itemize}
+	\item Bartik = TSLS estimator:
+	\begin{align*}
+		\hat{\beta} - \beta_0 = \frac{\sum_{t=1}^{T}\sum_{k=1}^K g_{kt} \sum_{l=1}^{L}z_{lk0} \epsilon_{lt}}{\sum_{t=1}^{T}\sum_{k=1}^K g_{kt} \sum_{l=1}^{L}z_{lk0} x_{lt}}
+	\end{align*}
+	\item Moment condition for identification:
+	\begin{align*}
+		E\left[\frac{1}{L}\sum_{l=1}^{L}b_{lt} \epsilon_{lt}\right] = E\left[\frac{1}{L}\sum_{l=1}^{L}\left(\sum_{t=1}^{T}\sum_{k=1}^K  g_{kt}z_{lk0}\right) \epsilon_{lt}\right] = 0
+	\end{align*}
+	\begin{itemize}
+		\item GPSS: quasi-random shares $E(\frac{1}{L}\sum_{l}z_{lk0}\epsilon_{lt}|g_{kt})=0$
+		\item BHJ approach: quasi-random shocks %$E[\sum_{k}()g_{kt}\epsilon_{lt}|z_{lk0}]=0$
+	\end{itemize}
+%	\item Quasi-random exposure vs quasi-random shocks.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{BHJ Moment Condition}
+\begin{itemize}
+	\item Moment condition in terms of shocks:
+	\begin{align*}
+		E\left[\frac{1}{L}B'\epsilon \right] &=  E\left[\frac{1}{L}\sum_{l=1}^{L}\left(\sum_{t=1}^{T}\sum_{k=1}^K  g_{kt}z_{lkt}\right) \epsilon_{lt}\right] \\
+		&=E\left[\sum_{k=1}^K \sum_{t=1}^{T}  \underbrace{\left(\frac{1}{L}\sum_{l=1}^{L}z_{lkt}\right)}_{z_{kt}}   g_{kt}   \underbrace{\left(\frac{\frac{1}{L}\sum_{l=1}^{L}z_{lkt}\epsilon_{lt}}{\frac{1}{L}\sum_{l=1}^{L}z_{lkt}}\right)}_{\bar{\epsilon}_{kt}}  \right] \\
+		&=E\left[\sum_{k=1}^K \sum_{t=1}^{T} z_{kt}    g_{kt} \bar{\epsilon}_{kt} \right] = E\left[(\check{Z}  G)' \bar{\epsilon} \right] \\
+	\end{align*}
+	where $\check{Z} = diag(z_{10},...,z_{KT})$.
+	\item Interpretation:
+	\begin{itemize}
+		\item $z_{kt}$ is average exposure to industry $k$.
+		\item $\bar{\epsilon}_{kt}$ is exposure-weighted average of shocks to wage growth.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{BHJ Proposition 1}
+\begin{itemize}
+	\item Claim: Bartik IV is equivalent to TSLS with $KT$ excluded instruments $g_{kt}$ and weights $z_{kt}$ in the second-stage regression:
+	\begin{align*}
+		\bar{y}_{kt} = \alpha + \beta \bar{x}_{kt} + \bar{\epsilon}_{kt}\\
+	\end{align*}
+	where $\bar{v}_{kt} = \frac{\frac{1}{L}\sum_{l=1}^{L}z_{lkt}v_{lt}}{\frac{1}{L}\sum_{l=1}^{L}z_{lkt}}$.
+	\item Proof:
+	\begin{align*}
+		\hat{\beta}_{Bartik} &= (B'X)^{-1}(B'Y) \\
+		&=\left(\sum_{k=1}^K \sum_{t=1}^{T} z_{kt}    g_{kt} \bar{x}_{kt}\right)^{-1}\left(\sum_{k=1}^K \sum_{t=1}^{T} z_{kt}    g_{kt} \bar{y}_{kt}\right) \\
+		&= (\check{Z}G'\bar{X})^{-1}(\check{Z}G'\bar{Y}) \\
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle[alignment=center]{Which case?}
+\begin{enumerate}
+	\item Exogenous shares: $E\left[\frac{1}{L}\sum_{l=1}^{L}z_{zlk0}\epsilon_{lt}\right] =0$
+	\begin{itemize}
+		\item Ex ante exposure in location $l$ uncorrelated with unobserved shocks to outcome.
+	\end{itemize}
+	\item Exogenous shocks (shifters): $E\left[\frac{1}{KT}\sum_{k=1}^K \sum_{t=1}^{T} z_{kt}    g_{kt} \bar{\epsilon}_{kt}\right] =0$
+	\begin{itemize}
+		\item Shocks to industry $k$ uncorrelated with unobserved industry shocks when weighted by industry size.
+	\end{itemize}
+\end{enumerate}
+\begin{itemize}
+	\item What are asymptotics?
+	\item Which is more plausible? When?
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Borusyak, Hull, WP 2021}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle[alignment=center]{Borusyak, Hull, WP 2021: Non-Random Exposure}
+\begin{align*}
+		y_i &= \alpha + \beta x_i + \epsilon_i \\
+		z_i &= f_i(g,w)
+	\end{align*}
+\begin{itemize}
+	\item Even if shocks are exogenous, $g \perp \epsilon | w$, due to non-random exposure.
+\begin{align*}
+	E\left[\frac{1}{N}\sum_i z_i \epsilon_i \right] = E\left[\frac{1}{N}\sum_i \mu_i \epsilon_i \right]
+\end{align*}
+where $\mu_i = E[f_i(g,w)]$.
+\item Intuition: some areas systematically get higher / lower treatment due to non-random assignment (exposure).
+\item Solution: simulate draws of shocks, compute $\mu_i$, and recenter instrument to $z_i-\mu_i$.
+\item A problem for Bartik (inner product) instruments?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Borusyak, Hull, WP 2021: Non-Random Exposure}
+\centering
+\includegraphics[scale=0.5]{figures/BHFIG1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Borusyak, Hull, WP 2021: Non-Random Exposure}
+\centering
+\includegraphics[scale=0.5]{figures/BHFIG2.png}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{More Best Practice}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle[alignment=center]{General Specification Tests}
+\begin{enumerate}
+	\item Estimated coefficients sensitive to inclusion of covariates?
+	\item Pre-trends?
+	\item Placebo tests?
+	\item Overidentification tests.
+	\item Subsample analysis: drop influential observations.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Leave-one-out}
+\begin{itemize}
+	\item Typically construct leave-one-out Bartik instrument:
+	\begin{align*}
+		B_l = \sum_k z_{l,k}g_{-l,k}
+	\end{align*}
+	\begin{itemize}
+		\item $g_{-l,k}$ is national employment growth in industry $k$ excluding area $l$.
+	\end{itemize}
+	\item Removes finite sample correlation between idiosyncratic industry growth rate $\tilde{g}_{l,k}$ and Bartik instrument $B_l$.
+	\item Often unimportant in practice. Why?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Standard Errors}
+\begin{itemize}
+	\item Ad\~{a}o, Koles\'{a}r, Morales (QJE, 2019): regions with similar exposure are not iid.
+	\item Example DGP:
+	\begin{align*}
+		y_l = \alpha+\beta_0 x_l + \epsilon_l ,\qquad x_l = \sum_k z_{lk}(g_k^1 + g_k^2)
+	\end{align*}
+	\item Want to know impact of $g^1$ (e.g., China shock):
+	\begin{align*}
+		y_l = \alpha+\beta_0 \sum_k z_{lk}g_k^1 + (\sum_k z_{lk}g_k^2 + \epsilon_l)
+	\end{align*}
+	\item Identified if $Cov(\sum_k z_{lk}g_k^1,\sum_k z_{lk}g_k^2 + \epsilon_l) = 0$.
+	\item But residuals correlated because of industry structure $\Rightarrow$ need to adjust standard errors. Severity depends on importance of $g_k^2$.
+	\item BHJ solve this issue by clustering the industry-level regression.
+\end{itemize}
+\end{frame}
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Nakamura and Steinsson, AER 2014}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,6 +502,91 @@ Juan Herre\~{n}o & Johannes Wieland \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Mian, Rao, and Sufi, QJE 2013}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle[alignment=center]{Mian and Sufi}
+Establish importance of household debt overhang during Great Recession in a series of papers:\\
+\begin{enumerate}
+	\item 2009 QJE: Expansion of credit to new subprime borrowers from 2002-2006 led to defaults.
+	\item 2011 AER: Credit expansion through home equity borrowing by existing homeowners.
+	\item 2013 QJE (with Rao): Consumption and credit crunch 2006-2009.
+	\item 2014 Emca: Deleveraging and unemployment, 2006-2009.
+	\item 2014 WP: Consumption growth and house prices, 2002-2006.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Mian, Rao, and Sufi, QJE 2013}
+Data:\\
+\begin{itemize}
+	\item County-level total consumer purchases with a credit card or debit card for which MasterCard is the processor by NAICS code. 
+	\begin{itemize}
+		\item Combine with census retail sales data.
+	\end{itemize}
+	\item ZIP code-level auto sales data.
+	\item ZIP code-level net worth:
+	\begin{align*}
+		NW_{it} = S_{it} + B_{it} + H_{it} - D_{it}
+	\end{align*}
+	\begin{itemize}
+		\item IRS Statistics of Income (SOI) to proxy for $S_{it}, B_{it}$
+		\item Core Logic ZIP code-level house price index to get $H_{it}$.
+		\item Equifax Predictive Services to measure $D_{it}$
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Specification}
+\begin{itemize}
+	\item Housing net worth shock:
+	\begin{align*}
+		\frac{\Delta \log p^H_{i,06-09}H_{i,2006}}{NW_{i,2006}}
+	\end{align*}
+	\item Regression:
+	\begin{align*}
+		\Delta log C_{i,06-09} = \alpha + \beta \frac{\Delta \log p^H_{i,06-09}H_{i,2006}}{NW_{i,2006}} + \gamma X_{it} + \epsilon_{it}
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Large Variation in Net Worth}
+\centering
+\includegraphics[scale=0.4]{figures/MRSFIG2.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Correlated with Housing Supply Instrument}
+\centering
+\includegraphics[scale=0.4]{figures/MRSTAB2.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Net Worth Decline Predicts Spending Decline}
+\centering
+\includegraphics[scale=0.4]{figures/MRSFIG3.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Net Worth Decline Predicts Spending Decline}
+\centering
+\includegraphics[scale=0.5]{figures/MRSTAB3.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{MPC}
+\centering
+\includegraphics[scale=0.6]{figures/MRSFIG4b.png}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Heterogeneity}
+
+\end{frame}
+
 
 
 \end{document}
