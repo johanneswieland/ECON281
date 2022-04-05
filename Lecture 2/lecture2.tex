@@ -1,7 +1,8 @@
 \documentclass[english,xcolor=svgnames]{beamer}
 
 
-\input{../Latex/teachingslidesbeamer.tex}
+\input{../Latex/teachingslidesbeamer.tex}
+
 
 
 \begin{document}
@@ -13,7 +14,8 @@
 Juan Herre\~{n}o & Johannes Wieland \\ 
 \end{tabular}\\
 }
-
+
+
 
 \date{UCSD, Spring \the\year}
 
@@ -586,6 +588,76 @@ Data:\\
 \frametitle[alignment=center]{Heterogeneity}
 
 \end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Data}
+\begin{itemize}
+	\item Military procurement data by U.S. State and year.
+	\begin{itemize}
+		\item  DD-350 military procurement forms
+		\item Records purchases $>$ 10k before 1983 and $>25k$ thereafter.
+	\end{itemize}	
+	\item GDP growth, employment growth, inflation by U.S. State and year.
+	\begin{itemize}
+		\item How well are these measured?
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Specification}
+\begin{itemize}
+	\item Second stage:
+	\begin{align*}
+		\frac{Y_{it}-Y_{it-2}}{Y_{it-2}} = \alpha_i + \gamma_t + \beta \frac{G_{it}-G_{it-2}}{G_{it-2}}  + \epsilon_{it}
+	\end{align*}
+	\item First stage (I):
+	\begin{align*}
+		\frac{G_{it}-G_{it-2}}{G_{it-2}}  = \delta_i + \theta_t + \sum_k\zeta_k 1(i=k)  \frac{G_{t}-G_{t-2}}{G_{t-2}}  + \eta_{it}
+	\end{align*}
+	\item First stage (II):
+	\begin{align*}
+		\frac{G_{it}-G_{it-2}}{G_{it-2}}  = \delta_i + \theta_t + \zeta \left(s_i \frac{G_{t}-G_{t-2}}{G_{t-2}}\right)  + \eta_{it}
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Identification: Shares or Shocks?}
+\emph{Our identifying assumption is that the United States does not embark on military buildups-such as those associated with the Vietnam War and the Soviet invasion of Afghanistan-because states that receive a disproportionate amount of military spending are doing poorly relative to other states.}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Results}
+\centering
+\includegraphics[scale=0.5]{figures/NSTAB2.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Results}
+\centering
+\includegraphics[scale=0.5]{figures/NSFIG3.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Results}
+\centering
+\includegraphics[scale=0.5]{figures/NSTAB3.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{What could go wrong?}
+\begin{itemize}
+	\item What problems do the instrument(s) solve?
+	\item What problems remain?
+	\item What would you like to see?
+\end{itemize}
+\end{frame}
+
+
 
 
 
