@@ -501,95 +501,6 @@ where $\mu_i = E[f_i(g,w)]$.
 \section{Nakamura and Steinsson, AER 2014}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Mian, Rao, and Sufi, QJE 2013}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame}
-\frametitle[alignment=center]{Mian and Sufi}
-Establish importance of household debt overhang during Great Recession in a series of papers:\\
-\begin{enumerate}
-	\item 2009 QJE: Expansion of credit to new subprime borrowers from 2002-2006 led to defaults.
-	\item 2011 AER: Credit expansion through home equity borrowing by existing homeowners.
-	\item 2013 QJE (with Rao): Consumption and credit crunch 2006-2009.
-	\item 2014 Emca: Deleveraging and unemployment, 2006-2009.
-	\item 2014 WP: Consumption growth and house prices, 2002-2006.
-\end{enumerate}
-\end{frame}
-
-\begin{frame}
-\frametitle[alignment=center]{Mian, Rao, and Sufi, QJE 2013}
-Data:\\
-\begin{itemize}
-	\item County-level total consumer purchases with a credit card or debit card for which MasterCard is the processor by NAICS code. 
-	\begin{itemize}
-		\item Combine with census retail sales data.
-	\end{itemize}
-	\item ZIP code-level auto sales data.
-	\item ZIP code-level net worth:
-	\begin{align*}
-		NW_{it} = S_{it} + B_{it} + H_{it} - D_{it}
-	\end{align*}
-	\begin{itemize}
-		\item IRS Statistics of Income (SOI) to proxy for $S_{it}, B_{it}$
-		\item Core Logic ZIP code-level house price index to get $H_{it}$.
-		\item Equifax Predictive Services to measure $D_{it}$
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle[alignment=center]{Specification}
-\begin{itemize}
-	\item Housing net worth shock:
-	\begin{align*}
-		\frac{\Delta \log p^H_{i,06-09}H_{i,2006}}{NW_{i,2006}}
-	\end{align*}
-	\item Regression:
-	\begin{align*}
-		\Delta log C_{i,06-09} = \alpha + \beta \frac{\Delta \log p^H_{i,06-09}H_{i,2006}}{NW_{i,2006}} + \gamma X_{it} + \epsilon_{it}
-	\end{align*}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle[alignment=center]{Large Variation in Net Worth}
-\centering
-\includegraphics[scale=0.4]{figures/MRSFIG2.png}
-\end{frame}
-
-\begin{frame}
-\frametitle[alignment=center]{Correlated with Housing Supply Instrument}
-\centering
-\includegraphics[scale=0.4]{figures/MRSTAB2.png}
-\end{frame}
-
-\begin{frame}
-\frametitle[alignment=center]{Net Worth Decline Predicts Spending Decline}
-\centering
-\includegraphics[scale=0.4]{figures/MRSFIG3.png}
-\end{frame}
-
-\begin{frame}
-\frametitle[alignment=center]{Net Worth Decline Predicts Spending Decline}
-\centering
-\includegraphics[scale=0.5]{figures/MRSTAB3.png}
-\end{frame}
-
-\begin{frame}
-\frametitle[alignment=center]{MPC}
-\centering
-\includegraphics[scale=0.6]{figures/MRSFIG4b.png}
-\end{frame}
-
-
-\begin{frame}
-\frametitle[alignment=center]{Heterogeneity}
-
-\end{frame}
-
-
 \begin{frame}
 \frametitle[alignment=center]{Data}
 \begin{itemize}
@@ -656,6 +567,98 @@ Data:\\
 	\item What would you like to see?
 \end{itemize}
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mian, Rao, and Sufi, QJE 2013}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle[alignment=center]{Mian and Sufi}
+Establish importance of household debt overhang during Great Recession in a series of papers:\\
+\begin{enumerate}
+	\item 2009 QJE: Expansion of credit to new subprime borrowers from 2002-2006 led to defaults.
+	\item 2011 AER: Credit expansion through home equity borrowing by existing homeowners.
+	\item 2013 QJE (with Rao): Consumption and credit crunch 2006-2009.
+	\item 2014 Emca: Deleveraging and unemployment, 2006-2009.
+	\item 2014 WP: Consumption growth and house prices, 2002-2006.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Mian, Rao, and Sufi, QJE 2013}
+Data:\\
+\begin{itemize}
+	\item County-level total consumer purchases with a credit card or debit card for which MasterCard is the processor by NAICS code. 
+	\begin{itemize}
+		\item Combine with census retail sales data.
+	\end{itemize}
+	\item ZIP code-level auto sales data.
+	\item ZIP code-level net worth:
+	\begin{align*}
+		NW_{it} = S_{it} + B_{it} + H_{it} - D_{it}
+	\end{align*}
+	\begin{itemize}
+		\item IRS Statistics of Income (SOI) to proxy for $S_{it}, B_{it}$
+		\item Core Logic ZIP code-level house price index to get $H_{it}$.
+		\item Equifax Predictive Services to measure $D_{it}$
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Specification}
+\begin{itemize}
+	\item Housing net worth shock:
+	\begin{align*}
+		\frac{\Delta \log p^H_{i,06-09}H_{i,2006}}{NW_{i,2006}}
+	\end{align*}
+	\item Regression:
+	\begin{align*}
+		\Delta log C_{i,06-09} = \alpha + \beta \frac{\Delta \log p^H_{i,06-09}H_{i,2006}}{NW_{i,2006}} + \gamma X_{it} + \epsilon_{it}
+	\end{align*}
+	\item Identification assumption:
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Large Variation in Net Worth}
+\centering
+\includegraphics[scale=0.4]{figures/MRSFIG2.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Correlated with Housing Supply Instrument}
+\centering
+\includegraphics[scale=0.4]{figures/MRSTAB2.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Net Worth Decline Predicts Spending Decline}
+\centering
+\includegraphics[scale=0.4]{figures/MRSFIG3.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Net Worth Decline Predicts Spending Decline}
+\centering
+\includegraphics[scale=0.5]{figures/MRSTAB3.png}
+\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{MPC}
+\centering
+\includegraphics[scale=0.6]{figures/MRSFIG4b.png}
+\end{frame}
+
+
+\begin{frame}
+\frametitle[alignment=center]{Heterogeneity}
+
+\end{frame}
+
+
 
 
 
