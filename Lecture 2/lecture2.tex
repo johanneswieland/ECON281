@@ -374,7 +374,8 @@ Notation:
 \begin{frame}
 \frametitle[alignment=center]{BHJ Proposition 1}
 \begin{itemize}
-	\item Claim: Bartik IV is equivalent to TSLS with $KT$ excluded instruments $g_{kt}$ and weights $z_{kt}$ in the second-stage regression:
+	\item Claim: Bartik IV is equivalent to a shock-level just-identifed IV regression
+	of $KT$ observations with $g_{kt}$ being the instrument for $ \bar{x}_{kt} $ and $z_{kt}$ being sample weight:
 	\begin{align*}
 		\bar{y}_{kt} = \alpha + \beta \bar{x}_{kt} + \bar{\epsilon}_{kt}\\
 	\end{align*}
