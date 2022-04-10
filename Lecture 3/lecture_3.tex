@@ -480,7 +480,7 @@ $$ \text{Locally financed } \mathcal{M}^G = \text{Transfer-financed } \mathcal{M
 \end{itemize}
 \end{frame}
 
-\section{The Phillips Curve}
+\section{The Regional Phillips Curve}
 
 \subsection{General Points}
 
@@ -838,8 +838,89 @@ Two Approaches: \vspace{10pt}
 	\end{figure}
 \end{frame}
 
+
+\section{Demand Equivalence}
+
+\begin{frame}{Wolf 2021}
+\begin{itemize}
+\item Remember the Keynesian Cross
+\begin{itemize}
+\item External validity question: Can we learn about shocks to $C$ if we knew IRF to responses to $G$?
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{PE and GE responses}
+\begin{itemize}
+\item $\mathbf{s^h}$ is the sequence of the aggregate state for households $$\mathbf{s^h} = (\mathbf{i^b,\pi,w,l,\tau^e,d,p^c})$$
+\item $\mathbf{\epsilon}$ is a sequence of shocks to $g$ and $\tau$
+\item The consumption function is $\mathbf{c} = \mathbf{c(s^h,\epsilon)}$
+\item The total impulse response of consumption to a shock $\mathbf{\epsilon}$
+$$\mathbf{\hat{c}_{\epsilon} = c(s^h,\epsilon) - c(\bar{s}^h,0)}$$
+\item The direct (PE) response is:
+$$\mathbf{\hat{c}^{PE}_{\epsilon} = c(\bar{s}^h,\epsilon) - c(\bar{s}^h,0)}$$
+\item The indirect (GE) response is
+$$\mathbf{\hat{c}^{GE}_{\epsilon} = c(s^h,0) - c(s^h,0)}$$
+\item Can you verbalize what situation would get you each of these effects?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{PE and GE responses}
+\begin{itemize}
+\item Easy to see that
+$$\mathbf{\hat{c}_{\epsilon} = \hat{c}^{GE}_{\epsilon}  + \hat{c}^{PE}_{\epsilon}} $$
+\item Then under three assumptions
+\begin{enumerate}
+\item Households and Government consume the same final good
+\item Households and Government face the same interest rates
+\item No wealth effects on labor supply, or wages are fixed.
+\end{enumerate}
+\item for a fiscal spending policy that satisfies
+\begin{enumerate}
+\item Same net excess demand $\hat{g}_g =\hat{c}^PE_{\tau}$
+\item Identical tax response $\hat{\tau}^e_g = \hat{\tau}^e_{\tau}$
+\end{enumerate}
+$$\mathbf{\hat{c}_{\tau} = \hat{c}^{PE}_{\tau}  + \hat{c}_g} $$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Interpretation}
+$$\mathbf{\hat{c}_{\tau} = \hat{c}^{PE}_{\tau}  + \hat{c}_g} $$
+\begin{itemize}
+\item You can extrapolate the response of $g$ shocks to learn about $\tau$ shocks
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Interpretation}
+\begin{figure}
+\includegraphics[scale=0.45]{figures/wolf_1}
+\end{figure}
+\begin{itemize}
+\item Question: Why is the Direct response in the right panel = 0?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Main Challenges}
+\begin{itemize}
+\item It requires you can actually estimate the fiscal multiplier on aggregate data.
+\item Matching requirement. The path of $g$ and $\tau$ may generate the same demand paths
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Convincing?}
+
+\end{frame}
+
+
 \section{Household Wealth}
 
-\section{Equivalence Results}
+\begin{frame}{Discussion (out of time?)}
+\begin{itemize}
+\item What would Mian and Sufi say about the paper?
+\item What are the key assumptions of the model?
+\item Credible?
+\end{itemize}
+\end{frame}
 
 \end{document}
