@@ -138,6 +138,28 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 
 \begin{frame}
+\frametitle[alignment=center]{Bartik: Concerns}
+Require:
+\begin{align*}
+%		y_l & = \rho +\beta x_l + \epsilon_l \\
+		E(\epsilon_l B_l) = E(\epsilon_l \sum_k z_{l,k}g_k) &= 0  
+	\end{align*}
+\begin{enumerate}
+	\item Pre-shock shares endogenous to lagged shock or the same shock if serially correlated, $E(\epsilon_l  z_{l,k})\neq 0$.
+	\begin{itemize}
+		\item Random assignment conditional on controls can be difficult to justify: regions that differ in $z$ probably differ on other (unobserved) dimensions too!
+	\end{itemize}
+	\item National industry shocks correlated with local shocks,
+, $E(\epsilon_l  g_k)\neq 0$. 
+	\begin{itemize}
+		\item In classic Bartik example, worry that $g_k$ is correlated with (unobserved) labor supply shocks.
+	\end{itemize}
+\end{enumerate}
+How to handle identification arguments?
+\end{frame}
+
+
+\begin{frame}
 \frametitle[alignment=center]{Autor, Dorn, Hanson (AER, 2013) ``China Shock''}
 \begin{itemize}
 	\item What is the effect of import competition on aggregate labor demand?
@@ -165,26 +187,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 
-\begin{frame}
-\frametitle[alignment=center]{Bartik: Concerns}
-Require:
-\begin{align*}
-%		y_l & = \rho +\beta x_l + \epsilon_l \\
-		E(\epsilon_l B_l) = E(\epsilon_l \sum_k z_{l,k}g_k) &= 0  
-	\end{align*}
-\begin{enumerate}
-	\item Pre-shock shares endogenous to lagged shock or the same shock if serially correlated, $E(\epsilon_l  z_{l,k})\neq 0$.
-	\begin{itemize}
-		\item Random assignment conditional on controls can be difficult to justify: regions that differ in $z$ probably differ on other (unobserved) dimensions too!
-	\end{itemize}
-	\item National industry shocks correlated with local shocks,
-, $E(\epsilon_l  g_k)\neq 0$. 
-	\begin{itemize}
-		\item In classic Bartik example, worry that $g_k$ is correlated with (unobserved) labor supply shocks.
-	\end{itemize}
-\end{enumerate}
-How to handle identification arguments?
-\end{frame}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
