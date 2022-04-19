@@ -632,16 +632,20 @@ Juan Herre\~{n}o & Johannes Wieland \\
   \end{itemize}
 \end{frame}
 
-\begin{frame}[label=baselinenominal]
+\begin{frame}[label=baselineforecasts]
 \frametitle{Counterfactual Consumption Expenditure: Baseline Model}
 
 \begin{center}
 \footnotesize
 \centering
-
-    \includegraphics[width=10cm]{figures/macro_counterfactual_baseline}
+    \begin{tabular}{cc}
+    Real PCE: Micro MPCs & Real PCE GE: Baseline \\
+    \includegraphics[width=5cm]{figures/Real_PCEfc_micro_baseline.eps} &   \includegraphics[width=5cm]{figures/Real_PCEfc_GE_baseline.eps} \\
+    Motor Vehicles: Micro MPCs & Motor Vehicles: GE Baseline \\
+    \includegraphics[width=5cm]{figures/Real_Motorvehicles_micro_baseline.eps} &  \includegraphics[width=5cm]{figures/Real_Motorvehicles_GE_baseline.eps} \\
+    \end{tabular} \\
  \end{center} 
-  \vspace{-0.5cm}
+ \vspace{-0.5cm}
 \end{frame}
 
 \begin{frame}
@@ -664,26 +668,35 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 \end{frame}
 
-\begin{frame}
-\frametitle{Decomposing OLS and DiD Imputation Coefficients}
-\begin{center}
-\footnotesize
-\centering
-    \includegraphics[width=10cm]{figures/decompose_olsVbjs}
- \end{center} 
-  \vspace{-0.5cm}
+\begin{frame}{Decomposing OLS v.DID Imputation}
+    \label{decompose_OLSd}
+
+    \begin{figure}
+    \centering
+    \begin{tabular}{cc}
+    Period Weights & Period Coefficients \\
+    \includegraphics[width=4.5cm]{figures/BJSvOLSweight_d_totexp2_v2__} &   \includegraphics[width=4.5cm]{figures/BJSvOLScoef_d_totexp2_v2__} \\
+    Decomposed Coefficient & Relative Contributions \\
+   \includegraphics[width=4.5cm]{figures/BJSvOLScoef_stack_d_totexp2_v2__}& \includegraphics[width=4.5cm]{figures/BJSvOLScontribution_d_totexp2_v2__} \\
+    \end{tabular} \\
+    
+\end{figure}
 \end{frame}
 
-\begin{frame}[label=baselinenominal]
-\frametitle{Counterfactual Consumption Expenditure: Less Elastic Model}
+\begin{frame}[label=durablepriceforecasts]
+\frametitle{Counterfactual: Less Elastic Durable Supply Model}
 
 \begin{center}
 \footnotesize
 \centering
-
-    \includegraphics[width=10cm]{figures/macro_counterfactual2}
+    \begin{tabular}{cc}
+    Real PCE: Micro MPCs & Real PCE: GE Less Elastic \\
+    \includegraphics[width=5cm]{figures/Real_PCEfc_micro_durableprice.eps} &   \includegraphics[width=5cm]{figures/Real_PCEfc_GE_durableprice.eps} \\
+    Motor Vehicles: Micro MPCs & Motor Vehicles: GE Less Elastic \\
+    \includegraphics[width=5cm]{figures/Real_Motorvehicles_micro_durableprice.eps} &  \includegraphics[width=5cm]{figures/Real_Motorvehicles_GE_durableprice.eps} \\
+    \end{tabular} \\
  \end{center} 
-  \vspace{-0.5cm}
+ \vspace{-0.5cm}
 \end{frame}
 
 \end{document}
