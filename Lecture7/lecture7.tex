@@ -1,0 +1,277 @@
+\documentclass[english,xcolor=svgnames]{beamer}
+
+
+\input{../Latex/teachingslidesbeamer.tex}
+
+
+
+\begin{document}
+
+\title{The Sequence Space}
+\vspace{1cm}
+\author[shortname]{
+\begin{tabular}{cc}
+Juan Herre\~{n}o & Johannes Wieland \\ 
+\end{tabular}\\
+}
+
+
+
+\date{UCSD, Spring \the\year}
+
+\setbeamertemplate{footline}{}
+\makebeamertitle
+\setbeamertemplate{footline}[frame number]{}
+
+\addtocounter{framenumber}{-1}
+
+
+
+%\begin{frame}
+%\frametitle[alignment=center]{Reminders}
+%\begin{enumerate}
+%	\item First project draft due May 1.
+%	\item Participation.
+%\end{enumerate}
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginSection[]{
+\setbeamertemplate{footline}{}
+  \frame<beamer>{ 
+
+    \frametitle{Outline}   
+
+    \tableofcontents[currentsection,hideallsubsections] 
+  }
+\setbeamertemplate{footline}[frame number]{}
+\addtocounter{framenumber}{-1}
+}
+
+\AtBeginSubsection[]{
+\setbeamertemplate{footline}{}
+  \frame<beamer>{ 
+
+    \frametitle{Outline}   
+
+    \tableofcontents[currentsection,currentsubsection] 
+  }
+  \setbeamertemplate{footline}[frame number]{}
+  \addtocounter{framenumber}{-1}
+}
+
+
+
+\setbeamertemplate{footline}{}
+\begin{frame}
+\frametitle{Outline}   
+\tableofcontents[hideallsubsections] 
+\end{frame}
+\addtocounter{framenumber}{-1}
+\setbeamertemplate{footline}[frame number]{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+    \frametitle{Solving Models}
+    \begin{itemize}
+        \item Hard.
+        \item Especially when there is heterogeneity.
+        \item Infinitely dimensional state space from the distribution of agent's endogenous state variables---how to handle it?
+        \item In macro, we are often interested what happens when aggregate shock X hits the economy (monetary, fiscal, etc).
+        \item Conditional on the shock, the economy follows a particular \emph{sequence} (path).
+%        \item Heterogeneity generally only affects the equilibrium path through its effect on aggregate prices / quantities (real rate, income), which depends on specific moments of the distribution. 
+        \item[$\Rightarrow$] Solution only requires knowledge of how heterogeneity evolves along that path (sequence space), not for any other contingencies (state space). 
+       	\item Cost: linearization / perfect foresight.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Demand Supply Example}
+    \begin{itemize}
+        \item Demand and Supply
+        \begin{align*}
+            q_i^D &= - \eta^D p + \mu^D q + v^D  \\
+            q_j^S &= \eta^S p + \mu^S q + v^S 
+        \end{align*}
+        \begin{itemize}
+            \item Demand/supply elasticities $\eta$, 
+            \item ``Agglomoration'' elasticities $\mu$
+        \end{itemize}
+        % \item Excess Demand:
+        % \begin{align*}
+        %     q^D - q^S &= - (\eta^D + \eta^S) p + ( v^D - v^S )
+        % \end{align*}
+        \item Market clearing:
+        \begin{align*}
+%            p &= \frac{1}{( \frac{\eta^D}{1-\mu^D} + \frac{\eta^S}{1-\mu^S})}\left( \frac{1}{1-\mu^D}v^D -  \frac{1}{1-\mu^S}v^S \right) \\
+            q &= \frac{\frac{\eta^S}{1-\mu^S}}{( \frac{\eta^D}{1-\mu^D} + \frac{\eta^S}{1-\mu^S})}\frac{1}{1-\mu^D}v^D  + \frac{\frac{\eta^D}{1-\mu^D} }{( \frac{\eta^D}{1-\mu^D} + \frac{\eta^S}{1-\mu^S})} \frac{1}{1-\mu^S}v^S
+        \end{align*}
+        \item Sequence space methods are combining demand / supply elasticities and multiplier effects to solve for equilibrium outcomes.
+        \item New: these are intertemporal objects.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{NK Example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{NK Example}
+    \begin{itemize}
+        \item Simple NK model with perfect forsight:
+        \begin{align*}
+            y_t &= -\frac{1}{\sigma}(i_t - \pi_{t+1}) + \E_t y_{t+1}  \\
+            \pi_t &= \kappa (y_t - y_t^{flex}) + \beta\pi_{t+1}
+        \end{align*}
+        \begin{itemize}
+            \item Exogenous $i_t, y_t^{flex}$ (determinacy?) 
+        \end{itemize}
+        \item Euler equations stacked in rows:
+        \begin{align*}
+        	\begin{pmatrix}
+        		1 & -1 & 0 & \hdots & 0 \\
+        		0 & 1 & -1 & 0 & \vdots \\
+        		\vdots & 0 & \ddots & \ddots & 0 \\
+        		0 & \hdots & 0 & 1 & -1 \\
+        	\end{pmatrix}
+        	\begin{pmatrix}
+        		y_0 \\
+        		y_1 \\
+        		\vdots \\
+        		y_T \\
+        	\end{pmatrix}
+        	=&-\begin{pmatrix}
+        		1 & 0 & \hdots & 0  \\
+        		0 & 1 & 0 & \vdots  \\
+        		\vdots & 0 & \ddots & 0  \\
+        		0 & \hdots & 0 & 1  \\
+        	\end{pmatrix}
+        	\begin{pmatrix}
+        		i_0 \\
+        		i_1 \\
+        		\vdots \\
+        		i_T \\
+        	\end{pmatrix}
+        	\\
+        	&+ 
+        	\begin{pmatrix}
+        		0 & 1 & 0 & \hdots & 0 \\
+        		0 & 0 & 1 & \hdots & 0 \\
+        		\vdots & 0 & \ddots & \ddots & 1 \\
+        		0 & \vdots & 0 & 0 & 0 \\
+        	\end{pmatrix}
+        	\begin{pmatrix}
+        		\pi_0 \\
+        		\pi_1 \\
+        		\vdots \\
+        		\pi_T \\
+        	\end{pmatrix}
+        \end{align*}
+%        \begin{itemize}
+%        	\item Time periods are stacked in rows.
+%        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{NK Example}
+    \begin{itemize}
+        \item NKPC equation in sequence form:
+        \begin{align*}
+        	\begin{pmatrix}
+        		1 & -\beta & 0 & \hdots & 0 \\
+        		0 & 1 & -\beta & 0 & \vdots \\
+        		\vdots & 0 & \ddots & \ddots & 0 \\
+        		0 & \hdots & 0 & 1 & -\beta \\
+        	\end{pmatrix}
+        	\begin{pmatrix}
+        		\pi_0 \\
+        		\pi_1 \\
+        		\vdots \\
+        		\pi_T \\
+        	\end{pmatrix}
+        	=&\begin{pmatrix}
+        		\kappa & 0 & \hdots & 0  \\
+        		0 & \kappa & 0 & \vdots  \\
+        		\vdots & 0 & \ddots & 0  \\
+        		0 & \hdots & 0 & \kappa  \\
+        	\end{pmatrix}
+        	\begin{pmatrix}
+        		y_0 \\
+        		y_1 \\
+        		\vdots \\
+        		y_T \\
+        	\end{pmatrix}
+        	\\
+        	&-\begin{pmatrix}
+        		\kappa & 0 & \hdots & 0  \\
+        		0 & \kappa & 0 & \vdots  \\
+        		\vdots & 0 & \ddots & 0  \\
+        		0 & \hdots & 0 & \kappa  \\
+        	\end{pmatrix}
+        	\begin{pmatrix}
+        		y_0^{flex} \\
+        		y_1^{flex} \\
+        		\vdots \\
+        		y_T^{flex} \\
+        	\end{pmatrix}
+        \end{align*}
+        \item In matrix form:
+        \begin{align*}
+            \bm{\Phi}_Y \bm{Y} &=  -\bm{\Phi}_i \bm{i}  +  \bm{\Phi}_\pi \bm{\pi}\\
+            \bm{\Psi}_\pi \bm{\pi} &=  \bm{\Psi}_Y \bm{Y}  -  \bm{\Psi}_Y \bm{Y}^{flex} 
+        \end{align*}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{NK Example}
+    \begin{itemize}
+        \item Solution:
+        \begin{align*}
+             \bm{Y} &= [\bm{I} -  \bm{\Phi}_Y^{-1}\bm{\Phi}_\pi \bm{\Psi}_\pi^{-1} \bm{\Psi}_Y]^{-1} \bm{\Phi}_Y^{-1} [-\bm{\Phi}_i \bm{i}  -  \bm{\Phi}_\pi \bm{\Psi}_\pi^{-1}  \bm{\Psi}_Y \bm{Y}^{flex}] 
+        \end{align*}
+        \item Interpretation:
+        \begin{itemize}
+        	\item $\bm{\Phi}_Y^{-1}[-\bm{\Phi}_i \bm{i}  -  \bm{\Phi}_\pi \bm{\Psi}_\pi^{-1}  \bm{\Psi}_Y \bm{Y}^{flex}]$ is the effect holding on output without the endogenous feedback through inflation.
+        	\item The first term captures the feedback loop through demand / supply elasticities:
+        	\begin{align*}
+        		[\bm{I} -  \bm{\Phi}_Y^{-1}\bm{\Phi}_\pi \bm{\Psi}_\pi^{-1} \bm{\Psi}_Y]^{-1} = \bm{\Psi}_Y^{-1} \bm{\Psi}_\pi  [\bm{\Psi}_Y^{-1} \bm{\Psi}_\pi  -  \bm{\Phi}_Y^{-1}\bm{\Phi}_\pi ]^{-1}
+        	\end{align*}
+        	\begin{itemize}
+        		\item $-\bm{\Phi}_Y^{-1}\bm{\Phi}_\pi$ is the demand elasticity: how does a change in price affect demand.
+        		\item $ \bm{\Psi}_Y^{-1} \bm{\Psi}_\pi$ is the supply elasticity: how does a change in price affect supply.
+        	\end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{NK Example}
+    \begin{itemize}
+        \item Solution:
+        \begin{align*}
+             \bm{Y} &= [\bm{I} -  \bm{\Phi}_Y^{-1}\bm{\Phi}_\pi \bm{\Psi}_\pi^{-1} \bm{\Psi}_Y]^{-1} \bm{\Phi}_Y^{-1} [-\bm{\Phi}_i \bm{i}  -  \bm{\Phi}_\pi \bm{\Psi}_\pi^{-1}  \bm{\Psi}_Y \bm{Y}^{flex}] 
+        \end{align*}
+        \item If supply elasticities very small:
+        \begin{align*}
+        	\bm{Y} & \approx \bm{Y}^{flex}
+        \end{align*}
+        \item If supply elasticities very large:
+        \begin{align*}
+        	\bm{Y} & \approx -\bm{\Phi}_Y^{-1} \bm{\Phi}_i \bm{i} 
+        \end{align*}
+        \item[$\Rightarrow$] Behavior of NK model dictated by intertemporal matrices. All we are doing is intertemporal demand and supply.
+    \end{itemize}
+\end{frame}
+
+
+\end{document}
