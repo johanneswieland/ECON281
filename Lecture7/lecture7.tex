@@ -123,7 +123,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-    \frametitle{NK Example}
+    \frametitle{NK Model}
     \begin{itemize}
         \item Simple NK model with perfect forsight:
         \begin{align*}
@@ -132,8 +132,16 @@ Juan Herre\~{n}o & Johannes Wieland \\
         \end{align*}
         \begin{itemize}
             \item Exogenous $i_t, y_t^{flex}$ (determinacy?) 
+            \item Perfect foresight.
         \end{itemize}
-        \item Euler equations stacked in rows:
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Writing in Sequence Space}
+    \begin{itemize}
+        \item Equations hold at every point in time starting at $t=0$. 
+        \item First stack Euler equations for $t=0,1,...,T$:
         \begin{align*}
         	\begin{pmatrix}
         		1 & -1 & 0 & \hdots & 0 \\
@@ -181,9 +189,9 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 \begin{frame}
-    \frametitle{NK Example}
+    \frametitle{Writing in Sequence Space}
     \begin{itemize}
-        \item NKPC equation in sequence form:
+        \item Then stack the NKPC:
         \begin{align*}
         	\begin{pmatrix}
         		1 & -\beta & 0 & \hdots & 0 \\
@@ -233,33 +241,38 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 
 \begin{frame}
-    \frametitle{NK Example}
+    \frametitle{Solution is an Elasticity Formula}
     \begin{itemize}
+    	\item Define $\bm{\eta}_\pi^D\equiv -\bm{\Phi}_Y^{-1}\bm{\Phi}_\pi$, $\bm{\eta}_\pi^S\equiv \bm{\Psi}_Y^{-1} \bm{\Psi}_\pi$, $\eta_i^D = \bm{\Phi}_Y^{-1}\bm{\Phi}_i$:
+        \begin{align*}
+             \bm{Y} &=  - \bm{\eta}_i^D \bm{i}  -  \bm{\eta}_\pi^D \bm{\pi}\\
+            \bm{\eta}_\pi^{S} \bm{\pi} &=   \bm{Y}  - \bm{Y}^{flex} 
+        \end{align*}
         \item Solution:
         \begin{align*}
-             \bm{Y} &= [\bm{I} -  \bm{\Phi}_Y^{-1}\bm{\Phi}_\pi \bm{\Psi}_\pi^{-1} \bm{\Psi}_Y]^{-1} \bm{\Phi}_Y^{-1} [-\bm{\Phi}_i \bm{i}  -  \bm{\Phi}_\pi \bm{\Psi}_\pi^{-1}  \bm{\Psi}_Y \bm{Y}^{flex}] 
+             \bm{Y} &= (\bm{\eta}_\pi^{S}) [\bm{\eta}_\pi^{S} +  \bm{\eta}_\pi^{D} ]^{-1}  [- \bm{\eta}_i^D \bm{i}  +  \bm{\eta}_\pi^{D} (\bm{\eta}_\pi^{S})^{-1} \bm{Y}^{flex}] 
         \end{align*}
         \item Interpretation:
         \begin{itemize}
-        	\item $\bm{\Phi}_Y^{-1}[-\bm{\Phi}_i \bm{i}  -  \bm{\Phi}_\pi \bm{\Psi}_\pi^{-1}  \bm{\Psi}_Y \bm{Y}^{flex}]$ is the effect holding on output without the endogenous feedback through inflation.
-        	\item The first term captures the feedback loop through demand / supply elasticities:
-        	\begin{align*}
-        		[\bm{I} -  \bm{\Phi}_Y^{-1}\bm{\Phi}_\pi \bm{\Psi}_\pi^{-1} \bm{\Psi}_Y]^{-1} = \bm{\Psi}_Y^{-1} \bm{\Psi}_\pi  [\bm{\Psi}_Y^{-1} \bm{\Psi}_\pi  -  \bm{\Phi}_Y^{-1}\bm{\Phi}_\pi ]^{-1}
-        	\end{align*}
-        	\begin{itemize}
-        		\item $-\bm{\Phi}_Y^{-1}\bm{\Phi}_\pi$ is the demand elasticity: how does a change in price affect demand.
-        		\item $ \bm{\Psi}_Y^{-1} \bm{\Psi}_\pi$ is the supply elasticity: how does a change in price affect supply.
-        	\end{itemize}
+        	\item $ - \bm{\eta}_i^D \bm{i}  +  \bm{\eta}_\pi^{D} (\bm{\eta}_\pi^{S})^{-1} \bm{Y}^{flex}$ is the effect holding on output without the endogenous feedback through inflation.
+        	\item $(\bm{\eta}_\pi^{S}) [\bm{\eta}_\pi^{S} +  \bm{\eta}_\pi^{D} ]^{-1}$ captures the feedback loop of inflation and output through demand / supply elasticities:
+%        	\begin{align*}
+%        		[\bm{I} -  \bm{\Phi}_Y^{-1}\bm{\Phi}_\pi \bm{\Psi}_\pi^{-1} \bm{\Psi}_Y]^{-1} = \bm{\Psi}_Y^{-1} \bm{\Psi}_\pi  [\bm{\Psi}_Y^{-1} \bm{\Psi}_\pi  -  \bm{\Phi}_Y^{-1}\bm{\Phi}_\pi ]^{-1}
+%        	\end{align*}
+%        	\begin{itemize}
+%        		\item $-\bm{\Phi}_Y^{-1}\bm{\Phi}_\pi$ is the demand elasticity: how does a change in price affect demand.
+%        		\item $ \bm{\Psi}_Y^{-1} \bm{\Psi}_\pi$ is the supply elasticity: how does a change in price affect supply.
+%        	\end{itemize}
         \end{itemize}
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{NK Example}
+    \frametitle{Intertemporal Supply and Demand}
     \begin{itemize}
         \item Solution:
         \begin{align*}
-             \bm{Y} &= [\bm{I} -  \bm{\Phi}_Y^{-1}\bm{\Phi}_\pi \bm{\Psi}_\pi^{-1} \bm{\Psi}_Y]^{-1} \bm{\Phi}_Y^{-1} [-\bm{\Phi}_i \bm{i}  -  \bm{\Phi}_\pi \bm{\Psi}_\pi^{-1}  \bm{\Psi}_Y \bm{Y}^{flex}] 
+             \bm{Y} &= (\bm{\eta}_\pi^{S}) [\bm{\eta}_\pi^{S} +  \bm{\eta}_\pi^{D} ]^{-1}  [- \bm{\eta}_i^D \bm{i}  +  \bm{\eta}_\pi^{D} (\bm{\eta}_\pi^{S})^{-1} \bm{Y}^{flex}] 
         \end{align*}
         \item If supply elasticities very small:
         \begin{align*}
@@ -267,11 +280,138 @@ Juan Herre\~{n}o & Johannes Wieland \\
         \end{align*}
         \item If supply elasticities very large:
         \begin{align*}
-        	\bm{Y} & \approx -\bm{\Phi}_Y^{-1} \bm{\Phi}_i \bm{i} 
+        	\bm{Y} & \approx - \bm{\eta}_i^D \bm{i}
         \end{align*}
-        \item[$\Rightarrow$] Behavior of NK model dictated by intertemporal matrices. All we are doing is intertemporal demand and supply.
+        \item If demand elasticities very large:
+        \begin{align*}
+        	\bm{Y} & \approx \bm{Y}^{flex} - (\bm{\eta}_\pi^{S})(\bm{\eta}_\pi^{D})^{-1} \bm{\eta}_\pi^{D} \bm{i}
+        \end{align*}
+        \item If demand elasticities very small:
+        \begin{align*}
+        	\bm{Y} & \approx \bm{0}
+        \end{align*}
+        \item[$\Rightarrow$] All we are doing is intertemporal demand and supply.
     \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+    \frametitle{Takeaway}
+    \begin{itemize}
+        \item Solving linear models with sequence space is linear algebra.
+        \item Useful to think in terms of demand and supply elasticities in interpreting model output.
+        \item Don't need partial equilibrium or heterogeneity to use sequence space.
+        \item Do need that the solution to the model is a sequence.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Consumption Problem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+    \frametitle{ARS Consumption function}
+    \begin{itemize}
+        \item Write down consumption problem in ARS (2018)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{New Keynesian Model in Sequence Space}
+    \begin{itemize}
+        \item Consumption function:
+        \begin{align*}
+            C_t &= \mathbb{C}(\{Y_{t+s}-T_{t+s},r_{t+s}\}_{s=0}^{\infty}) \\
+            &\equiv \mathbb{C}(\bm{Y}-\bm{T},\bm{r})
+        \end{align*}
+        \item NKPC:
+        \begin{align*}
+            \pi_t &= \mathbb{S}(\bm{Y} - \bm{Y}^*) 
+        \end{align*}
+        \item Interest rate rule:
+        \begin{align*}
+            \bm{r} &= \bm{\Phi}_Y (\bm{Y} - \bm{Y}^*) +  \bm{\Phi}_\pi \bm{\pi} + \bm{\epsilon}^r 
+        \end{align*}
+        \item Excess demand:
+        \begin{align*}
+%            \begin{pmatrix} ED_t \\ ED_{t+1} \\ \vdots \end{pmatrix}= 
+            \bm{ED} &= \pmb{\mathbb{C}}(\bm{Y}-\bm{T},\bm{r}) + \bm{G} - \bm{Y} =\bm{0}
+        \end{align*}
+%        \item In equilibrium, $\bm{ED}=\bm{0}$.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Linearize to Solve with Linear Algebra}
+    \begin{itemize}
+        \item Linearized Model:
+        \begin{align*}
+            \bm{\hat{C}} &= (\nabla_{\bm{Y}}\pmb{\mathbb{C}}) (\bm{\hat{Y}} - \bm{\hat{T}}) + (\nabla_{\bm{r}}\pmb{\mathbb{C}})\bm{\hat{r}} \\
+            \bm{\hat{\pi}} &= (\nabla_{\bm{Y}}\pmb{\mathbb{S}})(\bm{\hat{Y}} - \bm{\hat{Y}}^*)  \\
+            \bm{\hat{r}} &= \bm{\Phi}_Y (\bm{\hat{Y}} - \bm{\hat{Y}}^*) +  \bm{\Phi}_\pi \bm{\hat{\pi}} + \bm{\epsilon}^r 
+        \end{align*}
+        where
+        \begin{align*}
+            \nabla_{\bm{Y}}\pmb{\mathbb{C}} = 
+            \begin{pmatrix}
+                \frac{\partial C_{0}}{\partial Y_0} & \frac{\partial C_{0}}{\partial Y_1} & \hdots \\
+                \frac{\partial C_{1}}{\partial Y_0} & \frac{\partial C_{1}}{\partial Y_1} & \hdots \\
+                \frac{\partial C_{2}}{\partial Y_0} & \frac{\partial C_{2}}{\partial Y_1} & \hdots \\
+                \vdots & \vdots & \ddots \\
+            \end{pmatrix}
+        \end{align*}
+        \item Equilibrium:
+         \begin{align*}
+             \bm{\hat{Y}} &=  [ \bm{\Phi}_Y  +  \bm{\Phi}_\pi (\nabla_{\bm{Y}}\pmb{\mathbb{S}}) ]^{-1} \{[ \bm{\Phi}_Y  +  \bm{\Phi}_\pi (\nabla_{\bm{Y}}\pmb{\mathbb{S}}) ]^{-1} - [I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1}(\nabla_{\bm{r}}\pmb{\mathbb{C}})  \}^{-1}  \times\\ 
+             &\times[I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1} [\bm{\hat{G}} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})\bm{\hat{T}} + (\nabla_{\bm{r}}\pmb{\mathbb{C}})\bm{\epsilon}^r ]  
+         \end{align*}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Demand and Supply Elasticities Determine GE}
+    \begin{itemize}
+        \item Define:
+        \begin{itemize}
+            \item Demand multiplier $\bm{\mu}^D \equiv [I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1}$
+            \item Demand elasticity $\bm{\eta^D} \equiv -\nabla_{\bm{r}}\pmb{\mathbb{C}}$
+            \item Supply elasticity $\bm{\eta^S} \equiv [ \bm{\Phi}_Y  +  \bm{\Phi}_\pi (\pmb{\nabla_{\bm{Y}}\pmb{\mathbb{S}}}) ]^{-1}$
+        \end{itemize}
+    \end{itemize}
+    \begin{align*}
+        \bm{\hat{Y}} &=  \underbrace{\bm{\eta^S} [ \bm{\eta^S} + \bm{\mu}^D\bm{\eta^D}  ]^{-1}}_{\text{Demand Incidence}}  \bm{\mu}^D  \underbrace{[\bm{\hat{G}} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})\bm{\hat{T}} + \bm{\eta^D}\bm{\epsilon}^r ]}_{\text{PE Excess Demand}}  \\
+        & + \underbrace{\bm{\mu}^D\bm{\eta^D} [ \bm{\eta^S} + \bm{\mu}^D\bm{\eta^D}  ]^{-1}  }_{\text{Supply Incidence}}   \underbrace{\bm{\hat{Y}}^*}_{\text{PE Excess Supply}}  
+    \end{align*}
+    Implications:
+    \begin{itemize}
+        \item GE effects determined by a standard incidence formula.  
+        \item[$\Rightarrow$] Matrices of micro elasticities are sufficient statistics for GE effects. 
+%        \\
+%        Auclert, Rognlie, Straub (2018, 2020a, 2020b), Auclert, Bardoczy, Rognlie, Straub (2020)
+%        \item[$\Rightarrow$] Model tells us which PE elasticities matter.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Balanced Budget Multiplier}
+    \begin{itemize}
+        \item Balanced budget: $\bm{\hat{G}}$ = $\bm{\hat{T}}$
+        \item Also assume no real rate change, so $\bm{\eta^S}$ blows up in some meaningful sense.
+        \item Then,
+         \begin{align*}
+        \bm{\hat{Y}} &=    \bm{\mu}^D  [\bm{\hat{G}} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})\bm{\hat{T}}] \\
+                & = \bm{\mu}^D  [\bm{I} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})]\bm{\hat{G}}  \\
+                &= \bm{\hat{G}}
+    \end{align*}
+    \item The balanced budget multiplier is 1.
+    \end{itemize}
+\end{frame}
+
 
 
 \end{document}
