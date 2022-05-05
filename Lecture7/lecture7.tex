@@ -398,18 +398,110 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 
 \begin{frame}
-    \frametitle{Balanced Budget Multiplier}
+    \frametitle{Intertemporal Keynesian Cross}
     \begin{itemize}
-        \item Balanced budget: $\bm{\hat{G}}$ = $\bm{\hat{T}}$
         \item Also assume no real rate change, so $\bm{\eta^S}$ blows up in some meaningful sense.
-        \item Then,
+        \begin{align*}
+        \bm{\hat{Y}} &=    [I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1} [\bm{\hat{G}} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})\bm{\hat{T}}] 
+    \end{align*}
+    \item This is the Intertemporal Keynesian Cross.
+       \item Balanced budget: $\bm{\hat{G}}$ = $\bm{\hat{T}}$
          \begin{align*}
-        \bm{\hat{Y}} &=    \bm{\mu}^D  [\bm{\hat{G}} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})\bm{\hat{T}}] \\
-                & = \bm{\mu}^D  [\bm{I} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})]\bm{\hat{G}}  \\
+        \bm{\hat{Y}}  & = [I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1}  [\bm{I} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})]\bm{\hat{G}}  \\
                 &= \bm{\hat{G}}
     \end{align*}
     \item The balanced budget multiplier is 1.
     \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Fiscal Policies}
+    \begin{itemize}
+        \item Prop 4, 5
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Measuring $\nabla_{\bm{Y}}\pmb{\mathbb{C}}$}
+    \begin{itemize}
+        \item Demand multiplier: $\bm{\mu}^D \equiv [I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1}$
+        where
+        \begin{align*}
+            \nabla_{\bm{Y}}\pmb{\mathbb{C}} = 
+            \begin{pmatrix}
+                \frac{\partial C_{0}}{\partial Y_0} & \frac{\partial C_{0}}{\partial Y_1} & \hdots \\
+                \frac{\partial C_{1}}{\partial Y_0} & \frac{\partial C_{1}}{\partial Y_1} & \hdots \\
+                \frac{\partial C_{2}}{\partial Y_0} & \frac{\partial C_{2}}{\partial Y_1} & \hdots \\
+                \vdots & \vdots & \ddots \\
+            \end{pmatrix}\\
+        \end{align*}
+        Columns are PE IRFs of average consumption to income changes at different horizons.
+        \item What evidence do we have?
+%        \item Difficult to discipline entire matrix based on available micro data.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Lottery Studies}
+    \begin{tabular}{ll}
+    \raisebox{-.5\height}{\includegraphics[scale=0.35]{figures/LotteryMPCestimate.png}}
+     &  \parbox{0.4\textwidth}{
+     		
+            \begin{itemize}
+                \item Provides estimate of first column of $\nabla_{\bm{Y}}\pmb{\mathbb{C}}$. 
+                \item Need a model to extrapolate. 
+%                \item Key 
+            \end{itemize} Source: Fagereng, Holm, Natvik (2018) } 
+%            \\
+%             & 
+%    $\bullet$  \\
+ %    \begin{itemize}
+%        \item Provides estimate of first column.
+%        \item Need a model to extrapolate.
+%    \end{itemize}
+    \end{tabular}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{iMPCs in the Models}
+    Figure 2
+\end{frame}
+
+\begin{frame}
+    \frametitle{Bonus: Durables}
+    Own figure
+\end{frame}
+
+\begin{frame}
+    \frametitle{Model Extrapolation}
+    Figure 3
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Fiscal Policies: All Models}
+    Figure 4
+\end{frame}
+
+\begin{frame}
+    \frametitle{Bonus: Regional Estimates?}
+    Own figure
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Quantitative Model}
+    Key Q: how elastic is supply and demand?
+\end{frame}
+
+\begin{frame}
+    \frametitle{Private Deficits}
+    Govt budget constraint imposes relationship between G, T; both get amplified, dampen each other.
+    private deficits only get amplified
 \end{frame}
 
 
