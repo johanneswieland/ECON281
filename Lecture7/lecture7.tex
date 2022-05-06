@@ -595,7 +595,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 
 \begin{frame}
-    \frametitle{Simplified Consumer Problem}
+    \frametitle{KS Economy}
     \begin{itemize}
         \item Preferences:
         \begin{align*}
@@ -681,11 +681,131 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 \begin{frame}
-    \frametitle{Fake News Algorithm}
+    \frametitle{Algorithm: Efficient backward step}
     \begin{itemize}
-        \item x
+        \item First improvement: policy functions need to be solved backwards only once starting with a shock at $T-1$.
+        \item Policy functions at $t$ for shock at $t+s$ the same as policy function at $0$ for shock at $s$. 
+        \item For any time after the shock, the policy functions are the same as in steady state.
+        \item Key: policy function cannot directly depend on distribution of agents
+        \item WRITE LEMMA 1
+      \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Algorithm: Fake News}
+    \begin{itemize}
+    	\item Idea: exploit how columns in the Jacobian relate to one another.
+        \item Define the difference in outcomes at $t$ for shock at $s$ versus outcomes at $t-1$ for shock at $s-1$.
+        \begin{align*}
+        	\mathcal{F}_{t,s}dx \equiv d\mathcal{Y}_{t}^{s} - d\mathcal{Y}_{t-1}^{s-1}
+        \end{align*}
+        \item Not zero: policy function the same, but distribution different.
+        \item Lemma:
+        \begin{align*}
+        	\mathcal{F}_{t,s}dx = \bm{y}_{ss}' (\Lambda_{ss}')^{t-1}d\bm{D}_1^s
+        \end{align*}
+        \item Policy functions the same. The only difference is the initial distribution.
+        \item To a first order, the distribution affects outcomes as if all agents followed their steady state policy functions.
 	\end{itemize}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Fake News Interpretation}
+     \begin{align*}
+        	\mathcal{F}_{t,s}dx = \bm{y}_{ss}' (\Lambda_{ss}')^{t-1}d\bm{D}_1^s
+        \end{align*}
+    \begin{itemize}
+        \item Agents at $t=0$ were told a shock will happen at $t=s$.
+        \item They change their optimal policy rules resulting in a new distribution of outcomes at $t=1$, $d\bm{D}_1^s$.
+        \item At $t=1$ agents learn (to their surprise) that the shock does not happen.
+        \item So all policy rules revert to steady state.
+        \item But the distribution has not reverted to steady state and will affect economic outcomes.
+        \item $\bm{y}_{ss}' (\Lambda_{ss}')^{t-1}d\bm{D}_1^s$ traces out IRF from $t=1$ onwards to a first order.
+        \item Requires only one updating step in solving $d\bm{D}_1^s$
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Fake News Matrix}
+    \begin{itemize}
+    	\item Define the fake news matrix as
+    	\begin{align*}
+    		\mathcal{F}_{t,s}dx \equiv \begin{cases}
+    			d\mathcal{Y}_0^s & t=0 \\
+    			\bm{y}_{ss}' (\Lambda_{ss}')^{t-1}d\bm{D}_1^s & t\ge 1
+    		\end{cases}
+    	\end{align*}
+        \item Then the Jacobian of $h$ is given by
+        \begin{align*}
+        	\mathcal{J}_{t,s} = \sum_{k=0}^{\min\{s,t\}}\mathcal{F}_{t-k,s-k}
+        \end{align*}
+        \item $t=0$ follows by definition.
+        \item Why does this make sense?
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Fake News Matrix Examples}
+    \begin{itemize}
+        \item $t>0,s=0$:
+        \begin{align*}
+        	\mathcal{J}_{t,0} = \bm{y}_{ss}'(\Lambda_{ss}')^{t-1} d\bm{D}_1^0
+        \end{align*}
+        \begin{itemize}
+        	\item Shock at $0$ affected distribution at $1$. Now trace out this effect.
+        \end{itemize}
+       	\item $t=1,s=1$:
+        \begin{align*}
+        	\mathcal{J}_{1,1} = d\mathcal{Y}_0^0 + \bm{y}_{ss}' d\bm{D}_1^1
+        \end{align*}
+        \begin{itemize}
+        	\item Sum of surprise contemporaneous shock and fake news shock.
+        \end{itemize}
+        \item $t=1,s=2$:
+        \begin{align*}
+        	\mathcal{J}_{1,2} = d\mathcal{Y}_0^1 + \bm{y}_{ss}' d\bm{D}_1^2
+        \end{align*}
+        \begin{itemize}
+        	\item As if we had gotten news today about shock tomorrow, but taking into account change in distribution from the fact that news was known earlier.
+        \end{itemize}
+        \begin{align*}
+        	\mathcal{J}_{3,4} = d\mathcal{Y}_0^1 + \bm{y}_{ss}'  d\bm{D}_1^2 + \bm{y}_{ss}' (\Lambda_{ss}') d\bm{D}_1^3 + \bm{y}_{ss}' (\Lambda_{ss}')^{2} d\bm{D}_1^4
+        \end{align*}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Bottom Line}
+    \begin{itemize}
+        \item $t=1,s=0$:
+        \begin{align*}
+        	\mathcal{J}_{t,s} = \mathcal{J}_{t-1,s-1} + \mathcal{F}_{t,s} 
+        \end{align*}
+        \begin{itemize}
+        	\item A shock at $s$ from time $t$ looks very similar to a shock at $s-1$ from time $t-1$. 
+        	\item Policy functions are exactly the same.
+        	\item Only difference is that the distribution at $t$ is different from $t-1$, which is captured by the fake news term. 
+        \end{itemize}
+       	\item The objects we need to calculate this are:
+       	\begin{enumerate}
+       		\item Solve consumer problem backwards once for $T$ periods to get policy functions $\{\bm{y}^{T-1}_{T-1-s},\bm{\Lambda}^{T-1}_{T-1-s}\}_{s=0}^{T-1}$.
+       		\item Get $\{d\mathcal{Y}_0^s\}_{s=0}^T$ by combining policy functions for $s=0,...,T$ with steady state distribution.
+       		\item Compute $d\bm{D}_1^s$ using steady state distribution and $s=0,...,T$ policy functions.
+       	\end{enumerate}
+       	\item[$\Rightarrow$] Very small number of steps / computations to get all of the Jacobian and therefore the IRFs.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Result}
+    \centering
+    \includegraphics[scale=0.5]{figures/ABRSFIG2.png}
+\end{frame}
+
+
 
 \begin{frame}
     \frametitle{Dimensionality Reduction}
