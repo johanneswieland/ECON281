@@ -306,15 +306,49 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Consumption Problem}
+\section{Auclert, Rognlie, Straub (2018)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{frame}
-    \frametitle{ARS Consumption function}
+    \frametitle{Simplified Consumer Problem}
     \begin{itemize}
-        \item Write down consumption problem in ARS (2018)
-\end{itemize}
+        \item Preferences:
+        \begin{align*}
+        	\E \sum_{t=0}^{\infty} \beta^t u(c_{it})
+        \end{align*}
+        \item After-tax income: 
+        \begin{align*}
+        	z_{it}\equiv \tau_t \left(\frac{W_t}{P_t}e_{it}n_{it}\right)^{1-\lambda} = \frac{e_{it}^{1-\lambda}}{\int e_{it}^{1-\lambda}} Z_t
+        \end{align*}
+        \item Budget constraint:
+        \begin{align*}
+        	c_{it} + \sum_j a_{it}^j = z_{it} + (1+r_{t-1})\sum_j a_{i,t-1}^j
+        \end{align*}
+        \item Nests: RA, TA, HA, HA-IL
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Optimal Policy Rules}
+    \begin{itemize}
+        \item Budget constraint with $Z_t=Y_t-T_t$:
+        \begin{align*}
+        	c_{it} + \sum_j a_{it}^j = \frac{e_{it}^{1-\lambda}}{\int e_{it}^{1-\lambda}} (Y_t-T_t) + (1+r_{t-1})\sum_j a_{i,t-1}^j
+        \end{align*}
+        \item Idiosyncratic states: $e_{it}$.
+        \item Assume aggregate variables follow a known sequence $\{Y_t-T_t, r_t\}_{t=0}^{\infty}$.
+        \item Conditional on knowing these sequences, can solve for individual consumption and assets given any initial state $\{a_0^j\},e_{i0}$:
+        \begin{align*}
+        	c_t(\{a^j\},e),\;\{a_t^j(\{a^j\},e)\},\qquad t\ge 0
+        \end{align*}
+        \item Why? Distribution only enters consumers problem through effect on $\{Y_t-T_t, r_t\}_{t=0}^{\infty}$. No longer have infinite state space.
+        \item Then aggregate all consumption decisions to get:
+        \begin{align*}
+            C_t &=\int c_t(\{a^j\},e) d\Psi_t(\{a^j\},e) =  \mathbb{C}(\{Y_{t+s}-T_{t+s},r_{t+s}\}_{s=0}^{\infty})
+        \end{align*}
+	\end{itemize}
 \end{frame}
 
 
@@ -418,7 +452,17 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \begin{frame}
     \frametitle{Fiscal Policies}
     \begin{itemize}
-        \item Prop 4, 5
+        \item Proposition 4: In the RA model, the G-multiplier is 1.
+        \begin{itemize}
+        	\item Proof: The G-multiplier is 1 when budget is balanced, and we know for the RA model the timing of T does not matter.
+        \end{itemize}
+        \item Proposition 5: in the TA model with $\mu$ constrained agents,
+        \begin{align*}
+        \bm{\hat{Y}} &=    \frac{1}{1-\mu} [\bm{\hat{G}} - \mu \bm{\hat{T}}] 
+    \end{align*}
+    \begin{itemize}
+        	\item Deficit-financed fiscal expansion ($\hat{T}_0<\hat{G}_0$) has impact multiplier greater than 1.
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
@@ -468,7 +512,8 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 \begin{frame}
     \frametitle{iMPCs in the Models}
-    Figure 2
+    \centering
+    \includegraphics[scale=0.5]{figures/ARSFIG2.png}
 \end{frame}
 
 \begin{frame}
@@ -478,13 +523,15 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 \begin{frame}
     \frametitle{Model Extrapolation}
-    Figure 3
+    \centering
+    \includegraphics[scale=0.5]{figures/ARSFIG3.png}
 \end{frame}
 
 
 \begin{frame}
     \frametitle{Fiscal Policies: All Models}
-    Figure 4
+    \centering
+    \includegraphics[scale=0.5]{figures/ARSFIG4.png}
 \end{frame}
 
 \begin{frame}
@@ -495,15 +542,41 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 \begin{frame}
     \frametitle{Quantitative Model}
-    Key Q: how elastic is supply and demand?
+    \includegraphics[scale=0.5]{figures/ARSFIG7.png}
+    \begin{itemize}
+    	\item What does this tell us about supply elasticities?
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{Private Deficits}
-    Govt budget constraint imposes relationship between G, T; both get amplified, dampen each other.
-    private deficits only get amplified
+    \includegraphics[scale=0.5]{figures/ARSFIG8.png}
+    \begin{itemize}
+    	\item Why so much amplification?
+    \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Auclertn Bardozsy, Rognlie, Straub (2021)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}
+    \frametitle{Sequence Space Methods}
+    \begin{itemize}
+    	\item Sequence Space methods mean we use linear algebra to solve our models: easy!
+        \item But how do we get matrices like these: 
+        \begin{align*}
+            \nabla_{\bm{Y}}\pmb{\mathbb{C}} = 
+            \begin{pmatrix}
+                \frac{\partial C_{0}}{\partial Y_0} & \frac{\partial C_{0}}{\partial Y_1} & \hdots \\
+                \frac{\partial C_{1}}{\partial Y_0} & \frac{\partial C_{1}}{\partial Y_1} & \hdots \\
+                \frac{\partial C_{2}}{\partial Y_0} & \frac{\partial C_{2}}{\partial Y_1} & \hdots \\
+                \vdots & \vdots & \ddots \\
+            \end{pmatrix}
+        \end{align*}
+        \item Need to solve the household consumption problem: hard.
+        \item This paper: clever algorithm that exploits structure of the model to get the Jacobians of the model really fast!
+    \end{itemize}
+\end{frame}
 
 \end{document}
