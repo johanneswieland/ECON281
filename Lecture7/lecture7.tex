@@ -80,15 +80,13 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \begin{frame}
     \frametitle{Solving Models}
     \begin{itemize}
-        \item Hard.
-        \item Especially when there is heterogeneity.
+        \item Hard when there is rich heterogeneity.
         \item Infinitely dimensional state space from the distribution of agent's endogenous state variables---how to handle it?
         \item In macro, we are often interested what happens when aggregate shock X hits the economy (monetary, fiscal, etc).
-        \item Conditional on the shock, the economy follows a particular \emph{sequence} (path).
-%        \item Heterogeneity generally only affects the equilibrium path through its effect on aggregate prices / quantities (real rate, income), which depends on specific moments of the distribution. 
-        \item[$\Rightarrow$] Solution only requires knowledge of how heterogeneity evolves along that path (sequence space), not for any other contingencies (state space). 
+        \item State space: must forecast infinite-dimensional distribution to estimate prices / quantities relevant to agents' problem.
+        \item Sequence space: must find price / quantity sequences that solve market clearing conditions.
+        \item[$\Rightarrow$] Sequence space is of dimension $T \times \text{number of variables}$, versus infinite dimensional state space. 
        	\item Cost: linearization / perfect foresight.
-       	\item Sequence space is of dimension $T \times \text{number of variables}$, versus infinite dimensional state space.
     \end{itemize}
 \end{frame}
 
@@ -517,10 +515,10 @@ Juan Herre\~{n}o & Johannes Wieland \\
     \includegraphics[scale=0.5]{figures/ARSFIG2.png}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Bonus: Durables}
-    Own figure
-\end{frame}
+%\begin{frame}
+%    \frametitle{Bonus: Durables}
+%    Own figure
+%\end{frame}
 
 \begin{frame}
     \frametitle{Model Extrapolation}
@@ -535,10 +533,10 @@ Juan Herre\~{n}o & Johannes Wieland \\
     \includegraphics[scale=0.5]{figures/ARSFIG4.png}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Bonus: Regional Estimates?}
-    Own figure
-\end{frame}
+%\begin{frame}
+%    \frametitle{Bonus: Regional Estimates?}
+%    Own figure
+%\end{frame}
 
 
 \begin{frame}
@@ -580,22 +578,11 @@ Juan Herre\~{n}o & Johannes Wieland \\
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Brute Force}
-    \begin{itemize}
-    	\item First column of $\nabla_{\bm{Y}}\pmb{\mathbb{C}}$ is IRF of household consumption to a one-time income shock at $t=0$.
-        \item Can solve optimal household problem backward given the sequence $Y_0=Y+\epsilon,\{Y_{t}=Y\}_{t>0},\{r_t=r\}_{t\ge 0}$. This yields optimal consumption policy functions $c_{it}(\{a^j\},e)$.
-        \item Given optimal consumption function iterate distribution of agents forward starting from steady state.
-        \item Aggregate policy functions using the distribution to get sequence $\{\frac{\partial C_{t}}{\partial Y_0}\}_{t\ge 0}$
-        \item Repeat for $t=1,...,T$.
-        \item Repeat for all other aggregate sequences (e.g., $r_t$).
-        \item This ``brute force'' method works but is very slow.
-    \end{itemize}
-\end{frame}
+
 
 
 \begin{frame}
-    \frametitle{KS Economy}
+    \frametitle{Krussel-Smith (1998) Economy}
     \begin{itemize}
         \item Preferences:
         \begin{align*}
@@ -681,13 +668,66 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 \begin{frame}
+    \frametitle{Fake News Algorithm}
+    \begin{itemize}
+        \item Goal: efficient computation of Jacobians.
+        \item Framework:
+        \begin{align*}
+        	\bm{v}_t &= v(\bm{v}_{t+1},\bm{X}_t) \\
+        	\bm{D}_{t+1} &= \Lambda(\bm{v}_{t+1},\bm{X}_t)'\bm{D}_{t} \\
+        	\bm{Y}_{t} &= y(\bm{v}_{t+1},\bm{X}_t)'\bm{D}_{t} 
+        \end{align*}
+        \begin{itemize}
+        	\item $\bm{X}_t$ are inputs (e.g., $Z_t$).
+        	\item $\bm{Y}_t$ are outputs (e.g., $C_t, K_t$).
+        	\item $\bm{D}_t$ is the discretized distribution.
+        \end{itemize}
+        \item In sequence space:
+        \begin{align*}
+        	\bm{Y} = h(\bm{X})
+        \end{align*}
+        \item Want: $\mathcal{J} = \pmb\nabla h_{\bm{Y}}(\bm{X}^{SS})$
+      \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Brute Force}
+    \begin{itemize}
+    	\item Column $s$ of $\mathcal{J}_X^Y$ is IRF of outcome (e.g., capital) to a one-time shock (e.g. productivity) at $s$, $\bm{X}^s = \bm{X}_{ss} + \bm{e}^s dx \equiv \bm{X}_{ss} + d \bm{X}^s$. 
+        \item Solve problem backward given the known sequence of $\bm{X}$ to get value functions $\bm{v}_{t}$, policy functions $\bm{y}_t^s$, and transition matrices $\Lambda(\bm{v}_{t+1},\bm{X}_t)'$.
+        \item Given optimal policy functions iterate distribution of agents forward starting from steady state,
+        \begin{align*}
+    		\bm{D}_{t+1}^s &= (\Lambda_t^s) \bm{D}_t^s 
+    	\end{align*}
+        \item Aggregate policy functions using the distribution to get outcome
+        \begin{align*}
+    		\mathcal{Y}_t^s &= (\bm{y}_t^s)'\bm{D}_t^s 
+    	\end{align*}
+        \item Repeat for $s=0,...,T$ to get all columns of $\mathcal{J}$.
+%        \item Repeat for all other aggregate sequences (e.g., $r_t$).
+        \item This ``brute force'' method works but is very slow.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
     \frametitle{Algorithm: Efficient backward step}
     \begin{itemize}
-        \item First improvement: policy functions need to be solved backwards only once starting with a shock at $T-1$.
-        \item Policy functions at $t$ for shock at $t+s$ the same as policy function at $0$ for shock at $s$. 
+    	\item Lemma 1: for any $s\ge 1$, $t\ge 1$:
+    	\begin{align*}
+    		\bm{y}_t^s = \begin{cases}
+    			\bm{y}_{ss} & s<t \\
+    			\bm{y}_{T-1-(s-t)}^{T-1} & s \ge t
+    		\end{cases},\qquad  \Lambda_t^s = \begin{cases}
+    			 \Lambda_{ss} & s<t \\
+    			 \Lambda_{T-1-(s-t)}^{T-1} & s \ge t
+    		\end{cases}
+    	\end{align*}
+    	\item Policy functions at $t$ for shock at $t+s$ the same as policy function at $0$ for shock at $s$. 
+        \item[$\Rightarrow$] Policy functions need to be solved backwards only once starting with a shock at $T-1$.
+%        
         \item For any time after the shock, the policy functions are the same as in steady state.
         \item Key: policy function cannot directly depend on distribution of agents
-        \item WRITE LEMMA 1
       \end{itemize}
 \end{frame}
 
@@ -768,7 +808,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
         	\mathcal{J}_{1,2} = d\mathcal{Y}_0^1 + \bm{y}_{ss}' d\bm{D}_1^2
         \end{align*}
         \begin{itemize}
-        	\item As if we had gotten news today about shock tomorrow, but taking into account change in distribution from the fact that news was known earlier.
+        	\item As if we got news today about shock tomorrow, but taking into account change in distribution given that news was known earlier.
         \end{itemize}
         \begin{align*}
         	\mathcal{J}_{3,4} = d\mathcal{Y}_0^1 + \bm{y}_{ss}'  d\bm{D}_1^2 + \bm{y}_{ss}' (\Lambda_{ss}') d\bm{D}_1^3 + \bm{y}_{ss}' (\Lambda_{ss}')^{2} d\bm{D}_1^4
@@ -830,6 +870,26 @@ Juan Herre\~{n}o & Johannes Wieland \\
         \item Always(?) possible to write model as DAG.
 %        \item Computer does the sorting and substituting out.
 	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{More}
+    \begin{itemize}
+    	\item How to pick $T$: check if higher $T$ matters for IRFs. Authors recommend $T=300-1000$.
+    	\item Estimation:  Can compute moments and likelihood quickly from Jacobians. Limit is how quickly you can recompute Jacobians given new parameter values.   	
+    	\item Non-linear perfect foresight dynamics.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{More}
+    \begin{center}
+    	\includegraphics[scale=0.4]{figures/ABRSFIG7.png}
+    \end{center}
+    \begin{itemize}
+    	\item See also McKay and Wieland (2022, Econometrica) for how to implement a ZLB.
+    \end{itemize}
 \end{frame}
 
 
