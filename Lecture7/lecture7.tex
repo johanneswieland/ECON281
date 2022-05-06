@@ -88,6 +88,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
 %        \item Heterogeneity generally only affects the equilibrium path through its effect on aggregate prices / quantities (real rate, income), which depends on specific moments of the distribution. 
         \item[$\Rightarrow$] Solution only requires knowledge of how heterogeneity evolves along that path (sequence space), not for any other contingencies (state space). 
        	\item Cost: linearization / perfect foresight.
+       	\item Sequence space is of dimension $T \times \text{number of variables}$, versus infinite dimensional state space.
     \end{itemize}
 \end{frame}
 
@@ -387,7 +388,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
             \bm{\hat{\pi}} &= (\nabla_{\bm{Y}}\pmb{\mathbb{S}})(\bm{\hat{Y}} - \bm{\hat{Y}}^*)  \\
             \bm{\hat{r}} &= \bm{\Phi}_Y (\bm{\hat{Y}} - \bm{\hat{Y}}^*) +  \bm{\Phi}_\pi \bm{\hat{\pi}} + \bm{\epsilon}^r 
         \end{align*}
-        where
+        where the Jacobians of the model look like:
         \begin{align*}
             \nabla_{\bm{Y}}\pmb{\mathbb{C}} = 
             \begin{pmatrix}
@@ -557,13 +558,13 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Auclertn Bardozsy, Rognlie, Straub (2021)}
+\section{Auclertn Bardoczy, Rognlie, Straub (2021)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
     \frametitle{Sequence Space Methods}
     \begin{itemize}
-    	\item Sequence Space methods mean we use linear algebra to solve our models: easy!
+    	\item Sequence Space methods mean we use linear algebra to solve models with rich heterogeneity. 
         \item But how do we get matrices like these: 
         \begin{align*}
             \nabla_{\bm{Y}}\pmb{\mathbb{C}} = 
@@ -575,8 +576,142 @@ Juan Herre\~{n}o & Johannes Wieland \\
             \end{pmatrix}
         \end{align*}
         \item Need to solve the household consumption problem: hard.
-        \item This paper: clever algorithm that exploits structure of the model to get the Jacobians of the model really fast!
+        \item This paper: efficient algorithm that exploits model structure and linearity to get the Jacobians of the model really fast!
     \end{itemize}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Brute Force}
+    \begin{itemize}
+    	\item First column of $\nabla_{\bm{Y}}\pmb{\mathbb{C}}$ is IRF of household consumption to a one-time income shock at $t=0$.
+        \item Can solve optimal household problem backward given the sequence $Y_0=Y+\epsilon,\{Y_{t}=Y\}_{t>0},\{r_t=r\}_{t\ge 0}$. This yields optimal consumption policy functions $c_{it}(\{a^j\},e)$.
+        \item Given optimal consumption function iterate distribution of agents forward starting from steady state.
+        \item Aggregate policy functions using the distribution to get sequence $\{\frac{\partial C_{t}}{\partial Y_0}\}_{t\ge 0}$
+        \item Repeat for $t=1,...,T$.
+        \item Repeat for all other aggregate sequences (e.g., $r_t$).
+        \item This ``brute force'' method works but is very slow.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Simplified Consumer Problem}
+    \begin{itemize}
+        \item Preferences:
+        \begin{align*}
+        	V_t(e,a_{-}) = \max_{c,k} u(c) + \beta \sum_{e'} V_{t+1}(e',k)P(e,e')
+        \end{align*}
+        \item Budget constraint
+        \begin{align*}
+        	c+k = (1+r_t)k_{-}+w_t e n
+        \end{align*}
+        \item Borrowing constraint
+        \begin{align*}
+        	k \ge 0
+        \end{align*}
+        \item Optimal policy:
+        \begin{align*}
+        	c_t^*(e,k_{-}),\; k_t^*(e,k_{-})
+        \end{align*}
+        \item Functions of $\{r_t,w_t\}_{t\ge 0 }$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Aggregating Consumer Problem}
+    \begin{itemize}
+        \item Distribution of capital and productivity:
+        \begin{align*}
+        	D_{t+1}(e',K) = \sum_e D_t(e,k_t^{*-1}(e,K))P(e,e')
+        \end{align*}
+        \item Given $D_0$, $D_{t+1}(e',K)$ are also functions of $\{r_t,w_t\}_{t\ge 0 }$.
+        \item Aggregate capital holdings are therefore also a function of $\{r_t,w_t\}_{t\ge 0 }$.:
+        \begin{align*}
+        	\mathcal{K}_t(\{r_s,w_s\}_{s\ge 0 }) = \sum_e \int_{k_{-}} k_t^*(e,k_{-}) D_t(e,dk_{-})
+        \end{align*}
+        \item The function $\mathcal{K}_t$ maps an aggregate sequence $\{r_t,w_t\}_{t\ge 0 }$ into another aggregate sequence $\{K_t\}_{t\ge 0}$.
+        \item The dimensionality of this problem is the length of the sequence $T$.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Firm and Market Clearing}
+    \begin{itemize}
+        \item Keep this simple:
+        \begin{align*}
+        	Y_t &= Z_t K_{t-1}^{\alpha} N_t^{1-\alpha} \\
+        	 r_t &= \alpha  Z_t K_{t-1}^{\alpha-1} N_t^{1-\alpha} - \delta \\
+        	 w_t &= (1-\alpha) Z_t K_{t-1}^{\alpha} N_t^{-\alpha}
+        \end{align*}
+        \item Labor supply fixed in this problem so
+        \begin{align*}
+        	N_t = \sum \pi(e) en
+        \end{align*}
+        \item Market for capital has to clear
+        \begin{align*}
+        	&H_t(\bm{K},\bm{Z})  \\
+        	&\equiv \mathcal{K}_t\left(\left\{\alpha  Z_s \left(\frac{K_{s-1}}{\sum \pi(e) en}\right)^{\alpha-1} - \delta,(1-\alpha) Z_s \left(\frac{K_{s-1}}{\sum \pi(e) en}\right)^{\alpha}\right\}_{s\ge 0 } \right)\\
+        	&\qquad  - K_t = 0
+        \end{align*}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{IRFs}
+    \begin{itemize}
+        \item Why is this useful? From implicit function theorem,
+        \begin{align*}
+        	d\bm{K} = - \bm{H_{K}}^{-1}\bm{H_Z} d\bm{Z}
+        \end{align*}
+        \item[$\Rightarrow$] To get IRFs need only the Jacobians of the market clearing condition w.r.t. the sequences $\bm{H_{K}},\bm{H_Z}$.
+        \item How do we get these Jacboians? From the chain rule:
+        \begin{align*}
+        	[\bm{H_{K}}]_{t,s} = \frac{\partial \mathcal{K}_t}{\partial r_{s+1}}\frac{\partial r_{s+1}}{\partial K_s} + \frac{\partial \mathcal{K}_t}{\partial w_{s+1}}\frac{\partial w_{s+1}}{\partial K_s} - 1_{\{s=t\}}
+        \end{align*}
+        \item Some of these derivatives we can calculate analytically: $\frac{\partial r_{s+1}}{\partial K_s}, \frac{\partial w_{s+1}}{\partial K_s}, \frac{\partial r_{s}}{\partial Z_s}, \frac{\partial w_{s}}{\partial Z_s}$. 
+        \item Others we have to compute numerically.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{General IRFs from One-Time Computation}
+    \includegraphics[scale=0.5]{figures/ABRSFIG1.png}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Fake News Algorithm}
+    \begin{itemize}
+        \item x
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Dimensionality Reduction}
+    \begin{itemize}
+    	\item The dimensionality of the problem is $T \times \text{number of variables}$, but with large $T$ and many variables this can get complicated.
+    	\item Solution: substitute out for some variables, like we did for $r_t,w_t$ earlier. 
+    	\item This can be automated by writing the model in separate blocks.
+    	\item E.g., firm block $r_t = \alpha  Z_t K_{t-1}^{\alpha-1} N_t^{1-\alpha} - \delta $ and $ w_t = (1-\alpha) Z_t K_{t-1}^{\alpha} N_t^{-\alpha}$ can be used to solved out for $r_t,w_t$ as a function of $Z_t,K_t,N_t$.
+    	\item Each block takes inputs (e.g., $Z_t,K_t,N_t$) and computes outputs ($r_t,w_t$).
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Directed Acyclical Graph}
+    \begin{center}
+    	\includegraphics[scale=0.5]{figures/ABRSFIG3.png}
+    \end{center}
+    \begin{itemize}
+    	\item The computer can do the substitution if we write the model as a Directed Acyclical Graph (DAG).
+    	\item Dimensionality $T \times 2$ even though we have 4 endogenous variables.
+    	\item Restriction: cannot have cycle. E.g., if $K$ was not an unknown, the graph would be cylical.
+        \item Always(?) possible to write model as DAG.
+%        \item Computer does the sorting and substituting out.
+	\end{itemize}
+\end{frame}
+
+
 
 \end{document}
