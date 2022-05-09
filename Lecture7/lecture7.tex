@@ -732,9 +732,48 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 \begin{frame}
+    \frametitle{Fake News}
+    \begin{itemize}
+    	\item Denote the sequence $\bm{\epsilon}^s$ in which $\epsilon_s=1$ and zero otherwise:
+        \begin{align*}
+    		\epsilon_t = \begin{cases}
+    			1 & t=s \\
+    			0 & t\ge0, t\neq s
+    		\end{cases}
+    	\end{align*}
+        \item Let $\eta_t^s$ be a fake news shock for $\epsilon_t$:
+        \begin{itemize}
+        	\item At $t$ learn that $\epsilon_{s}=1$ with certainty.
+        	\item At $t+1$ lean that $\epsilon_{s}=0$.
+        	\item $\E_{k}\eta_t^s=0$ for all $k<t$.
+        \end{itemize}
+        \item Lemma: The sequence $\bm{v}^s$
+        \begin{align*}
+    		\nu_t = \begin{cases}
+    			\eta_t^{s-t} & t<s \\
+    			1 & t= s \\
+    			0 & t>s
+    		\end{cases}\\
+    	\end{align*}
+        takes on the same expected values and realized values as $\bm{\epsilon}^s$.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Advantage of Fake News}
+    \begin{itemize}
+    	\item Given linearization only care about expected values and realized values.
+    	\item Rather than compute IRFs to $\bm{\epsilon}^s$ for $s\ge 0$, we need IRFs to fake news shocks $\eta^s$ for $s\ge 0$ and contemporaneous shock $\bm{\epsilon}^0$.
+    	\item This is more efficient because $\eta^s$ and $\bm{\epsilon}^0$ share a common feature: the policy function only changes in the period the shock becomes known and then reverts. From then on we only need to solve the distribution forward using steady state policy functions.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
     \frametitle{Algorithm: Fake News}
     \begin{itemize}
-    	\item Idea: exploit how columns in the Jacobian relate to one another.
+%    	\item Idea: exploit how columns in the Jacobian relate to one another.
         \item Define the difference in outcomes at $t$ for shock at $s$ versus outcomes at $t-1$ for shock at $s-1$.
         \begin{align*}
         	\mathcal{F}_{t,s}dx \equiv d\mathcal{Y}_{t}^{s} - d\mathcal{Y}_{t-1}^{s-1}
