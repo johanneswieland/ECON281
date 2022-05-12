@@ -1,0 +1,353 @@
+\begin{thebibliography}{57}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Adao et~al.(2019)Adao, Koles{\'a}r, and Morales]{adao2019shift}
+Rodrigo Adao, Michal Koles{\'a}r, and Eduardo Morales.
+\newblock Shift-share designs: Theory and inference.
+\newblock \emph{The Quarterly Journal of Economics}, 134\penalty0 (4):\penalty0
+  1949--2010, 2019.
+
+\bibitem[Auclert et~al.(2018)Auclert, Rognlie, and
+  Straub]{auclert2018intertemporal}
+Adrien Auclert, Matthew Rognlie, and Ludwig Straub.
+\newblock The intertemporal keynesian cross.
+\newblock Technical report, National Bureau of Economic Research, 2018.
+
+\bibitem[Auclert et~al.(2020)Auclert, Rognlie, and Straub]{auclert2020micro}
+Adrien Auclert, Matthew Rognlie, and Ludwig Straub.
+\newblock Micro jumps, macro humps: Monetary policy and business cycles in an
+  estimated hank model.
+\newblock Technical report, National Bureau of Economic Research, 2020.
+
+\bibitem[Auclert et~al.(2021)Auclert, Bard{\'o}czy, Rognlie, and
+  Straub]{auclert2021using}
+Adrien Auclert, Bence Bard{\'o}czy, Matthew Rognlie, and Ludwig Straub.
+\newblock Using the sequence-space jacobian to solve and estimate
+  heterogeneous-agent models.
+\newblock \emph{Econometrica}, 89\penalty0 (5):\penalty0 2375--2408, 2021.
+
+\bibitem[Baley and Blanco(2022)]{baley2022long}
+Isaac Baley and Julio Blanco.
+\newblock The long-run effects of corporate tax reforms.
+\newblock 2022.
+
+\bibitem[Bartik(1991)]{bartik1991benefits}
+Timothy~J Bartik.
+\newblock \emph{Who benefits from state and local economic development
+  policies? Kalamazoo, MI: WE Upjohn Institute for Employment Research}.
+\newblock 1991.
+
+\bibitem[Berger et~al.(2021)Berger, Milbradt, Tourre, and
+  Vavra]{berger2021mortgage}
+David Berger, Konstantin Milbradt, Fabrice Tourre, and Joseph Vavra.
+\newblock Mortgage prepayment and path-dependent effects of monetary policy.
+\newblock \emph{American Economic Review}, 111\penalty0 (9):\penalty0 2829--78,
+  2021.
+
+\bibitem[Bierdel et~al.(2021)Bierdel, Drenik, Herreno, and
+  Ottonello]{drenik2019measuring}
+Aime Bierdel, Andres Drenik, Juan Herreno, and Pablo Ottonello.
+\newblock Asymmetric information and capital accumulation.
+\newblock 2021.
+
+\bibitem[Borusyak and Hull(2020)]{borusyak2020non}
+Kirill Borusyak and Peter Hull.
+\newblock Non-random exposure to exogenous shocks: Theory and applications.
+\newblock Technical report, National Bureau of Economic Research, 2020.
+
+\bibitem[Borusyak et~al.(2021)Borusyak, Jaravel, and
+  Spiess]{borusyak2021revisiting}
+Kirill Borusyak, Xavier Jaravel, and Jann Spiess.
+\newblock Revisiting event study designs: Robust and efficient estimation.
+\newblock \emph{arXiv preprint arXiv:2108.12419}, 2021.
+
+\bibitem[Borusyak et~al.(2022)Borusyak, Hull, and Jaravel]{borusyak2022quasi}
+Kirill Borusyak, Peter Hull, and Xavier Jaravel.
+\newblock Quasi-experimental shift-share research designs.
+\newblock \emph{The Review of Economic Studies}, 89\penalty0 (1):\penalty0
+  181--213, 2022.
+
+\bibitem[Carvalho et~al.(2021)Carvalho, Nirei, Saito, and
+  Tahbaz-Salehi]{carvalho2021supply}
+Vasco~M Carvalho, Makoto Nirei, Yukiko~U Saito, and Alireza Tahbaz-Salehi.
+\newblock Supply chain disruptions: Evidence from the great east japan
+  earthquake.
+\newblock \emph{The Quarterly Journal of Economics}, 136\penalty0 (2):\penalty0
+  1255--1321, 2021.
+
+\bibitem[Catherine et~al.(2018)Catherine, Chaney, Huang, Sraer, and
+  Thesmar]{catherine2018quantifying}
+Sylvain Catherine, Thomas Chaney, Zongbo Huang, David~Alexandre Sraer, and
+  David Thesmar.
+\newblock Quantifying reduced-form evidence on collateral constraints.
+\newblock \emph{Available at SSRN 2631055}, 2018.
+
+\bibitem[Chodorow-Reich(2014)]{chodorow2014employment}
+Gabriel Chodorow-Reich.
+\newblock The employment effects of credit market disruptions: Firm-level
+  evidence from the 2008--9 financial crisis.
+\newblock \emph{The Quarterly Journal of Economics}, 129\penalty0 (1):\penalty0
+  1--59, 2014.
+
+\bibitem[Chodorow-Reich(2019)]{chodorow2019geographic}
+Gabriel Chodorow-Reich.
+\newblock Geographic cross-sectional fiscal spending multipliers: What have we
+  learned?
+\newblock \emph{American Economic Journal: Economic Policy}, 11\penalty0
+  (2):\penalty0 1--34, 2019.
+
+\bibitem[Chodorow-Reich and Wieland(2020)]{chodorow2020secular}
+Gabriel Chodorow-Reich and Johannes Wieland.
+\newblock Secular labor reallocation and business cycles.
+\newblock \emph{Journal of Political Economy}, 128\penalty0 (6):\penalty0
+  2245--2287, 2020.
+
+\bibitem[Chodorow-Reich et~al.(2020)Chodorow-Reich, Gopinath, Mishra, and
+  Narayanan]{chodorow2020cash}
+Gabriel Chodorow-Reich, Gita Gopinath, Prachi Mishra, and Abhinav Narayanan.
+\newblock Cash and the economy: Evidence from india's demonetization.
+\newblock \emph{The Quarterly Journal of Economics}, 135\penalty0 (1):\penalty0
+  57--103, 2020.
+
+\bibitem[Cloyne et~al.(2020)Cloyne, Ferreira, and Surico]{cloyne2020monetary}
+James Cloyne, Clodomiro Ferreira, and Paolo Surico.
+\newblock Monetary policy when households have debt: new evidence on the
+  transmission mechanism.
+\newblock \emph{The Review of Economic Studies}, 87\penalty0 (1):\penalty0
+  102--129, 2020.
+
+\bibitem[De~Chaisemartin and d'Haultfoeuille(2020)]{de2020two}
+Cl{\'e}ment De~Chaisemartin and Xavier d'Haultfoeuille.
+\newblock Two-way fixed effects estimators with heterogeneous treatment
+  effects.
+\newblock \emph{American Economic Review}, 110\penalty0 (9):\penalty0 2964--96,
+  2020.
+
+\bibitem[Debortoli and Gal{\'\i}(2017)]{debortoli2017monetary}
+Davide Debortoli and Jordi Gal{\'\i}.
+\newblock Monetary policy with heterogeneous agents: Insights from tank models.
+\newblock 2017.
+
+\bibitem[Fagereng et~al.(2021)Fagereng, Holm, and Natvik]{fagereng2021mpc}
+Andreas Fagereng, Martin~B Holm, and Gisle~J Natvik.
+\newblock Mpc heterogeneity and household balance sheets.
+\newblock \emph{American Economic Journal: Macroeconomics}, 13\penalty0
+  (4):\penalty0 1--54, 2021.
+
+\bibitem[Farhi and Werning(2016)]{farhi2016fiscal}
+Emmanuel Farhi and Iv{\'a}n Werning.
+\newblock Fiscal multipliers: Liquidity traps and currency unions.
+\newblock In \emph{Handbook of macroeconomics}, volume~2, pages 2417--2492.
+  Elsevier, 2016.
+
+\bibitem[Goldsmith-Pinkham et~al.(2020)Goldsmith-Pinkham, Sorkin, and
+  Swift]{goldsmith2020bartik}
+Paul Goldsmith-Pinkham, Isaac Sorkin, and Henry Swift.
+\newblock Bartik instruments: What, when, why, and how.
+\newblock \emph{American Economic Review}, 110\penalty0 (8):\penalty0
+  2586--2624, 2020.
+
+\bibitem[Greenwald et~al.(2021)Greenwald, Krainer, and
+  Paul]{greenwald2021credit}
+Daniel~L Greenwald, John Krainer, and Pascal Paul.
+\newblock The credit line channel.
+\newblock Federal Reserve Bank of San Francisco, 2021.
+
+\bibitem[Guren et~al.(2021)Guren, McKay, Nakamura, and
+  Steinsson]{guren2021housing}
+Adam~M Guren, Alisdair McKay, Emi Nakamura, and J{\'o}n Steinsson.
+\newblock Housing wealth effects: The long view.
+\newblock \emph{The Review of Economic Studies}, 88\penalty0 (2):\penalty0
+  669--707, 2021.
+
+\bibitem[Hausman(2016)]{hausman2016fiscal}
+Joshua~K Hausman.
+\newblock Fiscal policy and economic recovery: the case of the 1936 veterans'
+  bonus.
+\newblock \emph{American Economic Review}, 106\penalty0 (4):\penalty0
+  1100--1143, 2016.
+
+\bibitem[Hausman et~al.(2019)Hausman, Rhode, and Wieland]{hausman2019recovery}
+Joshua~K Hausman, Paul~W Rhode, and Johannes~F Wieland.
+\newblock Recovery from the great depression: The farm channel in spring 1933.
+\newblock \emph{American Economic Review}, 109\penalty0 (2):\penalty0 427--72,
+  2019.
+
+\bibitem[Hazell et~al.(2020)Hazell, Herreno, Nakamura, and
+  Steinsson]{hazell2020slope}
+Jonathon Hazell, Juan Herreno, Emi Nakamura, and J{\'o}n Steinsson.
+\newblock The slope of the phillips curve: evidence from us states.
+\newblock Technical report, National Bureau of Economic Research, 2020.
+
+\bibitem[Herre{\~n}o(2020)]{herreno2020aggregate}
+Juan Herre{\~n}o.
+\newblock The aggregate effects of bank lending cuts.
+\newblock \emph{Unpublished working paper, Columbia University}, 2020.
+
+\bibitem[Huber(2018)]{huber2018disentangling}
+Kilian Huber.
+\newblock Disentangling the effects of a banking crisis: Evidence from german
+  firms and counties.
+\newblock \emph{American Economic Review}, 108\penalty0 (3):\penalty0 868--98,
+  2018.
+
+\bibitem[Huber(2021)]{huber2021estimating}
+Kilian Huber.
+\newblock Estimating general equilibrium spillovers of large-scale shocks.
+\newblock 2021.
+
+\bibitem[Huremovic et~al.(2020)Huremovic, Jim{\'e}nez, Moral-Benito,
+  Vega-Redondo, Peydr{\'o}, et~al.]{huremovic2020production}
+Kenan Huremovic, Gabriel Jim{\'e}nez, Enrique Moral-Benito, Fernando
+  Vega-Redondo, Jos{\'e}-Luis Peydr{\'o}, et~al.
+\newblock Production and financial networks in interplay: Crisis evidence from
+  supplier-customer and credit registers.
+\newblock 2020.
+
+\bibitem[Jappelli and Pistaferri(2014)]{jappelli2014fiscal}
+Tullio Jappelli and Luigi Pistaferri.
+\newblock Fiscal policy and mpc heterogeneity.
+\newblock \emph{American Economic Journal: Macroeconomics}, 6\penalty0
+  (4):\penalty0 107--36, 2014.
+
+\bibitem[Kaplan and Violante(2014)]{kaplan2014model}
+Greg Kaplan and Giovanni~L Violante.
+\newblock A model of the consumption response to fiscal stimulus payments.
+\newblock \emph{Econometrica}, 82\penalty0 (4):\penalty0 1199--1239, 2014.
+
+\bibitem[Kaplan et~al.(2018)Kaplan, Moll, and Violante]{kaplan2018monetary}
+Greg Kaplan, Benjamin Moll, and Giovanni~L Violante.
+\newblock Monetary policy according to hank.
+\newblock \emph{American Economic Review}, 108\penalty0 (3):\penalty0 697--743,
+  2018.
+
+\bibitem[Kaplan et~al.(2020)Kaplan, Mitman, and Violante]{kaplan2020housing}
+Greg Kaplan, Kurt Mitman, and Giovanni~L Violante.
+\newblock The housing boom and bust: Model meets evidence.
+\newblock \emph{Journal of Political Economy}, 128\penalty0 (9):\penalty0
+  3285--3345, 2020.
+
+\bibitem[Kekre and Lenel(2021)]{kekre2021monetary}
+Rohan Kekre and Moritz Lenel.
+\newblock Monetary policy, redistribution, and risk premia.
+\newblock Technical report, National Bureau of Economic Research, 2021.
+
+\bibitem[Koby and Wolf(2020)]{koby2020aggregation}
+Yann Koby and Christian Wolf.
+\newblock Aggregation in heterogeneous-firm models: Theory and measurement.
+\newblock \emph{Manuscript, July}, 2020.
+
+\bibitem[McKay and Wieland(2021)]{mckay2021lumpy}
+Alisdair McKay and Johannes~F Wieland.
+\newblock Lumpy durable consumption demand and the limited ammunition of
+  monetary policy.
+\newblock \emph{Econometrica}, 89\penalty0 (6):\penalty0 2717--2749, 2021.
+
+\bibitem[McKay and Wieland(2022)]{mckay2022forward}
+Alisdair McKay and Johannes~F Wieland.
+\newblock Forward guidance and durable goods demand.
+\newblock \emph{American Economic Review: Insights}, 4\penalty0 (1):\penalty0
+  106--22, 2022.
+
+\bibitem[McKay et~al.(2016)McKay, Nakamura, and Steinsson]{mckay2016power}
+Alisdair McKay, Emi Nakamura, and J{\'o}n Steinsson.
+\newblock The power of forward guidance revisited.
+\newblock \emph{American Economic Review}, 106\penalty0 (10):\penalty0
+  3133--58, 2016.
+
+\bibitem[McLeay and Tenreyro(2020)]{mcleay2020optimal}
+Michael McLeay and Silvana Tenreyro.
+\newblock Optimal inflation and the identification of the phillips curve.
+\newblock \emph{NBER Macroeconomics Annual}, 34\penalty0 (1):\penalty0
+  199--255, 2020.
+
+\bibitem[Mian and Sufi(2014)]{mian2014explains}
+Atif Mian and Amir Sufi.
+\newblock What explains the 2007--2009 drop in employment?
+\newblock \emph{Econometrica}, 82\penalty0 (6):\penalty0 2197--2223, 2014.
+
+\bibitem[Mian et~al.(2013)Mian, Rao, and Sufi]{mian2013household}
+Atif Mian, Kamalesh Rao, and Amir Sufi.
+\newblock Household balance sheets, consumption, and the economic slump.
+\newblock \emph{The Quarterly Journal of Economics}, 128\penalty0 (4):\penalty0
+  1687--1726, 2013.
+
+\bibitem[Mian et~al.(2019)Mian, Sarto, and Sufi]{mian2019estimating}
+Atif Mian, Andr{\'e}s Sarto, and Amir Sufi.
+\newblock Estimating general equilibrium multipliers: With application to
+  credit markets.
+\newblock \emph{Working Paper}, 2019.
+
+\bibitem[Modragon and Wieland(2022)]{mondragon2022housing}
+John Modragon and Johannes Wieland.
+\newblock Housing demand and remote work.
+\newblock 2022.
+
+\bibitem[Nakamura and Steinsson(2014)]{nakamura2014fiscal}
+Emi Nakamura and Jon Steinsson.
+\newblock Fiscal stimulus in a monetary union: Evidence from us regions.
+\newblock \emph{American Economic Review}, 104\penalty0 (3):\penalty0 753--92,
+  2014.
+
+\bibitem[Nakamura and Steinsson(2018)]{nakamura2018identification}
+Emi Nakamura and J{\'o}n Steinsson.
+\newblock Identification in macroeconomics.
+\newblock \emph{Journal of Economic Perspectives}, 32\penalty0 (3):\penalty0
+  59--86, 2018.
+
+\bibitem[Orchard et~al.(2022)Orchard, Ramey, and Wieland]{orchard2022micro}
+Jacob Orchard, Valerie Ramey, and Johannes Wieland.
+\newblock Micro mpcs and macro counterfactuals: The case of the 2008 rebates.
+\newblock 2022.
+
+\bibitem[Ottonello(2021)]{Ottonello2021}
+Pablo Ottonello.
+\newblock Capital unemployment.
+\newblock \emph{Review of Economic Studies}, forthcoming, 2021.
+
+\bibitem[Ottonello and Winberry(2020)]{ottonello2020financial}
+Pablo Ottonello and Thomas Winberry.
+\newblock Financial heterogeneity and the investment channel of monetary
+  policy.
+\newblock \emph{Econometrica}, 88\penalty0 (6):\penalty0 2473--2502, 2020.
+
+\bibitem[Parker et~al.(2013)Parker, Souleles, Johnson, and
+  McClelland]{parker2013consumer}
+Jonathan~A Parker, Nicholas~S Souleles, David~S Johnson, and Robert McClelland.
+\newblock Consumer spending and the economic stimulus payments of 2008.
+\newblock \emph{American Economic Review}, 103\penalty0 (6):\penalty0 2530--53,
+  2013.
+
+\bibitem[Shapiro and Slemrod(2009)]{shapiro2009did}
+Matthew~D Shapiro and Joel Slemrod.
+\newblock Did the 2008 tax rebates stimulate spending?
+\newblock \emph{American Economic Review}, 99\penalty0 (2):\penalty0 374--79,
+  2009.
+
+\bibitem[Werning(2015)]{werning2015incomplete}
+Iv{\'a}n Werning.
+\newblock Incomplete markets and aggregate demand.
+\newblock Technical report, National Bureau of Economic Research, 2015.
+
+\bibitem[Winberry(2021)]{winberry2021lumpy}
+Thomas Winberry.
+\newblock Lumpy investment, business cycles, and stimulus policy.
+\newblock \emph{American Economic Review}, 111\penalty0 (1):\penalty0 364--96,
+  2021.
+
+\bibitem[Wolf(2021)]{wolf2021missing}
+Christian~K Wolf.
+\newblock The missing intercept: A demand equivalence approach.
+\newblock Technical report, National Bureau of Economic Research, 2021.
+
+\bibitem[Woodford(2011)]{woodford2011simple}
+Michael Woodford.
+\newblock Simple analytics of the government expenditure multiplier.
+\newblock \emph{American Economic Journal: Macroeconomics}, 3\penalty0
+  (1):\penalty0 1--35, 2011.
+
+\end{thebibliography}
