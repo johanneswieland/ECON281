@@ -289,8 +289,9 @@ Juan Herre\~{n}o & Johannes Wieland \\
     \frametitle{Policy Space}
     \begin{itemize}
     	\item With ZLB constraining $i_t \ge 0$ (or small negative number), central banks can only lower interest rates a finite amount.
-    	\item This notion of limited ammunition is called ``policy space.''
-    	\item Next two papers: central bank actions have important impact on policy space.
+    	\item This means that central bank can only offset an AD shock of finite size. This is the ``policy space'' or ``limited ammunition.''
+    	\item This paper: when lower interest rates today, then also reduce \emph{responsiveness} to future interest rate changes (up or down).
+    	\item Means that past interest rate cuts limit future policy face as subsequent interest rate cuts less effective.
     \end{itemize}
 \end{frame}
 
@@ -398,6 +399,147 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \section{McKay, Wieland (2021)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}
+    \frametitle{Does Central Bank Create or Borrow Demand?}
+    \begin{itemize}
+    	\item In standard NK model:
+    	\begin{align*}
+    		y_t  &= -\frac{1}{\sigma}r_t + \E_t y_{t+1} \\
+    		&= -\frac{1}{\sigma}\sum_{s=0}^{\infty}r_{t+s}
+    	\end{align*}
+    	\item Central bank creates demand and output by changing $r_t$.
+    	\item Past $r_t$ has no bearing on future AD.
+    	\item[$\Rightarrow$] Central bank can create AD subject to ZLB constraint.
+    	\item This paper: with durable goods, central bank is much more in the business of borrowing demand than creating demand.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Model: Households}
+\begin{itemize}
+\item Households consume non-durables and durables.
+	\begin{align*}
+%		\max  E_{i0}\int_{t=0}^{\infty}e^{-\rho t} \left[ u\left( c_{it}, \only<5->{\redtext{q_{it}}}\only<-4>{\phantom{q_{it}}} d_{it} \right) - v(n_{it})  \right]\dif t 
+		\max  E_{i0}\int_{t=0}^{\infty}e^{-\rho t}   u\left( c_{it}, q_{it} d_{it} \right)  d t 
+	\end{align*}
+\item Durables subject to:
+	\begin{itemize}
+	\item fixed adjustment cost (if adjust) $a_{it}'+p_t d_{it}' = a_{it}+(1-f)p_t d_{it}$
+	\item depreciation and maintenance cost $dt d_{it} = -(1-\chi)\delta d_{it} $
+	\item operating cost (e.g. household utilities, gas, taxes) $\nu  d_{it}$
+	\item match-quality shocks $q_{it} =1$, drops to zero with intensity $\theta$
+	\end{itemize}
+\item Idiosyncratic labor income risk\\ $y_{it} = \left(1-\tau_t\right) Y_t z_{it}$\hspace{2cm}
+$d \ln z_{it} = -\rho_z \ln z_{it} + \sigma_z d \mathcal W_{it} $
+\item Save in liquid assets
+         $dt a_{it} = r_t a_{it} + r_t^b a_{it}I_{\{a_{it}<0\}} - c_{it} +  y_{it}-(\chi\delta p_t + \nu)  d_{it}$ 
+\item Collateralized borrowing $a_{it} \ge -\lambda(1-f)p_{t} d_{it}$
+\item Sticky information (Carrol et al, 2018; Auclert et al, 2020).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Hazard Rate}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/MWFIG1.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Intertemporal Shifting in the Data}
+    \begin{center}
+    	\includegraphics[scale=0.2]{figures/MWFIG2.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Intertemporal Shifting in the Data}
+    \begin{center}
+    	\includegraphics[scale=0.2]{figures/MWFIG3.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Model vs Data}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/MWFIG4.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Model vs Data}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/MWFIG6.png}	
+    \end{center}
+\end{frame}
+
+
+\begin{frame}\frametitle{The Monetary Transmission Matrix}
+\begin{itemize}
+\item Solve model with sequence space methods. 
+\item The ``monetary transmission matrix'':
+\begin{align*}
+  \mathcal{M} =\begin{pmatrix}
+    \frac{d \hat{Y}_0}{d r_0} & \frac{d \hat{Y}_0}{d r_{1}} & \frac{d \hat{Y}_0}{d r_{2}} & \hdots \\
+    \frac{d \hat{Y}_{1}}{d r_0} & \frac{d \hat{Y}_1}{d r_{1}} & \frac{d \hat{Y}_1}{d r_{2}} & \hdots \\
+    \frac{d \hat{Y}_{2}}{d r_0} & \frac{d \hat{Y}_2}{d r_{1}} & \frac{d \hat{Y}_2}{d r_{2}} & \hdots \\
+    \vdots & \vdots & \vdots & \ddots 
+  \end{pmatrix}
+\end{align*}
+\item GE effect of monetary news on output gap.\\
+\begin{itemize}
+	\item Below-diagonal elements capture intertemporal-shifting effects.
+	\item Above-diagonal elements capture forward guidance effects.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{IRF to $r_0$ and News}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/MWFIG7.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}\frametitle{Great Recession--Filtering the Data}
+\begin{itemize}
+\item Construct IRFs for shocks to $Z_t,G_t,r^b_t,\eta_t$. \vfill
+\item Match time series:
+	\begin{itemize}
+	\item output gap, 
+	\item durable spending,
+	\item real interest rate,
+	\item mortgage-treasury spread.
+	\end{itemize} \vfill
+\item Unique sequence of shocks that fit data exactly given initial condition. (Kalman filter with no observational error.)
+\begin{itemize}
+	\item No need for state transition matrix.\vfill
+	\end{itemize}
+\item Account for zero lower bound using monetary news shocks.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+   \frametitle{Model predicts slow normalization of real rate}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/MWFIG9.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Contribution of Intertemporal Shifting to $r^*$}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/MWFIG10.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Contribution Shocks to $r^*$}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/MWFIG11.png}	
+    \end{center}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{McKay, Wieland (2022)}
