@@ -394,6 +394,13 @@ Juan Herre\~{n}o & Johannes Wieland \\
     \end{center}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Questions}
+	\begin{itemize}
+		\item Convincing?
+	\end{itemize}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{McKay, Wieland (2021)}
@@ -404,8 +411,8 @@ Juan Herre\~{n}o & Johannes Wieland \\
     \begin{itemize}
     	\item In standard NK model:
     	\begin{align*}
-    		y_t  &= -\frac{1}{\sigma}r_t + \E_t y_{t+1} \\
-    		&= -\frac{1}{\sigma}\sum_{s=0}^{\infty}r_{t+s}
+    		y_t  &= -\frac{1}{\sigma}r_t +  y_{t+1} \\
+    		&= -\frac{1}{\sigma}\sum_{s=0}^{\infty}r_{t+s} + \lim_{T \rightarrow \infty} y_{t+1} 
     	\end{align*}
     	\item Central bank creates demand and output by changing $r_t$.
     	\item Past $r_t$ has no bearing on future AD.
@@ -541,9 +548,111 @@ $d \ln z_{it} = -\rho_z \ln z_{it} + \sigma_z d \mathcal W_{it} $
     \end{center}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Questions}
+	\begin{itemize}
+		\item Convincing?
+		\item What role does the micro evidence play?
+	\end{itemize}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{McKay, Wieland (2022)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{Forward Guidance Puzzle}
+    \begin{itemize}
+    	\item In standard NK model:
+    	\begin{align*}
+    		y_t  &= -\frac{1}{\sigma}r_t +  y_{t+1} \\
+    		&= -\frac{1}{\sigma}\sum_{s=0}^{\infty}r_{t+s} + \lim_{T \rightarrow \infty} y_{t+1} 
+    	\end{align*}
+    	\item Credible future real rate change has the same effect on current output regardless of how distant it is.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{With Durable Goods}
+    \begin{itemize}
+    	\item MRS between durable and nondurable good is equal to user cost:
+    	\begin{align*}
+    		\left(\frac{\psi}{1-\psi}\frac{c_{it}}{d_{it}}\right)^{\frac{1}{\xi}} = p_t(r_t + \nu +\delta) - \dot{p}_t \equiv r_t^d
+    	\end{align*}
+    	\item Special role for contemporaneous real rate in durable goods demand.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Frictionless Durable Model}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/MWFGFIG1.png}	
+    \end{center}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Lumpy durables}
+    \begin{itemize}
+    	\item Frictionless model inconsistent with lumpy nature of durable adjustment. 
+    	\item[$\Rightarrow$] How credible are the results?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Fixed Cost Durable Model}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/MWFGFIG2.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Extensive Margin}
+    \begin{align*}
+&\frac{u(c_t^*,d_t^*)- u(c_t,d)}{V_{a,t}(a_t^*,d_t^*,z)}= 
+     r_t^d \left(d_t^*-d\right)
+	+ \left[r_t^d - (\nu + \delta \chi)p_t \right]fd +  (c_t^* - c_t)  \\
+	&\quad + \frac{\frac{V_{d,t}(a_t^*,d_t^*,z)}{p_t V_{a,t}(a_t^*,d_t^*,z)}-1}{1-\lambda(1-f)} \left\{\frac{a}{p_t}\left[r_t^d - (\nu + \delta \chi)p_t \right] +z (1-\tau_t)Y_t - c_t - (\nu + \delta \chi)p_t d\right\}\\
+\end{align*}
+\begin{itemize}
+	\item Intuition: adjust now vs a little bit later.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Importance of Contemporaneous User Cost}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/MWFGFIG3.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Intensive Margin}
+\begin{align*}
+		\E_t\int_0^{\tau} &e^{-(\rho+\delta(1-\chi)) s} u_d(c_{t+s},e^{-\delta(1-\chi) s}d)ds \\
+		&=   \E_t e^{-\rho \tau}V_{x,t+\tau}^{adj}\left[r^d_{t,t+\tau}  + e^{-\delta(1-\chi) \tau}p_{t+\tau} f\right] \\
+		& \qquad + \E_t\int_0^{\tau}e^{-\rho s}\Psi_{t+s}\left[r^d_{t,t+s} + (1-\lambda(1-f))e^{-\delta(1-\chi)s}p_{t+s}\right]ds \\
+	\end{align*}
+\begin{itemize}
+	\item Intuition: survival probability decreasing in time.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Long-term financing}
+\begin{itemize}
+	\item FOC for extensive margin the same when durable financed with long-term debt.
+	\item Intuition: adjust now vs a little bit later, so expected change in financing cost matters for adjustment.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Questions}
+	\begin{itemize}
+		\item Convincing?
+		\item What role does the micro evidence play?
+	\end{itemize}
+\end{frame}
 
 
 \end{document}
