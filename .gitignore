@@ -4,5 +4,10 @@
 *.out
 *.snm
 *.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
 *.DS_Store
 */.texpadtmp
