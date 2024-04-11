@@ -94,7 +94,34 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 \begin{frame}
-\frametitle[alignment=center]{Examples}
+	\frametitle[alignment=center]{Autor, Dorn, Hanson (AER, 2013) ``China Shock''}
+	\begin{itemize}
+		\item What is the effect of import competition on aggregate labor demand?
+		\item Difficult to make causal claim in the aggregate:
+		\begin{itemize}
+			\item If find negative correlation between industry imports and industry employment, this could just be a labor supply effect.
+			\item Even if labor demand, industry regression may  simply measure a reallocation to a different industry.
+		\end{itemize}
+	%	\item Idea: Areas with greater employment in these industries more affected.
+		\item Measure import penetration at local area level $i$:
+		\begin{align*}
+			IPW_{uit} = \sum_j \frac{L_{ijt}}{L_{it}}  \frac{\Delta M_{ucjt}}{L_{jt}}
+		\end{align*}
+		\item Instrument using rise in imports elsewhere in the world:
+		\begin{align*}
+			\Delta IPW_{oit} = \sum_j \frac{L_{ij,t-1}}{L_{i,t-1}}  \frac{\Delta M_{ocjt}}{L_{j,t-1}}
+		\end{align*}
+	\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+	\frametitle[alignment=center]{Autor, Dorn, Hanson (AER, 2013) ``China Shock''}
+	\centering
+	\includegraphics[scale=0.325]{figures/ADHFIG1.png}\includegraphics[scale=0.325]{figures/ADHFIG2.png}
+	\end{frame}
+
+\begin{frame}
+\frametitle[alignment=center]{Other Examples}
 \begin{itemize}
 	\item Local employment by industry (Bartik, 1991)
 	\item Local wage shocks by worker skill (Diamond, 2016)
@@ -159,32 +186,7 @@ How to handle identification arguments?
 \end{frame}
 
 
-\begin{frame}
-\frametitle[alignment=center]{Autor, Dorn, Hanson (AER, 2013) ``China Shock''}
-\begin{itemize}
-	\item What is the effect of import competition on aggregate labor demand?
-	\item Difficult to make causal claim in the aggregate:
-	\begin{itemize}
-		\item If find negative correlation between industry imports and industry employment, this could just be a labor supply effect.
-		\item Even if labor demand, aggregate regression may  simply measure a reallocation to a different industry.
-	\end{itemize}
-%	\item Idea: Areas with greater employment in these industries more affected.
-	\item Measure import penetration at local area level $i$:
-	\begin{align*}
-		IPW_{uit} = \sum_j \frac{L_{ijt}}{L_{it}}  \frac{\Delta M_{ucjt}}{L_{jt}}
-	\end{align*}
-	\item Instrument using rise in imports elsewhere in the world:
-	\begin{align*}
-		\Delta IPW_{oit} = \sum_j \frac{L_{ij,t-1}}{L_{i,t-1}}  \frac{\Delta M_{ocjt}}{L_{j,t-1}}
-	\end{align*}
-\end{itemize}
-\end{frame}
 
-\begin{frame}
-\frametitle[alignment=center]{Autor, Dorn, Hanson (AER, 2013) ``China Shock''}
-\centering
-\includegraphics[scale=0.325]{figures/ADHFIG1.png}\includegraphics[scale=0.325]{figures/ADHFIG2.png}
-\end{frame}
 
 
 
@@ -414,11 +416,11 @@ Notation:
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Borusyak, Hull, WP 2021}
+\section{Borusyak, Hull, Econometrica 2023}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle[alignment=center]{Borusyak, Hull, WP 2021: Non-Random Exposure}
+\frametitle[alignment=center]{Borusyak, Hull, Econometrica 2023: Non-Random Exposure}
 \begin{align*}
 		y_i &= \alpha + \beta x_i + \epsilon_i \\
 		z_i &= f_i(g,w)
@@ -428,7 +430,7 @@ Notation:
 \begin{align*}
 	E\left[\frac{1}{N}\sum_i z_i \epsilon_i \right] = E\left[\frac{1}{N}\sum_i \mu_i \epsilon_i \right]
 \end{align*}
-where $\mu_i = E[f_i(g,w)]$.
+where $\mu_i = E[f_i(g,w)|w]$.
 \item Intuition: some areas systematically get higher / lower treatment due to non-random assignment (exposure).
 \item Solution: simulate draws of shocks, compute $\mu_i$, and recenter instrument to $z_i-\mu_i$.
 \item A problem for Bartik (inner product) instruments?
