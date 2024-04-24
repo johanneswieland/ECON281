@@ -389,12 +389,100 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 \begin{frame}
-	\frametitle[alignment=center]{Estimating LR Supply}
+	\frametitle[alignment=center]{Deriving LR Supply}
 	\begin{itemize}
 		\item Taking log differences with $s_{it}$ as the land share in $P$:
 		\begin{align*}
 			\Delta p_{it} &= \Delta a_{it} + s_{i,t-1} (\Delta b_{it} - \Delta a_{it}) + (\alpha_i + s_{i,t-1}(\beta_i - \alpha_i))h_{it}
 		\end{align*}
+		\item Parameterize:
+		\begin{align*}
+			\alpha_i &= \alpha_0 + \alpha_1 m_i \\
+			\beta_i &= \beta_0 + \beta_1 m_i \\
+			\Delta b_{it} &= b \Delta u_{it} + \Delta\bar{b}_t + \Delta\hat{b}_{it} \\
+			\epsilon_{it} &= \Delta\hat{a}_{it} + s_{i,t-1} \Delta(\hat{b}_{it} - \Delta\hat{a}_{it})
+		\end{align*}
+		To get
+		\begin{align*}
+			\Delta p_{it} &= \Delta \bar{a}_{t} + s_{i,t-1}(\Delta\bar{b}_t-\Delta\bar{a}_t) +\alpha_0 \Delta h_{it} + (\beta_0 - \alpha_0 )s_{i,t-1}\Delta h_{it}  \\
+			&+  \alpha_1 m_i \Delta h_{it} + (\beta_1 - \alpha_1)m_i s_{i,t-1}\Delta h_{it}+ s_{i,t-1}b\Delta u_{it} + \epsilon_{it}
+		\end{align*}
+		\item This becomes the regression equation
+		\begin{align*}
+			\Delta p_{it} = c_0 + s_{i,t-1}(\Delta\bar{b}_t-\Delta\bar{a}_t) +\alpha_0 \Delta h_{it} + (\beta_0 - \alpha_0 )s_{i,t-1}\Delta h_{it} \\
+			&  +  \alpha_1 m_i \Delta h_{it} + (\beta_1 - \alpha_1)m_i s_{i,t-1}\Delta h_{it}+ s_{i,t-1}b\Delta u_{it} + \epsilon_{it}
+		\end{align*}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Estimating LR Supply}
+	\begin{itemize}
+		\item This becomes the regression equation
+		\begin{align*}
+			\Delta p_{it} = c_0 + c_1 s_{i}  + c_2 \Delta h_{it} + c_3 s_{i}\Delta h_{it} \\
+			&  +  c_4 m_i \Delta h_{it} + c_5 m_i s_{i,t-1}\Delta h_{it}+ c_6 s_{i} \Delta u_{it} + \epsilon_{it}
+		\end{align*}
+		(where are the $t$ subscripts on the coefficients?)
+		\item Can we estimate this supply equation using OLS?
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Instruments}
+	\begin{itemize}
+		\item Endogenous variables:
+		\begin{itemize}
+			\item Population growth $\Delta h_{it}$
+			\item Land share $s_i$
+			\item Regulatory strictness $m_i$
+			\item Urbanization $\Delta u_{it}$
+		\end{itemize}
+		\item Instruments:
+		\begin{itemize}
+			\item Shift-share of employment growth and wage growth.
+			\item January temperature and sunlight, July humidity.
+			\item Share of employment in restaurants in 1997.
+			\item Fraction of land available for development and 1997 population density.
+			\item Ratio of public expenditure on protective inspection to total tax revenue in 1992, and share of Christians in non-traditional denominations in 1990.
+			\item  The interaction of the pre-boom (1990) share of college workers
+			in the CBSA and pre-boom urban amenities;  the interaction of the pre-boom relative likelihood of living downtown for college and non-college residents and the predicted change in the CBSA college share using a Bartik shift-share.
+		\end{itemize}
+		\item Thoughts? Comments?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Reduced Form}
+	\centering
+	\includegraphics[scale=0.4]{figures/CGMFIG4.png}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{IV}
+	\centering
+	\includegraphics[scale=0.4]{figures/CGMTAB1.png}
+	\begin{itemize}
+		\item Comments? Concerns?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Loading on Fundamental}
+	\centering
+	\includegraphics[scale=0.4]{figures/CGMFIG5.png}
+	\begin{itemize}
+		\item What do we learn?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Model}
+	\begin{itemize}
+		\item What is the purpose of the model?
+		\item What do we learn from the model that we do not learn from the empirics?
+		\item How well does the paper address the premise: fundamentals or bubbles?
 	\end{itemize}
 \end{frame}
 
