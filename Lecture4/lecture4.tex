@@ -342,11 +342,13 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 \begin{frame}
 	\frametitle[alignment=center]{Housing}
-	[graph of house prices]
+	\begin{center}
+		\includegraphics[scale=0.5]{figures/real_house_price.png}
+	\end{center}
 	\begin{itemize}
 		\item Bubble or Fundamentals? If fundamentals, demand or supply? (What is a fundamental?)
-		\item Bubble view: Shiller, Charles et al
-		\item Fundamental view: Chodorow-Reich et al, Mondragon and Wieland
+		% \item Bubble view: Shiller, Charles et al
+		% \item Fundamental view: Chodorow-Reich et al, Mondragon and Wieland
 		% \item Mian-Sufi: role of credit demand.
 		% \item Credit supply: Primiceri paper
 		% \item Chodorow-Reich et al: fundamentals.
@@ -409,7 +411,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
 		\end{align*}
 		\item This becomes the regression equation
 		\begin{align*}
-			\Delta p_{it} = c_0 + s_{i,t-1}(\Delta\bar{b}_t-\Delta\bar{a}_t) +\alpha_0 \Delta h_{it} + (\beta_0 - \alpha_0 )s_{i,t-1}\Delta h_{it} \\
+			\Delta p_{it} &= c_0 + s_{i,t-1}(\Delta\bar{b}_t-\Delta\bar{a}_t) +\alpha_0 \Delta h_{it} + (\beta_0 - \alpha_0 )s_{i,t-1}\Delta h_{it} \\
 			&  +  \alpha_1 m_i \Delta h_{it} + (\beta_1 - \alpha_1)m_i s_{i,t-1}\Delta h_{it}+ s_{i,t-1}b\Delta u_{it} + \epsilon_{it}
 		\end{align*}
 	\end{itemize}
@@ -420,8 +422,8 @@ Juan Herre\~{n}o & Johannes Wieland \\
 	\begin{itemize}
 		\item This becomes the regression equation
 		\begin{align*}
-			\Delta p_{it} = c_0 + c_1 s_{i}  + c_2 \Delta h_{it} + c_3 s_{i}\Delta h_{it} \\
-			&  +  c_4 m_i \Delta h_{it} + c_5 m_i s_{i,t-1}\Delta h_{it}+ c_6 s_{i} \Delta u_{it} + \epsilon_{it}
+			\Delta p_{it} &= c_0 + c_1 s_{i}  + c_2 \Delta h_{it} + c_3 s_{i}\Delta h_{it} \\
+			&  +  c_4 m_i \Delta h_{it} + c_5 m_i s_{i,t-1}\Delta h_{it}+ c_6 s_{i} \Delta u_{it} + \epsilon_{it} \\
 		\end{align*}
 		(where are the $t$ subscripts on the coefficients?)
 		\item Can we estimate this supply equation using OLS?
@@ -493,7 +495,83 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Mondragon and Wieland (2023, WP)}
+\section{Mondragon and Wieland (2022, WP)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle[alignment=center]{Pandemic Housing Market}
+	\centering
+	\includegraphics[scale=0.5]{figures/real_house_price.png}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Empirical Strategy}
+	\begin{itemize}
+		\item Baseline regression:
+		\begin{align*}
+			\text{Remote Work 2020}_i &= \kappa + X_i'\theta + \gamma \text{Remote Work 2015-19}_i + \zeta_i \\
+			\text{House Price Growth}_i &= \alpha + X_i'\delta + \beta \widehat{\text{Remote Work 2020}}_i + \zeta_i 
+		\end{align*}
+		\item What problem does the instrument solve?
+		\item What problems does the instrument not solve?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Instrument Variation}
+	\begin{center}
+		\includegraphics[scale=0.3]{figures/MWTAB2.png}
+	\end{center}
+	\begin{itemize}
+		\item Concerns?
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle[alignment=center]{Reduced Form}
+	\begin{center}
+		\includegraphics[scale=0.4]{figures/MWFIG3.png}
+	\end{center}
+	\begin{itemize}
+		\item Concerns?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{IV}
+	\begin{center}
+		\includegraphics[scale=0.3]{figures/MWTAB4.png}
+	\end{center}
+	\begin{itemize}
+		\item Concerns?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Other Outcomes}
+	\begin{center}
+		\includegraphics[scale=0.35]{figures/MWTAB5.png}
+	\end{center}
+	\begin{itemize}
+		\item Concerns?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Why Control for Migration?}
+	\begin{center}
+		\includegraphics[scale=0.3]{figures/MWTAB6.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Model}
+	\begin{itemize}
+		\item What is the purpose of the model?
+		\item What do we learn from the model that we do not learn from the empirics?
+		\item What did you think of the model structure?
+	\end{itemize}
+\end{frame}
 
 \end{document}
