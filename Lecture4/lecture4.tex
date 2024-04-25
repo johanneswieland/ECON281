@@ -638,37 +638,56 @@ Juan Herre\~{n}o & Johannes Wieland \\
 	\end{quote}
 \end{frame}
 
-\begin{frame}
-	\frametitle[alignment=center]{Variation (5)}
-	[FIGURE 4]
-	\begin{itemize}
-		\item What is being identified?
-	\end{itemize}
-\end{frame}
+
 
 \begin{frame}
 	\frametitle[alignment=center]{Empirical Strategy}
 	\begin{itemize}
 		\item Estimation equation:
 		\begin{align*}
-			x
+			y_{s,t+h} = \beta_h \widehat{W}_{s,t} + \text{qual. controls}_{h,s,t} + \delta_{h,s} + \Gamma'x_{h,s,t} + \epsilon_{h,s,t}
 		\end{align*}
+		\item $s$ is state, $t$ is week, $h$ is horizon.
+		\item $\widehat{W}_{s,t}$ is the difference between actual potential benefit benefit duration and counterfactual potential benefit duration if the state had adopted no options.\\
+		\item $\text{qual. controls}_{h,s,t} = \sum_{z,t}\alpha_{z,h,t}I_s(z,t)$ are the qualifying controls.
+		\begin{itemize}
+			\item $I_s(z,t)=1$ if state $s$ is in risk set $z$ at time $t$.
+		\end{itemize}
+		\includegraphics[scale=0.3]{figures/AMNSTAB4.png}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
-	\frametitle[alignment=center]{Treatment Effect}
-	[FIGURE 5]
+	\frametitle[alignment=center]{Empirical Strategy}
+	\begin{itemize}
+		\item The risk sets for a given point in time are all the possible subsets
+		of the set of options and associated benefit levels that were available at that time (including the	empty set, i.e., no options). 
+	\end{itemize}
+	\includegraphics[scale=0.3]{figures/AMNSTAB4.png}
 \end{frame}
+
+
+
 
 \begin{frame}
 	\frametitle[alignment=center]{Treatment Effect}
-	[TABLE 5]
+	\begin{center}
+		\includegraphics[scale=0.3]{figures/AMNSFIG5.png}
+	\end{center}
+	\begin{itemize}
+		\item Concerns?
+	\end{itemize}
 \end{frame}
+
 
 \begin{frame}
 	\frametitle[alignment=center]{Treatment Effect}
-	[FIGURE 6]
+	\begin{center}
+		\includegraphics[scale=0.3]{figures/AMNSFIG6.png}
+	\end{center}
+	\begin{itemize}
+		\item Concerns?
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
