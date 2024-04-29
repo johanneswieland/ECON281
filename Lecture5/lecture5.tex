@@ -75,7 +75,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Parker, Souleles, Johnson, and McClelland (2013, AER)}
+\section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -88,6 +88,9 @@ Juan Herre\~{n}o & Johannes Wieland \\
 		\item Euler equation $\Rightarrow$ Permanent income consumer.
 	\end{itemize}
 	\item TANK and HANK models.
+	\begin{itemize}
+		\item How does the micro MPC matter in the aggregate?
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -110,6 +113,10 @@ Juan Herre\~{n}o & Johannes Wieland \\
 	\item Parker, Schild, Erhard, Johnson, WP 2022: 10\% of 2020 stimulus was spent within 3 months.
 \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Parker, Souleles, Johnson, and McClelland (2013, AER)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle[alignment=center]{The 2008 Experiment}
@@ -165,6 +172,83 @@ Juan Herre\~{n}o & Johannes Wieland \\
 	\item Japielli and Pistaferri (AEJ-Macro, 2014): self-reported MPC of 48\% out of hypothetical transitory income shock.
 	\item Faegereng, Holmn, and Natvick (AEJ-Macro, 2021): 50\% MPC within one year of large lottery winnings in Norway. Consumption is resiaul from budget constraint: $C=Y - \Delta A$.
 \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Hausman (2019, AER)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle[alignment=center]{1936 Veterans' Bonus}
+	[TABLE 2]
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Evidence}
+	\begin{enumerate}
+		\item Cross-household evidence from consumption survey data.
+		\item Cross-state evidence on auto purchases.
+		\item Cross-city evidence on building permits.
+		\item Survey evidence on intentions to spend.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Household Consumption Survey}
+	\begin{itemize}
+		\item Research design:
+		\begin{align*}
+			C_i = \mathbf{Z_i}'\matbf{\beta}_1 + \beta_2 V_i + \beta_3 P_i + \beta_4 V_i P_i + \epsilon_i
+		\end{align*}
+		\item $C_i$ is consumption of household $i$.
+		\item $V_i$ is a dummy equal to 1 if the household includes a veteran.
+		\item $\mathbf{Z_i}$ is a vector of controls.
+		\item $P_i$ is a dummy equal to 1 if the household reported consumption after the bonus was paid.
+		\item Why is this research design not feasible?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{First Stage}
+	\begin{itemize}
+		\item Research design (2):
+		\begin{align*}
+			V_j &= \sum_{h=1}^{3}\beta_h \mathbb{1}(g_j = g_h) + \sum_{k=1}^{17}\gamma_h \mathbb{1}(s_j = s_k) + \sum_{l=1}^{17}\alpha_l \mathbb{1}(g_j = 2)\mathbb{1}(s_j = s_l) + \\
+			&\sum_{m=1}^{3}\theta_m a_j^m + \sum_{n=1}^{3}\lambda_n \mathbb{1}(g_j = 2)a_j^n + \zeta r_j + \eta \mathbb{1}(g_j = 2) r_j  + \mu_j
+		\end{align*}
+		\item $g$ is age group in 1930: $<28, 28-45, >45$.
+		\item $s$ is an indicator for state.
+		\item $a$ is age.
+		\item $r$ is race.
+		\item Why a linear probability model?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{First Stage}
+	[FIGURE 1]
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Pre-Trends}
+	[FIGURE 2a]
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Second Stage}
+	[TABLE 5]
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Cross-State Evidence}
+	[FIGURE 5]
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Convincing?}
+	\begin{itemize}
+		\item What did you think of the other evidence?
+	\end{itemize}
 \end{frame}
 
 
