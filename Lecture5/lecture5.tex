@@ -75,7 +75,7 @@ Juan Herre\~{n}o & Johannes Wieland \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Parker, Souleles, Johnson, and McClelland (2013, AER)}
+\section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -88,6 +88,9 @@ Juan Herre\~{n}o & Johannes Wieland \\
 		\item Euler equation $\Rightarrow$ Permanent income consumer.
 	\end{itemize}
 	\item TANK and HANK models.
+	\begin{itemize}
+		\item How does the micro MPC matter in the aggregate?
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -110,6 +113,10 @@ Juan Herre\~{n}o & Johannes Wieland \\
 	\item Parker, Schild, Erhard, Johnson, WP 2022: 10\% of 2020 stimulus was spent within 3 months.
 \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Parker, Souleles, Johnson, and McClelland (2013, AER)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle[alignment=center]{The 2008 Experiment}
@@ -167,6 +174,93 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Hausman (2019, AER)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle[alignment=center]{1936 Veterans' Bonus}
+	\begin{center}
+		\includegraphics[scale=0.4]{figures/HTAB2.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Evidence}
+	\begin{enumerate}
+		\item Cross-household evidence from consumption survey data.
+		\item Cross-state evidence on auto purchases.
+		\item Cross-city evidence on building permits.
+		\item Survey evidence on intentions to spend.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Household Consumption Survey}
+	\begin{itemize}
+		\item Research design:
+		\begin{align*}
+			C_i = \mathbf{Z_i}'\mathbf{\beta}_1 + \beta_2 V_i + \beta_3 P_i + \beta_4 V_i P_i + \epsilon_i
+		\end{align*}
+		\item $C_i$ is consumption of household $i$.
+		\item $V_i$ is a dummy equal to 1 if the household includes a veteran.
+		\item $\mathbf{Z_i}$ is a vector of controls.
+		\item $P_i$ is a dummy equal to 1 if the household reported consumption after the bonus was paid.
+		\item Why is this research design not feasible?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{First Stage}
+	\begin{itemize}
+		\item Research design (2):
+		\begin{align*}
+			V_j &= \sum_{h=1}^{3}\beta_h \mathbb{1}(g_j = g_h) + \sum_{k=1}^{17}\gamma_h \mathbb{1}(s_j = s_k) + \sum_{l=1}^{17}\alpha_l \mathbb{1}(g_j = 2)\mathbb{1}(s_j = s_l) + \\
+			&\sum_{m=1}^{3}\theta_m a_j^m + \sum_{n=1}^{3}\lambda_n \mathbb{1}(g_j = 2)a_j^n + \zeta r_j + \eta \mathbb{1}(g_j = 2) r_j  + \mu_j
+		\end{align*}
+		\item $g$ is age group in 1930: $<28, 28-45, >45$.
+		\item $s$ is an indicator for state.
+		\item $a$ is age.
+		\item $r$ is race.
+		\item Why a linear probability model?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{First Stage}
+	\begin{center}
+		\includegraphics[scale=0.45]{figures/HFIG1.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Pre-Trends}
+	\begin{center}
+		\includegraphics[scale=0.45]{figures/HFIG2a.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Second Stage}
+	\begin{center}
+		\includegraphics[scale=0.4]{figures/HTAB5.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Cross-State Evidence}
+	\begin{center}
+		\includegraphics[scale=0.45]{figures/HFIG5.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle[alignment=center]{Convincing?}
+	\begin{itemize}
+		\item What did you think of the other evidence?
+	\end{itemize}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{de Chaisemartin and D'Haultf{\oe}uille (2020, AER)}
@@ -201,11 +295,11 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Borusyak, Jaravel, and Spiess (2022, WP)}
+\section{Borusyak, Jaravel, and Spiess (2024, ReStud)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle[alignment=center]{Borusyak, Jaravel, and Spiess, WP 2022}
+\frametitle[alignment=center]{Borusyak, Jaravel, and Spiess, ReStud 2024}
 \begin{center}
 	\includegraphics[scale=0.5]{figures/BJSTAB1.png}
 \end{center}
@@ -350,33 +444,24 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Orchard, Ramey, and Wieland (2022, WP)}
+\section{Orchard, Ramey, and Wieland (2023, WP)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Feldstein (2018) and Taylor (2019) vs PSJM (2013)}
+	
+	\begin{center}
+		\includegraphics[scale=0.4]{figures/ORWFIG3.png}
+	 \end{center} 
+\end{frame}
 
 
 \begin{frame}{}
 \frametitle{Expenditures on New Motor Vehicles: Actual vs. Counterfactual}
 
 \begin{center}
-\includegraphics[scale=.6]{figures/fig_sss_mv_counter.pdf}
+	\includegraphics[scale=0.4]{figures/ORWFIG1.png}
  \end{center} 
 {\footnotesize Update of Sahm, Shapiro, Slemrod (2012) calculation, no general equilibrium feedbacks.}
-\end{frame}
-
-\begin{frame}
-\frametitle[alignment=center]{G.E. Effects Can Increase Puzzle }
-\begin{itemize}
-
-	\item Direct micro effect - governed by \textit{micro MPC} .
-\item Induced macro effect - governed by \textit{general equilibrium MPC} (\textcolor{red}{GE-MPC}) \hspace{.05in} \\ \vspace{.2in}
-\indent GE-MPC \hspace{.05in} = \hspace{.05in} micro MPC \hspace{.05in} + \hspace{.05in} induced macro effect \hspace{.05in} \\ \medskip
-\indent \hspace{0.62in}  $\equiv$ \hspace{.05in} \text{the multiplier in a closed economy with no capital}.
-
-
-\end{itemize}
-
-
-
 \end{frame}
 
 \begin{frame}{Methodology for creating macro counterfactuals}
@@ -391,23 +476,23 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \end{frame}
 
 \begin{frame}[label=baselineforecasts]
-\frametitle{Counterfactual Consumption Expenditure: Baseline Model}
+\frametitle{Counterfactual Consumption Expenditure}
 
 \begin{center}
-\footnotesize
-\centering
-    \begin{tabular}{cc}
-    Real PCE: Micro MPCs & Real PCE GE: Baseline \\
-    \includegraphics[width=5cm]{figures/Real_PCEfc_micro_baseline.eps} &   \includegraphics[width=5cm]{figures/Real_PCEfc_GE_baseline.eps} \\
-    Motor Vehicles: Micro MPCs & Motor Vehicles: GE Baseline \\
-    \includegraphics[width=5cm]{figures/Real_Motorvehicles_micro_baseline.eps} &  \includegraphics[width=5cm]{figures/Real_Motorvehicles_GE_baseline.eps} \\
-    \end{tabular} \\
+	\includegraphics[scale=0.4]{figures/ORWFIG4.png}
  \end{center} 
- \vspace{-0.5cm}
+%  \vspace{-0.5cm}
 \end{frame}
 
-\begin{frame}
-\frametitle{Reconciling Implausible Macro G.E. Effects}
+\begin{frame}{Plausible?}
+	
+	\begin{center}
+		\includegraphics[scale=0.4]{figures/ORWTAB2.png}
+	 \end{center} 
+\end{frame}
+
+
+\begin{frame}{Reconciling Implausible Macro G.E. Effects}
 
 \begin{itemize}
 	\item \textbf{G.E. Dampening}
@@ -418,43 +503,59 @@ Juan Herre\~{n}o & Johannes Wieland \\
 		
 \item \textbf{Micro MPCs}
 	\begin{itemize}
-		\item Apply B.J.S. method to CEX data
-		\item Resulting micro-mpc is .3 (compared to .52 in Parker et. al.)
-		\item Why? Mostly explained by negative weights on past treated units
+		\item Correct for three biases in PSJM (2013) estimates
+		\item Resulting micro-mpc is 0.3 (compared to 0.5-0.9 in PSJM).
 	\end{itemize}
 \end{itemize}
 
 \end{frame}
 
-\begin{frame}{Decomposing OLS v.DID Imputation}
-    \label{decompose_OLSd}
+\begin{frame}{Biases in PSJM (2013) Estimates}
+\begin{itemize}
+	\item What are they?
+\end{itemize}
+\end{frame}
 
-    \begin{figure}
-    \centering
-    \begin{tabular}{cc}
-    Period Weights & Period Coefficients \\
-    \includegraphics[width=4.5cm]{figures/BJSvOLSweight_d_totexp2_v2__} &   \includegraphics[width=4.5cm]{figures/BJSvOLScoef_d_totexp2_v2__} \\
-    Decomposed Coefficient & Relative Contributions \\
-   \includegraphics[width=4.5cm]{figures/BJSvOLScoef_stack_d_totexp2_v2__}& \includegraphics[width=4.5cm]{figures/BJSvOLScontribution_d_totexp2_v2__} \\
-    \end{tabular} \\
-    
-\end{figure}
+\begin{frame}{Correcting for Biases}
+	\begin{center}
+		\includegraphics[scale=0.4]{figures/ORWTAB3.png}
+	 \end{center} 
+\end{frame}
+
+\begin{frame}{Correcting for Biases}
+	\begin{center}
+		\includegraphics[scale=0.4]{figures/ORWFIG6.png}
+	 \end{center} 
+\end{frame}
+
+\begin{frame}{Biases in PSJM (2013) Estimates}
+	\begin{itemize}
+		\item Why not just run BSJ?
+	\end{itemize}
+	\end{frame}
+
+\begin{frame}{Vehicle Prices Spike}
+	\begin{center}
+		\includegraphics[scale=0.4]{figures/ORWFIG7.png}
+	 \end{center} 
 \end{frame}
 
 \begin{frame}[label=durablepriceforecasts]
-\frametitle{Counterfactual: Less Elastic Durable Supply Model}
+\frametitle{Less Elastic Durable Supply Model}
 
 \begin{center}
-\footnotesize
-\centering
-    \begin{tabular}{cc}
-    Real PCE: Micro MPCs & Real PCE: GE Less Elastic \\
-    \includegraphics[width=5cm]{figures/Real_PCEfc_micro_durableprice.eps} &   \includegraphics[width=5cm]{figures/Real_PCEfc_GE_durableprice.eps} \\
-    Motor Vehicles: Micro MPCs & Motor Vehicles: GE Less Elastic \\
-    \includegraphics[width=5cm]{figures/Real_Motorvehicles_micro_durableprice.eps} &  \includegraphics[width=5cm]{figures/Real_Motorvehicles_GE_durableprice.eps} \\
-    \end{tabular} \\
+	\includegraphics[scale=0.4]{figures/ORWFIG8.png}
  \end{center} 
- \vspace{-0.5cm}
+\end{frame}
+
+\begin{frame}{Convincing?}
+	
+\end{frame}
+
+\begin{frame}{Thoughts?}
+	\begin{itemize}
+		\item How do you think about Hausman (2019) in this context?
+	\end{itemize}
 \end{frame}
 
 \end{document}
