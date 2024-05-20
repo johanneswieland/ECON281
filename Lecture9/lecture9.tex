@@ -76,6 +76,256 @@ Juan Herre\~{n}o & Johannes Wieland \\
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Auclert, Rognlie, Straub (2018)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+    \frametitle{Simplified Consumer Problem}
+    \begin{itemize}
+        \item Preferences:
+        \begin{align*}
+        	\E \sum_{t=0}^{\infty} \beta^t u(c_{it})
+        \end{align*}
+        \item After-tax income: 
+        \begin{align*}
+        	z_{it}\equiv \tau_t \left(\frac{W_t}{P_t}e_{it}n_{it}\right)^{1-\lambda} = \frac{e_{it}^{1-\lambda}}{\int e_{it}^{1-\lambda}} Z_t
+        \end{align*}
+        \item Budget constraint:
+        \begin{align*}
+        	c_{it} + \sum_j a_{it}^j = z_{it} + (1+r_{t-1})\sum_j a_{i,t-1}^j
+        \end{align*}
+        \item Nests: RA, TA, HA, HA-IL
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Optimal Policy Rules}
+    \begin{itemize}
+        \item Budget constraint with $Z_t=Y_t-T_t$:
+        \begin{align*}
+        	c_{it} + \sum_j a_{it}^j = \frac{e_{it}^{1-\lambda}}{\int e_{it}^{1-\lambda}} (Y_t-T_t) + (1+r_{t-1})\sum_j a_{i,t-1}^j
+        \end{align*}
+        \item Idiosyncratic states: $e_{it}$.
+        \item Assume aggregate variables follow a known sequence $\{Y_t-T_t, r_t\}_{t=0}^{\infty}$.
+        \item Conditional on knowing these sequences, can solve for individual consumption and assets given any initial state $\{a_0^j\},e_{i0}$:
+        \begin{align*}
+        	c_t(\{a^j\},e),\;\{a_t^j(\{a^j\},e)\},\qquad t\ge 0
+        \end{align*}
+        \item Why? Distribution only enters consumers problem through effect on $\{Y_t-T_t, r_t\}_{t=0}^{\infty}$. No longer have infinite state space.
+        \item Then aggregate all consumption decisions to get:
+        \begin{align*}
+            C_t &=\int c_t(\{a^j\},e) d\Psi_t(\{a^j\},e) =  \mathbb{C}(\{Y_{t+s}-T_{t+s},r_{t+s}\}_{s=0}^{\infty})
+        \end{align*}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{New Keynesian Model in Sequence Space}
+    \begin{itemize}
+        \item Consumption function:
+        \begin{align*}
+            C_t &= \mathbb{C}(\{Y_{t+s}-T_{t+s},r_{t+s}\}_{s=0}^{\infty}) \\
+            &\equiv \mathbb{C}(\bm{Y}-\bm{T},\bm{r})
+        \end{align*}
+        \item NKPC:
+        \begin{align*}
+            \pi_t &= \mathbb{S}(\bm{Y} - \bm{Y}^*) 
+        \end{align*}
+        \item Interest rate rule:
+        \begin{align*}
+            \bm{r} &= \bm{\Phi}_Y (\bm{Y} - \bm{Y}^*) +  \bm{\Phi}_\pi \bm{\pi} + \bm{\epsilon}^r 
+        \end{align*}
+        \item Excess demand:
+        \begin{align*}
+%            \begin{pmatrix} ED_t \\ ED_{t+1} \\ \vdots \end{pmatrix}= 
+            \bm{ED} &= \pmb{\mathbb{C}}(\bm{Y}-\bm{T},\bm{r}) + \bm{G} - \bm{Y} =\bm{0}
+        \end{align*}
+%        \item In equilibrium, $\bm{ED}=\bm{0}$.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Linearize to Solve with Linear Algebra}
+    \begin{itemize}
+        \item Linearized Model:
+        \begin{align*}
+            \bm{\hat{C}} &= (\nabla_{\bm{Y}}\pmb{\mathbb{C}}) (\bm{\hat{Y}} - \bm{\hat{T}}) + (\nabla_{\bm{r}}\pmb{\mathbb{C}})\bm{\hat{r}} \\
+            \bm{\hat{\pi}} &= (\nabla_{\bm{Y}}\pmb{\mathbb{S}})(\bm{\hat{Y}} - \bm{\hat{Y}}^*)  \\
+            \bm{\hat{r}} &= \bm{\Phi}_Y (\bm{\hat{Y}} - \bm{\hat{Y}}^*) +  \bm{\Phi}_\pi \bm{\hat{\pi}} + \bm{\epsilon}^r 
+        \end{align*}
+        where the Jacobians of the model look like:
+        \begin{align*}
+            \nabla_{\bm{Y}}\pmb{\mathbb{C}} = 
+            \begin{pmatrix}
+                \frac{\partial C_{0}}{\partial Y_0} & \frac{\partial C_{0}}{\partial Y_1} & \hdots \\
+                \frac{\partial C_{1}}{\partial Y_0} & \frac{\partial C_{1}}{\partial Y_1} & \hdots \\
+                \frac{\partial C_{2}}{\partial Y_0} & \frac{\partial C_{2}}{\partial Y_1} & \hdots \\
+                \vdots & \vdots & \ddots \\
+            \end{pmatrix}
+        \end{align*}
+        \item Equilibrium:
+         \begin{align*}
+             \bm{\hat{Y}} &=  [ \bm{\Phi}_Y  +  \bm{\Phi}_\pi (\nabla_{\bm{Y}}\pmb{\mathbb{S}}) ]^{-1} \{[ \bm{\Phi}_Y  +  \bm{\Phi}_\pi (\nabla_{\bm{Y}}\pmb{\mathbb{S}}) ]^{-1} - [I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1}(\nabla_{\bm{r}}\pmb{\mathbb{C}})  \}^{-1}  \times\\ 
+             &\times[I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1} [\bm{\hat{G}} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})\bm{\hat{T}} + (\nabla_{\bm{r}}\pmb{\mathbb{C}})\bm{\epsilon}^r ]  
+         \end{align*}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Demand and Supply Elasticities Determine GE}
+    \begin{itemize}
+        \item Define:
+        \begin{itemize}
+            \item Demand multiplier $\bm{\mu}^D \equiv [I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1}$
+            \item Demand elasticity $\bm{\eta^D} \equiv -\nabla_{\bm{r}}\pmb{\mathbb{C}}$
+            \item Supply elasticity $\bm{\eta^S} \equiv [ \bm{\Phi}_Y  +  \bm{\Phi}_\pi (\pmb{\nabla_{\bm{Y}}\pmb{\mathbb{S}}}) ]^{-1}$
+        \end{itemize}
+    \end{itemize}
+    \begin{align*}
+        \bm{\hat{Y}} &=  \underbrace{\bm{\eta^S} [ \bm{\eta^S} + \bm{\mu}^D\bm{\eta^D}  ]^{-1}}_{\text{Demand Incidence}}  \bm{\mu}^D  \underbrace{[\bm{\hat{G}} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})\bm{\hat{T}} + \bm{\eta^D}\bm{\epsilon}^r ]}_{\text{PE Excess Demand}}  \\
+        & + \underbrace{\bm{\mu}^D\bm{\eta^D} [ \bm{\eta^S} + \bm{\mu}^D\bm{\eta^D}  ]^{-1}  }_{\text{Supply Incidence}}   \underbrace{\bm{\hat{Y}}^*}_{\text{PE Excess Supply}}  
+    \end{align*}
+    Implications:
+    \begin{itemize}
+        \item GE effects determined by a standard incidence formula.  
+        \item[$\Rightarrow$] Matrices of micro elasticities are sufficient statistics for GE effects. 
+%        \\
+%        Auclert, Rognlie, Straub (2018, 2020a, 2020b), Auclert, Bardoczy, Rognlie, Straub (2020)
+%        \item[$\Rightarrow$] Model tells us which PE elasticities matter.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Intertemporal Keynesian Cross}
+    \begin{itemize}
+        \item Also assume no real rate change, so $\bm{\eta^S}$ blows up in some meaningful sense.
+        \begin{align*}
+        \bm{\hat{Y}} &=    [I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1} [\bm{\hat{G}} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})\bm{\hat{T}}] 
+    \end{align*}
+    \item This is the Intertemporal Keynesian Cross.
+       \item Balanced budget: $\bm{\hat{G}}$ = $\bm{\hat{T}}$
+         \begin{align*}
+        \bm{\hat{Y}}  & = [I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1}  [\bm{I} - (\nabla_{\bm{Y}}\pmb{\mathbb{C}})]\bm{\hat{G}}  \\
+                &= \bm{\hat{G}}
+    \end{align*}
+    \item The balanced budget multiplier is 1.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Fiscal Policies}
+    \begin{itemize}
+        \item Proposition 4: In the RA model, the G-multiplier is 1.
+        \begin{itemize}
+        	\item Proof: The G-multiplier is 1 when budget is balanced, and we know for the RA model the timing of T does not matter.
+        \end{itemize}
+        \item Proposition 5: in the TA model with $\mu$ constrained agents,
+        \begin{align*}
+        \bm{\hat{Y}} &=    \frac{1}{1-\mu} [\bm{\hat{G}} - \mu \bm{\hat{T}}] 
+    \end{align*}
+    \begin{itemize}
+        	\item Deficit-financed fiscal expansion ($\hat{T}_0<\hat{G}_0$) has impact multiplier greater than 1.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Measuring $\nabla_{\bm{Y}}\pmb{\mathbb{C}}$}
+    \begin{itemize}
+        \item Demand multiplier: $\bm{\mu}^D \equiv [I - \nabla_{\bm{Y}}\pmb{\mathbb{C}}]^{-1}$
+        where
+        \begin{align*}
+            \nabla_{\bm{Y}}\pmb{\mathbb{C}} = 
+            \begin{pmatrix}
+                \frac{\partial C_{0}}{\partial Y_0} & \frac{\partial C_{0}}{\partial Y_1} & \hdots \\
+                \frac{\partial C_{1}}{\partial Y_0} & \frac{\partial C_{1}}{\partial Y_1} & \hdots \\
+                \frac{\partial C_{2}}{\partial Y_0} & \frac{\partial C_{2}}{\partial Y_1} & \hdots \\
+                \vdots & \vdots & \ddots \\
+            \end{pmatrix}\\
+        \end{align*}
+        Columns are PE IRFs of average consumption to income changes at different horizons.
+        \item What evidence do we have?
+%        \item Difficult to discipline entire matrix based on available micro data.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Lottery Studies}
+    \begin{tabular}{ll}
+    \raisebox{-.5\height}{\includegraphics[scale=0.35]{figures/LotteryMPCestimate.png}}
+     &  \parbox{0.4\textwidth}{
+     		
+            \begin{itemize}
+                \item Provides estimate of first column of $\nabla_{\bm{Y}}\pmb{\mathbb{C}}$. 
+                \item Need a model to extrapolate. 
+%                \item Key 
+            \end{itemize} Source: Fagereng, Holm, Natvik (2018) } 
+%            \\
+%             & 
+%    $\bullet$  \\
+ %    \begin{itemize}
+%        \item Provides estimate of first column.
+%        \item Need a model to extrapolate.
+%    \end{itemize}
+    \end{tabular}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{iMPCs in the Models}
+    \centering
+    \includegraphics[scale=0.5]{figures/ARSFIG2.png}
+\end{frame}
+
+%\begin{frame}
+%    \frametitle{Bonus: Durables}
+%    Own figure
+%\end{frame}
+
+\begin{frame}
+    \frametitle{Model Extrapolation}
+    \centering
+    \includegraphics[scale=0.5]{figures/ARSFIG3.png}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Fiscal Policies: All Models}
+    \centering
+    \includegraphics[scale=0.5]{figures/ARSFIG4.png}
+\end{frame}
+
+%\begin{frame}
+%    \frametitle{Bonus: Regional Estimates?}
+%    Own figure
+%\end{frame}
+
+
+\begin{frame}
+    \frametitle{Quantitative Model}
+    \includegraphics[scale=0.5]{figures/ARSFIG7.png}
+    \begin{itemize}
+    	\item What does this tell us about supply elasticities?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Private Deficits}
+    \includegraphics[scale=0.5]{figures/ARSFIG8.png}
+    \begin{itemize}
+    	\item Why so much amplification?
+    \end{itemize}
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
