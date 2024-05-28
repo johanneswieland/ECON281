@@ -922,11 +922,110 @@ $d \ln z_{it} = -\rho_z \ln z_{it} + \sigma_z d \mathcal W_{it} $
     \frametitle{Question}
 	\begin{itemize}
 		\item How large a stimulus to close the output gap?
-		\item Involves both state dependence and time dependence.
-		\item Intertemporal dimension?
+		\item Want to think about durables since important in determining MPCs as well as size and state-dependence.
 		\item Why a model?
-		\item What disciplines size dependence?
+		% \item Involves both state dependence and time dependence.
+		% \item Intertemporal dimension?
+		% \item What disciplines size dependence?
 	\end{itemize}
+\end{frame}
+
+% \begin{frame}
+%     \frametitle{Why a Model?}
+% 	% \begin{itemize}
+% 	% 	\item Contradicting evidence in the empirical literature. (but lotteries should help?)
+%     % 	\item Separate state dependence and size dependence? E.g., larger stimulus in deeper recession.
+%     % 	\item Existing models focus on nondurables.
+%     % 	\item Is this a question about state or size dependence?
+% 	% \end{itemize}
+% \end{frame}
+
+\begin{frame}
+    \frametitle{Model}
+	\begin{itemize}
+		\item Value function:
+		\begin{align*}
+            V_t(x,\epsilon) = \max\{V_t^{adj}(x) - \epsilon,V_t^{noadj}(x)\}
+        \end{align*}
+        where $x=(d,m,y)$.
+        \item Adjustment utility:
+        \begin{align*}
+            V_t^{adj}(x) &= \max_{c,d',a'} u(x,d') + \beta \int V_{t+1}(d',m',y',\epsilon')d\mathcal{E}(\epsilon) \Gamma(dy',y) \\
+            \text{s.t.} \; &\theta d' + c + m' = \mathcal{Y}(x,T_t) + ((1-\delta) - (1-\theta))d \\
+            &m'\ge 0
+        \end{align*}
+        \item No adjustment utility:
+        \begin{align*}
+            V_t^{noadj}(x) &= \max_{c,a'} u(x,d') + \beta \int V_{t+1}(d',m',y',\epsilon')d\mathcal{E}(\epsilon) \Gamma(dy',y) \\
+            \text{s.t.} \; &  c + m' = \mathcal{Y}(x,T_t) -\iota \delta d - (1-\theta)(d-d') \\
+            &d' = (1 - (1-\iota)\delta) d \\
+            &m'\ge 0 
+        \end{align*}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Importance of the Hazard}
+    \begin{center}
+    	\includegraphics[scale=0.4]{figures/BZFIG22.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Why is this a good model?}
+	\begin{itemize}
+		\item How convincing did you find section 3?
+	\end{itemize}
+\end{frame}
+
+% \begin{frame}
+%     \frametitle{Thoughts}
+% 	\begin{itemize}
+% 		\item v Calvo plus: different way of targeting. is it apples to apples?
+% 		\item must be that calvo plus hazard is steeper so more interest rate senstitive?
+% 		\item seems plausible since the smooth hazard means we take more HH away from the edges of the adjustment bands.
+% 	\end{itemize}
+% \end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Calibrating the Hazard (1)}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/BZFIG31.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Calibrating the Hazard (2)}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/BZFIG32.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{MPX in the Model vs Alternatives}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/BZFIG41.png}	
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{GE MPCs}
+    \begin{center}
+    	\includegraphics[scale=0.3]{figures/BZFIG51.png}	
+    \end{center}
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{What did you think?}
+	% \begin{itemize}
+	% 	\item Better empirical description.
+	% 	\item Controls size dependence (sufficient statistic?)
+	% 	\item Targets: small shock MPX, short-run price elasticity, durable adjustment distribution
+	% \end{itemize}
 \end{frame}
 
 \end{document}
